@@ -37,7 +37,7 @@ Clone the repository:
 
 Navigate to the project directory:
 
-    cd generative-ai-image-downloader
+    cd MichaelAngel.io
 
 Run the script:
 
