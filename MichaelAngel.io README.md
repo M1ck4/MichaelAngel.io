@@ -13,7 +13,6 @@ This project is grounded in Creative Commons principles, ensuring that all mater
 Attribution
 
 To honor the work of artists, we have implemented a system that automatically pulls attribution information when required. This ensures that creators receive proper credit for their contributions. In the future, we will also provide dedicated attribution files for easier access to this information.
-Getting Started
 
 Contributing
 
