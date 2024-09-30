@@ -40,7 +40,7 @@ Navigate to the project directory:
 
 Run the script:
 
-    python image_downloader.py
+    python cc_image_collector.py
 
 Contributing
 
