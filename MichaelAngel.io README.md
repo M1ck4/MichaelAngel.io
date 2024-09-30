@@ -1,14 +1,6 @@
-MichaelAngelo.io
+MichaelAngelo.io (INCOMPLETE)
 
 Welcome to MichaelAngelo.io, a project dedicated to exploring the intersection of generative AI and creativity. This initiative aims to inspire artists and foster collaboration while ensuring respect for artistic integrity through transparency and accessibility.
-Table of Contents
-
-    Overview
-    Creative Commons
-    Attribution
-    Getting Started
-    Contributing
-    Contact
 
 Overview
 
@@ -25,10 +17,10 @@ Contributing
 
 We welcome contributions from everyone! If you're interested in contributing to the project, please follow these steps:
 
-    Fork the repository.
-    Create a new branch for your feature or bug fix.
-    Commit your changes.
-    Push to the branch and submit a pull request.
+Fork the repository.
+Create a new branch for your feature or bug fix.
+Commit your changes.
+Push to the branch and submit a pull request.
 
 Please ensure that your contributions align with our commitment to transparency and respect for the artistic community.
 
@@ -36,7 +28,6 @@ Contact
 
 For any questions, suggestions, or collaborations, feel free to reach out:
 
-    
-    GitHub: M1ck4
+GitHub: M1ck4
 
 Thank you for your interest in MichaelAngelo.io! Together, let’s explore the future of art and technology.
