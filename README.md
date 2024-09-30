@@ -46,10 +46,13 @@ Contributing
 
 Contributions are welcome! If you would like to contribute to this project, please fork the repository and submit a pull request.
 
+
 License
 
-This project is licensed under the MIT License.
-Contact
+This project is licensed under the **Creative Commons Non-Commercial License**. You may copy and redistribute the material in any medium or format, adapt, remix, transform, and build upon the material for non-commercial purposes only. You must give appropriate credit, provide a link to the license, and indicate if changes were made.
+
+For more details, please refer to the [Creative Commons Attribution-NonCommercial 4.0 International License](https://creativecommons.org/licenses/by-nc/4.0/).
+
 
 For any inquiries or issues, please contact the developer
 Acknowledgments
