@@ -1,6 +1,6 @@
-MichaelAngelo.io (INCOMPLETE)
+MichaelAngel.io (INCOMPLETE)
 
-Welcome to MichaelAngelo.io, a project dedicated to exploring the intersection of generative AI and creativity. This initiative aims to inspire artists and foster collaboration while ensuring respect for artistic integrity through transparency and accessibility.
+Welcome to MichaelAngel.io, a project dedicated to exploring the intersection of generative AI and creativity. This initiative aims to inspire artists and foster collaboration while ensuring respect for artistic integrity through transparency and accessibility.
 
 Overview
 
