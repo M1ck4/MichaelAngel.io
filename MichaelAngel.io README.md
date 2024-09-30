@@ -5,9 +5,11 @@ Welcome to MichaelAngelo.io, a project dedicated to exploring the intersection o
 Overview
 
 MichaelAngelo.io is built with the intent of enhancing artistic creation using generative AI technologies. Our goal is to provide artists with tools that inspire and assist them in their creative processes while maintaining a strong commitment to legal and ethical standards.
+
 Creative Commons
 
 This project is grounded in Creative Commons principles, ensuring that all materials used are publicly available and legally compliant. We believe in the importance of sharing knowledge and resources to enrich the creative community.
+
 Attribution
 
 To honor the work of artists, we have implemented a system that automatically pulls attribution information when required. This ensures that creators receive proper credit for their contributions. In the future, we will also provide dedicated attribution files for easier access to this information.
