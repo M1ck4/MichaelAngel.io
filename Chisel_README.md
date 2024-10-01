@@ -80,7 +80,7 @@ Install the required dependencies using the requirements file:
 
 ## Usage
 
-The vey basic use of chisel is:
+The very basic use of chisel is:
 
     python chisel.py --input_folder /path/to/input_folder --output_folder /path/to/output_folder
 
@@ -90,35 +90,44 @@ Chisel has pretermined defaults and when only the input folder and output folder
 
 Chisel comes with sensible defaults to ensure a smooth user experience right out of the box. Below are the predefined default settings for various parameters in the application:
 
-Input Folder:
+Input Folder:            
+
     Default: ./input
-    Description: This is the folder where Chisel looks for images to process if no input folder is specified.
+This is the folder where Chisel looks for images to process if no input folder is specified.
 
 Output Folder:
+
     Default: ./processed
-    Description: This is the destination folder for processed images. If the folder does not exist, Chisel will create it automatically.
+This is the destination folder for processed images. If the folder does not exist, Chisel will create it automatically.
 
 Image Format:
+
     Default: JPEG
-    Description: This is the default format in which processed images will be saved. Supported formats include JPEG, PNG, and TIFF.
+This is the default format in which processed images will be saved. Supported formats include JPEG, PNG, and TIFF.
 
 Resize:
+    
     Default: false
-    Description: Images will not be resized unless specified. To enable resizing, you must provide width and height in the command.
+Images will not be resized unless specified. To enable resizing, you must provide width and height in the command.
+
 
 Resize Dimensions (when enabled):
+
     Default Width: 800
     Default Height: 600
-    Description: These dimensions apply if resizing is enabled.
+These dimensions apply if resizing is enabled.
+
 
 Quality:
+
     Default: 85
-    Description: This setting determines the quality of the processed images on a scale of 0 to 100. A higher number results in better quality at the cost of larger file size.
+This setting determines the quality of the processed images on a scale of 0 to 100. A higher number results in better quality at the cost of larger file size.
+
 
 Overwrite:
-    Default: false
-    Description: Chisel will not overwrite existing files in the output folder by default. You must specify the --overwrite flag to allow overwriting.
 
+    Default: false
+Chisel will not overwrite existing files in the output folder by default. You must specify the --overwrite flag to allow overwriting.
 To use Chisel with the many options it has, run the following command in your terminal:
 
     python chisel.py --help
@@ -134,36 +143,45 @@ Chisel comes equipped with a user-friendly command line interface that provides 
 When you run the --help command, you'll see the following key options and features that Chisel offers:
 Basic Commands
 
---input or -i: Specify the input directory containing the images you want to preprocess. This option allows you to easily point Chisel to the source images you wish to enhance.
+    --input or -i: 
+Specify the input directory containing the images you want to preprocess. This option allows you to easily point Chisel to the source images you wish to enhance.
 
---output or -o: Define the output directory where the processed images will be saved. This helps you maintain an organized workflow and ensures that your original images remain untouched.
+    --output or -o: 
+Define the output directory where the processed images will be saved. This helps you maintain an organized workflow and ensures that your original images remain untouched.
 
 Preprocessing Options
 
---resize: Resize images to specified dimensions. This feature is perfect for optimizing images for different platforms or print sizes without losing quality.
+    --resize
+Resize images to specified dimensions. This feature is perfect for optimizing images for different platforms or print sizes without losing quality.
 
---crop: Crop images to focus on the essential elements. This can help improve composition and remove unnecessary background noise from images.
+    --crop 
+Crop images to focus on the essential elements. This can help improve composition and remove unnecessary background noise from images.
 
---enhance: Apply various enhancement filters to improve image quality. This option includes sharpening, brightness adjustment, and contrast enhancement, ensuring your images look their best.
+    --enhance
+Apply various enhancement filters to improve image quality. This option includes sharpening, brightness adjustment, and contrast enhancement, ensuring your images look their best.
 
---format or -f: Convert images to different formats (e.g., JPG, PNG, BMP). This feature ensures compatibility with various applications and platforms.
+    --format or -f
+Convert images to different formats (e.g., JPG, PNG, BMP). This feature ensures compatibility with various applications and platforms.
 
 Batch Processing
 
---batch: Process multiple images in a single command. This feature saves time and increases efficiency when working with large datasets or collections of images.
+    --batch
+Process multiple images in a single command. This feature saves time and increases efficiency when working with large datasets or collections of images.
 
 Metadata Management
 
---metadata: Include metadata preservation options to keep track of the original image data. This is crucial for photographers and artists who need to maintain copyright and attribution information.
+    --metadata
+Include metadata preservation options to keep track of the original image data. This is crucial for photographers and artists who need to maintain copyright and attribution information.
 
 Preview and Logging
 
---preview: Generate a preview of the processed images before saving. This allows you to make quick adjustments and ensures satisfaction with the final output.
+    --preview
+Generate a preview of the processed images before saving. This allows you to make quick adjustments and ensures satisfaction with the final output.
 
---log: Enable logging to track the processing steps and any issues that arise. This feature is particularly useful for debugging and maintaining a clear workflow.
+    --log
+Enable logging to track the processing steps and any issues that arise. This feature is particularly useful for debugging and maintaining a clear workflow.
 
-
-Example CLI Commands
+Here are some example CLI Commands
 
 Enhance an image:
 
