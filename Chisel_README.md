@@ -80,18 +80,50 @@ Install the required dependencies using the requirements file:
 
 ## Usage
 
-To use Chisel.py, run the following command in your terminal:
+The vey basic use of chisel is:
+
+    python chisel.py --input_folder /path/to/input_folder --output_folder /path/to/output_folder
+
+Chisel has pretermined defaults and when only the input folder and output folder is given defualts are applied.
+
+## Predefined Defaults in Chisel
+
+Chisel comes with sensible defaults to ensure a smooth user experience right out of the box. Below are the predefined default settings for various parameters in the application:
+
+Input Folder:
+    Default: ./input
+    Description: This is the folder where Chisel looks for images to process if no input folder is specified.
+
+Output Folder:
+    Default: ./processed
+    Description: This is the destination folder for processed images. If the folder does not exist, Chisel will create it automatically.
+
+Image Format:
+    Default: JPEG
+    Description: This is the default format in which processed images will be saved. Supported formats include JPEG, PNG, and TIFF.
+
+Resize:
+    Default: false
+    Description: Images will not be resized unless specified. To enable resizing, you must provide width and height in the command.
+
+Resize Dimensions (when enabled):
+    Default Width: 800
+    Default Height: 600
+    Description: These dimensions apply if resizing is enabled.
+
+Quality:
+    Default: 85
+    Description: This setting determines the quality of the processed images on a scale of 0 to 100. A higher number results in better quality at the cost of larger file size.
+
+Overwrite:
+    Default: false
+    Description: Chisel will not overwrite existing files in the output folder by default. You must specify the --overwrite flag to allow overwriting.
+
+To use Chisel with the many options it has, run the following command in your terminal:
 
     python chisel.py --help
 
 This command will display a list of available options and how to use them. Each feature is designed with user-friendliness in mind, guiding you through the process of enhancing and organizing your images.
-
-The vey basic use of chisel is:
-
-        python chisel.py --input_folder /path/to/input_folder --output_folder /path/to/output_folder
-
-However there is much customization in this application.
-
 
 ## Command Line Interface (CLI) Help
 
@@ -181,11 +213,15 @@ To run Chisel with a configuration file, use the following command:
 
     python chisel.py --config /path/to/config.json
 
+
 Benefits of Using Configuration Files
 
 Simplifies Workflow: By defining settings in a config file, you can streamline your processing commands, reducing command-line clutter.
+
 Easier Management: Changes to parameters can be made directly in the config file without needing to modify command-line arguments each time.
+
 Reusable Settings: Save and share configuration files for different projects or team members, ensuring consistency in processing.
+
 
 NOTE: Configuration Files are curretnly being made, they should be uploaded soon. 
 
