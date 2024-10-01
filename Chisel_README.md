@@ -85,9 +85,55 @@ To use Chisel.py, run the following command in your terminal:
     python chisel.py --help
 
 This command will display a list of available options and how to use them. Each feature is designed with user-friendliness in mind, guiding you through the process of enhancing and organizing your images.
-Example Commands
 
-    Enhance an image:
+The vey basic use of chisel is:
+
+        python chisel.py --input_folder /path/to/input_folder --output_folder /path/to/output_folder
+
+However there is much customization in this application.
+
+
+## Command Line Interface (CLI) Help
+
+Chisel comes equipped with a user-friendly command line interface that provides easy access to its powerful features. You can view the available commands and options by running:
+
+    python chisel.py --help
+
+When you run the --help command, you'll see the following key options and features that Chisel offers:
+Basic Commands
+
+--input or -i: Specify the input directory containing the images you want to preprocess. This option allows you to easily point Chisel to the source images you wish to enhance.
+
+--output or -o: Define the output directory where the processed images will be saved. This helps you maintain an organized workflow and ensures that your original images remain untouched.
+
+Preprocessing Options
+
+--resize: Resize images to specified dimensions. This feature is perfect for optimizing images for different platforms or print sizes without losing quality.
+
+--crop: Crop images to focus on the essential elements. This can help improve composition and remove unnecessary background noise from images.
+
+--enhance: Apply various enhancement filters to improve image quality. This option includes sharpening, brightness adjustment, and contrast enhancement, ensuring your images look their best.
+
+--format or -f: Convert images to different formats (e.g., JPG, PNG, BMP). This feature ensures compatibility with various applications and platforms.
+
+Batch Processing
+
+--batch: Process multiple images in a single command. This feature saves time and increases efficiency when working with large datasets or collections of images.
+
+Metadata Management
+
+--metadata: Include metadata preservation options to keep track of the original image data. This is crucial for photographers and artists who need to maintain copyright and attribution information.
+
+Preview and Logging
+
+--preview: Generate a preview of the processed images before saving. This allows you to make quick adjustments and ensures satisfaction with the final output.
+
+--log: Enable logging to track the processing steps and any issues that arise. This feature is particularly useful for debugging and maintaining a clear workflow.
+
+
+Example CLI Commands
+
+Enhance an image:
 
     python chisel.py enhance --input image.jpg --output enhanced_image.jpg --brightness 1.2 --contrast 1.5
 
@@ -99,10 +145,4 @@ Add watermark:
 
     python chisel.py watermark --input image.jpg --output watermarked_image.jpg --watermark watermark.png
 
-## Contribution
-
-Contributions to Chisel.py are welcome! If you have suggestions or improvements, please create a pull request or open an issue in the GitHub repository.
-License
-
-This project is licensed under the Creative Commons Attribution-NonCommercial 4.0 International Public License
 
