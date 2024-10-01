@@ -32,7 +32,7 @@ Documentation and Support: Detailed documentation and a support community availa
 
 ## Who Will Use Chisel
 
-Texture Arists: Resize textures to any size, color correction, format conversion, texture variants, ensure consistencey. 
+Texture Artists: Resize textures to any size, color correction, format conversion, texture variants, ensure consistencey. 
 
 Photographers: Enhance and organize their photo collections, applying filters and adjustments for portfolio presentation.
 
