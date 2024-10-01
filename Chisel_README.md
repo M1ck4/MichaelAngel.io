@@ -145,4 +145,48 @@ Add watermark:
 
     python chisel.py watermark --input image.jpg --output watermarked_image.jpg --watermark watermark.png
 
+## Configuration Files
+
+Chisel supports the use of configuration files to customize your preprocessing workflow. This feature allows you to define various parameters and settings in a centralized manner, making it easier to manage and reuse configurations across different projects.
+Creating a Configuration File
+
+File Format: The configuration file should be in JSON format for easy readability and compatibility.
+
+Example Configuration: Below is an example of what a configuration file (config.json) might look like:
+
+    json
+
+    {
+        "input_folder": "C:/images/input",
+        "output_folder": "C:/images/processed",
+        "resize": {
+            "enabled": true,
+            "width": 800,
+            "height": 600
+        },
+        "format": "JPEG",
+        "quality": 85
+    }
+
+Parameters Explained:
+    input_folder: The directory containing the images to be processed.
+    output_folder: The directory where processed images will be saved.
+    resize: A boolean indicating whether to resize images, with width and height specifying the new dimensions.
+    format: The desired format for the processed images (e.g., JPEG, PNG).
+    quality: The quality level for formats that support it, on a scale of 0 to 100.
+
+Using a Configuration File
+
+To run Chisel with a configuration file, use the following command:
+
+    python chisel.py --config /path/to/config.json
+
+Benefits of Using Configuration Files
+
+Simplifies Workflow: By defining settings in a config file, you can streamline your processing commands, reducing command-line clutter.
+Easier Management: Changes to parameters can be made directly in the config file without needing to modify command-line arguments each time.
+Reusable Settings: Save and share configuration files for different projects or team members, ensuring consistency in processing.
+
+NOTE: Configuration Files are curretnly being made, they should be uploaded soon. 
+
 
