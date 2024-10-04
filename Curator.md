@@ -1,5 +1,5 @@
 
-# Creative Commons Image Collector
+# Creative Commons Image Collector (INCOMPLETE)
 
 ## Overview
 The **Creative Commons Image Collector** is a Python-based tool designed to download images from various Creative Commons sources. This project emphasizes transparency by utilizing only non-copyrighted images and public domain works, ensuring that the resources used are free and accessible to all.
