@@ -37,10 +37,15 @@ email_settings:
   send_email: true
 
 search_terms:
-  - nature
-  #- city
-  #- animals
-  #- space
-  #- ocean
+   #Environment:
+    - Waves
+    - Coral
+    - Sea
+    - Underwater  
+    - Cacti
+    - Desert
+    - Rocks
+    - Trees
+    - Flora
 
-max_images: 1
+max_images: 500
