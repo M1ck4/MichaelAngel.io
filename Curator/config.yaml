@@ -11,7 +11,7 @@ api_keys:
     key: GOOGLE_CSE_API
     search_engine_id: CUSTOM_SEARCH_ENGINE_API
 
-rate_limits:
+rate_limits: #Set for free API limits
   pixabay:
     calls: 100
     period: 60
