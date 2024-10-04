@@ -1,12 +1,7 @@
 # Core Libraries
-Pillow==10.0.0          # Imaging library for opening, manipulating, and saving many different image file formats.
-NumPy==1.24.0           # Library for numerical operations in Python.
-OpenCV-Python==4.7.0.72 # OpenCV library for computer vision tasks.
+Pillow==10.0.0
+NumPy==1.24.0
+opencv-python==4.7.0.72
+tqdm==4.65.0 
+scikit-image==0.20.0 
 
-# Additional Libraries
-scikit-image==0.20.0    # Library for image processing.
-matplotlib==3.7.2        # Plotting library for visualizing images and data.
-imageio==2.25.0         # Library for reading and writing image data.
-
-# Optional Libraries (for specific features)
-imageio[ffmpeg]==2.25.0 # For reading and writing video files if applicable.
