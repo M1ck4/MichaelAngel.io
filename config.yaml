@@ -1,0 +1,46 @@
+api_keys:
+  pixabay:
+    key: YOUR_PIXABAY_API
+  unsplash:
+    key: YOUR_UNSPLASH_API
+  pexels:
+    key: YOUR_PEXEL_API
+  flickr:
+    key: YOUR_FLICKR_API
+  google_cse:
+    key: GOOGLE_CSE_API
+    search_engine_id: CUSTOM_SEARCH_ENGINE_API
+
+rate_limits:
+  pixabay:
+    calls: 100
+    period: 60
+  unsplash:
+    calls: 50
+    period: 60
+  pexels:
+    calls: 200
+    period: 3600
+  flickr:
+    calls: 3600
+    period: 3600
+  google_cse:
+    calls: 100
+    period: 100
+
+email_settings:
+  from_email: your_email@example.com
+  smtp_server: smtp.your_email_provider.com
+  smtp_port: 587
+  smtp_login: your_email_login
+  smtp_password: your_email_password
+  send_email: true
+
+search_terms:
+  - nature
+  #- city
+  #- animals
+  #- space
+  #- ocean
+
+max_images: 1
