@@ -2,67 +2,47 @@
 
 ## Overview
 
-Chisel is a powerful, user-friendly image processing tool designed to enhance, organize, and optimize your image collections. Built with flexibility and accessibility in mind, it serves a wide range of users from artists to scientists, making it an essential addition to any digital toolkit.
+Chisel is a robust and user-friendly image processing tool crafted to enhance, organize, and optimize your image collections effortlessly. Designed for a diverse range of users—from artists and photographers to educators and researchers—Chisel is an essential companion in any digital toolkit. With its seamless integration, powerful features, and intuitive interface, Chisel empowers you to elevate your visual content with precision and ease
 
 ## Key Features
 
-Image Enhancement: Apply a variety of filters to enhance image quality, including brightness, contrast, saturation, and sharpness adjustments.
+**Image Enhancement:** Transform your images with advanced filters that boost quality. Adjust brightness, contrast, saturation, and sharpness to create stunning visuals that captivate your audience.
 
-Batch Processing: Process multiple images at once, saving time and effort in large projects.
+**Batch Processing:** Save valuable time by processing multiple images simultaneously. Whether you’re working on a large project or simply need to enhance a collection, Chisel makes it efficient.
 
-Format Conversion: Easily convert images between popular formats (JPEG, PNG, GIF, etc.) to meet project requirements.
+**Format Conversion:**  Easily convert images between popular formats (JPEG, PNG, GIF, etc.) to fit your project needs. Chisel ensures compatibility across various applications.
 
-Image Resizing: Resize images while maintaining aspect ratio, making it easy to prepare images for specific use cases.
+**Image Resizing:**  Maintain aspect ratios while resizing images to prepare them for specific use cases. Perfect for optimizing images for social media, print, or web use.
 
-Watermarking: Add custom watermarks to images for branding or copyright protection.
+**Metadata Management:**  Edit and manage image metadata for improved organization and searchability, ensuring that you keep track of copyright and attribution details.
 
-Metadata Management: Edit and manage image metadata for better organization and searchability.
+**Custom Filters:**  Harness the power of Python to create and apply your own filters, allowing for unique image transformations tailored to your artistic vision.
 
-Custom Filters: Create and apply your own filters using Python, allowing for unique image transformations.
+**Error Handling and Logging:**  Comprehensive error handling provides clear feedback on processing issues, while logging keeps you informed about each step taken.
 
-User-Friendly Interface: Designed for ease of use, with a simple command-line interface that guides users through each function.
+**Attribution Compliance:**  Automatically generate attribution text files for Creative Commons images, ensuring you remain compliant with usage rights effortlessly.
 
-Integration with Other Tools: Seamlessly integrate with other Python libraries for expanded functionality (e.g., NumPy, OpenCV).
-
-Attribution Compliance: Automatically generate attribution text files for Creative Commons images, ensuring compliance with usage rights.
-
-Error Handling: Comprehensive error handling and logging, providing users with clear feedback on any issues encountered during processing.
-
-Documentation and Support: Detailed documentation and a support community available to assist users in troubleshooting and maximizing the tool’s potential.
+**Documentation and Support:**  Access detailed documentation and a supportive community ready to assist you in maximizing Chisel’s potential.
 
 ## Who Will Use Chisel
 
-Texture Artists: Resize textures to any size, color correction, format conversion, texture variants, ensure consistencey. 
+**Texture Artists:** Easily resize textures, apply color correction, and create consistent texture variants.
 
-Photographers: Enhance and organize their photo collections, applying filters and adjustments for portfolio presentation.
+**Photographers:** Enhance and organize collections for stunning portfolio presentations.
 
-Graphic Designers: Utilize image processing capabilities for creative projects, such as advertising materials or digital art.
+**Graphic Designers:** Utilize Chisel's processing capabilities for creative projects, such as marketing materials and digital art.
 
-Digital Artists: Enhance and manipulate images for artwork, applying custom filters and effects to achieve unique styles.
+**Digital Artists:** Apply custom filters and effects to enhance artwork, achieving unique styles that stand out.
 
-Social Media Managers: Optimize images for social media platforms, ensuring high-quality visuals that meet specific size and format requirements.
+**Social Media Managers:** Optimize images to ensure high-quality visuals that meet platform-specific requirements.
 
-Content Creators and Influencers: Enhance images for blogs, videos, and social media posts, making them more visually appealing to attract and engage audiences.
+**Filmmakers and Video Editors:** Process still images for storyboarding or promotional materials.
 
-Filmmakers and Video Editors: Process still images for use in film projects, optimizing visuals for storyboarding or promotional materials.
+**Web Developers:** Improve website performance by optimizing images for faster load times while maintaining visual quality.
 
-Web Developers: Optimize images on websites, improving load times while maintaining visual quality for better user experience.
+**Marketing Professionals: Enhance visuals for branding campaigns, ensuring compliance with copyright and attribution requirements.
 
-Marketing Professionals: Enhance images for branding and promotional campaigns, ensuring compliance with copyright and attribution requirements.
-
-Educators and Students: Use in educational settings for projects involving image analysis or enhancement, promoting hands-on learning experiences.
-
-Healthcare Professionals: Analyze and enhance medical imaging data, supporting diagnostics and research.
-
-Archivists and Curators: Manage and preserve digital collections, ensuring the quality and organization of historical or artistic images.
-
-Non-Profit Organizations: Process images for campaigns or educational materials, ensuring they are of high quality and compliant with usage rights.
-
-Scientists and Researchers: Process and analyze images from experiments, ensuring quality and compliance with publication standards.
-
-Machine Learning Engineers: Preprocess images for training datasets, ensuring high quality and consistency in image attributes.
-
-Hobbyists and DIY Enthusiasts: Use for personal projects involving photography, crafting, or digital art, enhancing their creative endeavors.
+**Researchers and Scientists:** Process and analyze images from experiments, ensuring quality and adherence to publication standards.
 
 ## Installation
 
@@ -78,7 +58,7 @@ Navigate to the project directory:
 
 Install the required dependencies using the requirements file:
 
-    pip install -r chisel_requirements.txt
+    pip install -r requirements.txt
 
 ## Usage
 
@@ -183,7 +163,7 @@ Generate a preview of the processed images before saving. This allows you to mak
     --log
 Enable logging to track the processing steps and any issues that arise. This feature is particularly useful for debugging and maintaining a clear workflow.
 
-Here are some example CLI Commands
+## Example Commands
 
 Enhance an image:
 
@@ -191,11 +171,21 @@ Enhance an image:
 
 Batch process images:
 
-    python chisel.py batch --input_folder images/ --output_folder processed_images/ --resize 800x600
+    python chisel.py batch --input_folder images/ --output_folder processed_images/ --resize 2048x2048
 
-Add watermark:
+Batch Processing with watermark and resizing to 1024x1024 and saving in .jpeg at 100% quality:
 
-    python chisel.py watermark --input image.jpg --output watermarked_image.jpg --watermark watermark.png
+    python chisel.py --input /path/to/input_folder --output /path/to/output_folder --resize --width 1024 --height 1024 --format JPEG --quality 100
+
+Convert all PNG images in a folder to JPEG:
+
+    python chisel.py --input /path/to/input_folder --output /path/to/output_folder --format JPEG --batch
+
+Resize Without Overwriting Existing Files Resize images while ensuring existing files are not overwritten:
+
+    python chisel.py --input /path/to/input_folder --output /path/to/output_folder --resize --width 800 --height 600 --quality 85 --overwrite false
+
+
 
 ## Configuration Files
 
