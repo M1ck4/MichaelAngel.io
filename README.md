@@ -28,6 +28,9 @@ We recognize the importance of ethics in the age of AI. Our platform is built on
 
 **Chisel**: Acting as the preprocessing stage, Chisel ensures that images meet quality and size requirements. It removes duplicates, checks for blurriness, and prepares the images for the next phase, emphasizing the importance of high-quality data for successful artistic outcomes.
 
+##FilmFrame##
+extracts frames from Creative Commons licensed movies, providing artists and researchers with a rich resource for creative projects. Its highlights the artistry of cinematic storytelling while ensuring proper attribution through automated metadata tagging. Ideal for non-profit and educational use, FilmFrame bridges the gap between film and AI-driven creativity, inspiring new possibilities in visual expression.
+
 **Muse**: The dataset creator and manager, Muse organizes the preprocessed images into structured datasets ready for training. It allows for dataset splitting, labeling, and augmentation, providing artists with the tools needed to enhance their creative projects.
 
 **MichaelAngelo**: The main generative model, MichaelAngelo, is designed to create new images based on the datasets prepared by Muse. This tool embodies the culmination of our efforts to merge AI and art, allowing for innovative artistic expression.
