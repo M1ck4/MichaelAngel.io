@@ -115,10 +115,6 @@ The script tracks various metrics during the download process, including:
     Successful and failed requests
     Time spent on each API
 
-## License
-
-This project is licensed under the MIT License. Feel free to contribute or modify the code for your needs.
-
 
 Contributing
 
