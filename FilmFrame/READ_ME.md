@@ -30,7 +30,7 @@ Install the required dependencies:
 
     pip install -r requirements.txt
 
-    Set up an SMTP email server (optional) if you wish to use the email notification feature.
+Set up an SMTP email server (optional) if you wish to use the email notification feature.
 
 Usage
 
