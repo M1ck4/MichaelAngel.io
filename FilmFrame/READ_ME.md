@@ -1,28 +1,80 @@
-# FilmFrame (INCOMPLETE)
+# FrameFilm
 
-**FilmFrame** is a tool designed to extract frames from Creative Commons movies, creating training sets for generative AI models. This project operates under a non-profit mission, ensuring respect for the rights of original creators while enhancing the capabilities of AI through publicly available works.
-
-## Overview
-
-In an age where generative AI is revolutionizing the creative landscape, **FilmFrame** offers a unique way to harness the potential of film. By extracting frames from Creative Commons movies, we aim to provide high-quality training data that contributes to the development of AI models focused on creativity and artistic expression.
+FrameFilm is a Python-based tool for extracting frames from movies and collecting metadata associated with them. This tool is especially useful for artists, researchers, and developers who need to capture frames at regular intervals from video files and store the metadata in a structured format. The tool also supports email notifications once the frame extraction is complete.
 
 ## Features
 
-- **Frame Extraction**: Automatically extract frames from Creative Commons licensed movies.
-- **Batch Processing**: Process multiple movies at once to streamline the frame extraction workflow.
-- **Quality Control**: Ensure that extracted frames meet specific quality criteria, making them suitable for training AI models.
-- **Metadata Collection**: Gather essential metadata for each frame, including licensing information, to ensure compliance and proper attribution.
+- **Extract Frames**: Extracts frames from video files at specified time intervals.
+- **Batch Mode**: Processes multiple movie files in a directory.
+- **Metadata Collection**: Captures metadata such as timestamps for each frame and allows users to input additional details about the movie (e.g., movie name, year, director, license, etc.).
+- **Email Notification**: Optionally sends an email notification upon completion of the frame extraction process.
+- **Frame Storage**: Saves extracted frames as JPEG images in designated directories.
 
-## How It Works
+## Requirements
 
-1. **Input Movie Files**: Users provide a directory containing Creative Commons movie files.
-2. **Extract Frames**: The tool processes each movie, extracting frames at specified intervals or conditions.
-3. **Save Extracted Frames**: The extracted frames are stored in an organized directory structure, along with associated metadata.
-4. **Ready for Training**: The frames can then be used as training data for generative AI models, enhancing their ability to learn from diverse visual content.
+- Python 3.7+
+- OpenCV (`cv2`)
+- PyYAML
+- SMTP Email Server (optional, for email notifications)
 
-## Getting Started
+## Installation
 
-### Prerequisites
+1. Clone this repository:
 
-- Python 3.x
-- Required libraries (e.g., OpenCV, moviepy, etc.)
+       git clone https://github.com/yourusername/FrameFilm.git
+Navigate to the project directory:
+
+    cd FrameFilm
+
+Install the required dependencies:
+
+    pip install -r requirements.txt
+
+    Set up an SMTP email server (optional) if you wish to use the email notification feature.
+
+Usage
+
+The script can be run in either single mode (for individual movie files) or batch mode (for multiple movie files in a directory). You must specify the input movie file or directory, as well as the frame extraction interval in seconds.
+Single Mode (Extract frames from one movie file)
+
+    python framefilm.py -i <movie_file> -t <interval_in_seconds>
+
+Example:
+
+    python framefilm.py -i my_movie.mp4 -t 60
+
+Batch Mode (Extract frames from multiple movie files in a directory)
+
+    python framefilm.py -i <directory> -t <interval_in_seconds> -b
+
+    python framefilm.py -i /path/to/movies/ -t 60 -b
+
+Email Notification (Optional)
+
+The script can send an email notification upon completion of the extraction process.
+
+During the execution of the script, it will ask if you'd like to send an email notification.
+Provide the necessary email information (recipient, SMTP server, etc.).
+
+Metadata
+
+During the extraction process, you will be asked to provide metadata for each movie (e.g., movie name, year, director, license, and URL). This metadata, along with frame information (timestamps, frame numbers), will be stored in a metadata.yaml file within the output directory.
+Options
+
+-i or --input: The input movie file or directory containing movie files (required).
+-o or --output: Output directory for storing extracted frames (optional).
+-t or --interval: The time interval (in seconds) between frames to be extracted (required).
+-b or --batch: Enable batch mode to process multiple movie files in a directory (optional).
+
+Example Workflow
+
+Run the script in batch mode to process a folder of movies.
+Input metadata such as movie name, year, director, and license when prompted.
+The extracted frames and associated metadata will be saved in a directory named after each movie.
+Optionally receive an email notification when the extraction is complete.
+
+License
+
+This project is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) license.
+
+FrameFilm is designed for educational and non-commercial use. Please ensure proper attribution when using any extracted frames or metadata.
