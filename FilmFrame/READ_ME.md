@@ -21,10 +21,10 @@ FrameFilm is a Python-based tool for extracting frames from movies and collectin
 
 1. Clone this repository:
 
-       git clone https://github.com/yourusername/FrameFilm.git
+       git clone https://github.com/yourusername/FilmFrame.git
 Navigate to the project directory:
 
-    cd FrameFilm
+    cd FilmFrame
 
 Install the required dependencies:
 
@@ -37,17 +37,17 @@ Usage
 The script can be run in either single mode (for individual movie files) or batch mode (for multiple movie files in a directory). You must specify the input movie file or directory, as well as the frame extraction interval in seconds.
 Single Mode (Extract frames from one movie file)
 
-    python framefilm.py -i <movie_file> -t <interval_in_seconds>
+    python FilmFrame.py -i <movie_file> -t <interval_in_seconds>
 
 Example:
 
-    python framefilm.py -i my_movie.mp4 -t 60
+    python filmframe.py -i my_movie.mp4 -t 60
 
 Batch Mode (Extract frames from multiple movie files in a directory)
 
-    python framefilm.py -i <directory> -t <interval_in_seconds> -b
+    python filmframe.py -i <directory> -t <interval_in_seconds> -b
 
-    python framefilm.py -i /path/to/movies/ -t 60 -b
+    python filmframe.py -i /path/to/movies/ -t 60 -b
 
 Email Notification (Optional)
 
@@ -77,4 +77,4 @@ License
 
 This project is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) license.
 
-FrameFilm is designed for educational and non-commercial use. Please ensure proper attribution when using any extracted frames or metadata.
+FilmFrame is designed for educational and non-commercial use. Please ensure proper attribution when using any extracted frames or metadata.
