@@ -1,4 +1,4 @@
-# FrameFilm
+# FilmFrame
 
 FrameFilm is a Python-based tool for extracting frames from movies and collecting metadata associated with them. This tool is especially useful for artists, researchers, and developers who need to capture frames at regular intervals from video files and store the metadata in a structured format. The tool also supports email notifications once the frame extraction is complete.
 
