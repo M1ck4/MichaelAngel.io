@@ -6,7 +6,8 @@ import logging
 import smtplib
 from email.mime.text import MIMEText
 import os
-import getpass  # Added for secure password input
+import getpass  # For secure password input
+from tqdm import tqdm  # For progress bar
 
 
 def detect_movie_format(movie_file):
@@ -30,6 +31,7 @@ def extract_frames(movie_file, interval_in_seconds):
             return None
         frame_interval = int(fps * interval_in_seconds)
         frame_count = 0
+        total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
 
         while cap.isOpened():
             ret, frame = cap.read()
@@ -112,6 +114,7 @@ def main():
     parser.add_argument('--to-email', help='To email address')
     parser.add_argument('--subject', help='Email subject')
     parser.add_argument('--body', help='Email body')
+    parser.add_argument('--image-format', help='Output image format (e.g., jpg, png)', default='jpg')
 
     args = parser.parse_args()
 
@@ -119,6 +122,13 @@ def main():
     interval_in_seconds = args.interval
     batch_mode = args.batch
     email_enabled = args.email
+    image_format = args.image_format.lower()
+
+    # Validate image format
+    valid_formats = ['jpg', 'jpeg', 'png', 'bmp', 'tiff']
+    if image_format not in valid_formats:
+        print(f"Invalid image format '{image_format}'. Supported formats are: {', '.join(valid_formats)}.")
+        return
 
     frames_dir = args.output if args.output else 'Frames'
     create_directory(frames_dir)
@@ -207,8 +217,13 @@ def main():
                     print("Error: Failed to extract frames.")
                     continue
 
-                for frame, frame_count in frame_gen:
-                    frame_filename = os.path.join(movie_dir, f"frame_{frame_count}.jpg")
+                total_frames = int(cv2.VideoCapture(movie_file).get(cv2.CAP_PROP_FRAME_COUNT))
+                fps = cv2.VideoCapture(movie_file).get(cv2.CAP_PROP_FPS)
+                frame_interval = int(fps * interval_in_seconds)
+                estimated_frames = total_frames // frame_interval
+
+                for frame, frame_count in tqdm(frame_gen, total=estimated_frames, desc="Processing Frames"):
+                    frame_filename = os.path.join(movie_dir, f"frame_{frame_count}.{image_format}")
                     cv2.imwrite(frame_filename, frame)
                     timestamp = collect_metadata()
                     metadata["frames"].append({
@@ -276,8 +291,13 @@ def main():
                 print("Error: Failed to extract frames.")
                 return
 
-            for frame, frame_count in frame_gen:
-                frame_filename = os.path.join(movie_dir, f"frame_{frame_count}.jpg")
+            total_frames = int(cv2.VideoCapture(movie_file).get(cv2.CAP_PROP_FRAME_COUNT))
+            fps = cv2.VideoCapture(movie_file).get(cv2.CAP_PROP_FPS)
+            frame_interval = int(fps * interval_in_seconds)
+            estimated_frames = total_frames // frame_interval
+
+            for frame, frame_count in tqdm(frame_gen, total=estimated_frames, desc="Processing Frames"):
+                frame_filename = os.path.join(movie_dir, f"frame_{frame_count}.{image_format}")
                 cv2.imwrite(frame_filename, frame)
                 timestamp = collect_metadata()
                 metadata["frames"].append({
