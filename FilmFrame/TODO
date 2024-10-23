@@ -1,6 +1,3 @@
-Validate SMTP server and email format for notification functionality.
-Progress bar or status updates to inform users about the progress of long-running operations
-Output image format (e.g., JPEG, PNG)
 Implement parallel processing for batch operations to improve performance by leveraging multi-threading or multiprocessing capabilities.
 Add functionality to upload extracted frames and metadata to online storage solutions (e.g., AWS S3, Google Drive) for easy access and backup.
 Provide configuration options for specifying storage credentials and target directories.
