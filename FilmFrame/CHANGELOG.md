@@ -29,6 +29,6 @@ All notable changes to this project will be documented in this file.
 
 - Included the `__main__` block to ensure the script runs correctly when executed.
 
-## [1.0.0] - YYYY-MM-DD
+## [1.0.0] - 2024-10-08
 
 - Initial release.
