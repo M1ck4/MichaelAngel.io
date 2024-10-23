@@ -1,4 +1,5 @@
 # Changelog
+All notable changes to this project will be documented in this file.
 
 ## [1.2.0] - 2024-10-23
 
@@ -10,9 +11,6 @@
 ### Changed
 
 - Updated frame saving logic to accommodate different image formats.
-
-
-All notable changes to this project will be documented in this file.
 
 ## [1.1.0] - 2024-10-23
 
