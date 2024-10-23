@@ -1,35 +1,195 @@
-# Muse (INCOMPLETE)
+# Muse
 
-
-
-Muse is a powerful dataset creation and management tool designed to organize, label, and optimize preprocessed images for AI model training. It integrates seamlessly with the Chisel preprocessing tool and is an essential part of the image-to-AI pipeline, leading to the creation of high-quality, structured datasets ready for training on models like **MichaelAngelo**.
+Muse is a powerful dataset creation and management tool designed to organize, label, and optimize preprocessed images for AI model training. It seamlessly integrates with the Chisel preprocessing tool and is an essential part of the image-to-AI pipeline, leading to the creation of high-quality, structured datasets ready for training on models like MichaelAngelo.
 
 ## Features
 
-- **Dataset Splitting**: Automatically divide your image collection into training, validation, and test sets, with customizable split ratios.
-- **Labeling**: Apply labels to images based on metadata or defined categories, ensuring that your dataset is well-structured for training.
-- **Data Augmentation**: Enhance your dataset by applying augmentation techniques like rotations, flips, and crops, boosting dataset diversity and improving AI performance.
-- **Format Conversion**: Convert images and annotations into the required formats for popular AI frameworks, including TensorFlow's TFRecord and the COCO format for object detection tasks.
-- **Export and Optimization**: Save the dataset in an organized and optimized structure, ensuring fast loading times and efficient access during AI model training.
+### Enhanced Image Processing & Augmentation
 
-## Workflow
+- **Advanced Augmentation Techniques**: Implements MixUp and CutMix to diversify training data and prevent overfitting.
+- **Data Augmentation**: Supports rotations, flips, cropping, and more to enhance dataset variety.
 
-Muse is designed to be used after **Chisel** has finished preprocessing the images. The typical workflow includes:
+### Quality Control Features
 
-1. **Preprocessing**: Feed images preprocessed by Chisel into Muse.
-2. **Dataset Splitting**: Divide the images into training, validation, and test sets based on your desired ratios.
-3. **Labeling**: Automatically or manually label images based on metadata or custom categories.
-4. **Augmentation (Optional)**: Apply data augmentation techniques to increase dataset variety.
-5. **Format Conversion**: Convert images and annotations into the required format for your AI framework (e.g., TFRecord, COCO).
-6. **Exporting**: Export the fully labeled, organized, and augmented dataset in a structure optimized for training.
+- **Image Quality Verification**: Ensures images meet minimum size and format requirements.
+- **Metadata Integration**: Incorporates Creative Commons data to maintain licensing compliance.
+- **Error Logging**: Records issues with images to prevent corrupted data from entering the dataset.
 
-## License
+### Performance Optimization
 
-This project is licensed under the [Creative Commons Attribution 4.0 International License (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/). You are free to:
+- **Multiprocessing**: Leverages multiple CPU cores to accelerate data processing and augmentation.
+- **Efficient Resource Utilization**: Optimizes processing time for large datasets.
 
-- Share — copy and redistribute the material in any medium or format
-- Adapt — remix, transform, and build upon the material
+### Dataset Management
 
-As long as you follow the license terms, including giving appropriate credit, providing a link to the license, and indicating if changes were made.
+- **Balanced Splits**: Ensures training, validation, and test sets are representative and balanced.
+- **Stratified Splitting**: Maintains class distribution across dataset splits.
+- **Incremental Updates**: Facilitates easy maintenance and updates to datasets.
 
+### Analytics & Monitoring
 
+- **Dataset Analytics**: Provides insights into dataset composition and label distribution.
+- **Progress Tracking**: Monitors processing steps and augmentation progress.
+- **Logging**: Detailed logs for auditing and troubleshooting.
+
+## AI Pipeline Overview
+
+Muse is part of a comprehensive AI pipeline for creating ethical and high-quality datasets using Creative Commons images. The pipeline includes:
+
+1. **Curator (Downloader)**
+   - Downloads Creative Commons images from various APIs based on defined search terms or categories.
+   - Extracts and manages metadata, ensuring images meet basic requirements.
+
+2. **A. FilmFrame (Frame Extractor)**
+   - Extracts frames from movie files and generates associated metadata.
+
+3. **Chisel (Preprocessor)**
+   - Resizes images, removes blurry or corrupted files, and standardizes the dataset.
+
+4. **Muse (Dataset Creator and Manager)**
+   - Organizes, labels, augments, and optimizes the dataset for AI model training.
+
+5. **MichaelAngelo (Main AI Model)**
+   - Trains the generative model using the prepared dataset.
+
+### Alternate Workflow
+
+- **Musing After Curator**: Quickly manage new datasets by running Muse right after Curator. However, it's recommended to run Chisel first to ensure data quality.
+
+## Installation
+
+### Prerequisites
+
+- **Python 3.8 - 3.10**: TensorFlow and other dependencies require Python versions 3.8 to 3.10.
+- **pip**: Ensure `pip` is up to date.
+
+### Steps
+
+1. **Clone the Repository**
+
+       git clone https://github.com/yourusername/muse.git
+   
+        cd muse
+   
+### Usage
+
+Muse is designed to be used after Chisel has preprocessed the images. Follow these steps to create and manage your dataset:
+Command-Line Arguments
+
+    python muse.py \
+    --input_folder path/to/preprocessed_images \
+    --output_folder path/to/output_dataset \
+    --split_ratios 0.7 0.2 0.1 \
+    --augment \
+    --augmentation_types rotate flip_horizontal mixup cutmix \
+    --augmentation_multiplier 2 \
+    --min_size 256 \
+    --allowed_formats JPEG PNG \
+    --stratify
+
+### Parameters
+
+    --input_folder: Path to the folder containing preprocessed images and their metadata from Chisel.
+    --output_folder: Destination folder where the organized dataset will be saved.
+    --split_ratios: Ratios for splitting the dataset into training, validation, and test sets. Must sum to 1.0. Default is 0.8 0.1 0.1.
+    --augment: Enable data augmentation.
+    --augmentation_types: Types of augmentations to apply. Options include rotate, flip_horizontal, flip_vertical, crop, mixup, cutmix.
+    --augmentation_multiplier: Number of times to apply augmentation per image. Default is 1.
+    --min_size: Minimum image size (in pixels) for quality control. Images smaller than this will be excluded. Default is 128.
+    --allowed_formats: List of allowed image formats. Default is JPEG PNG.
+    --stratify: Enable stratified splitting based on labels to maintain class distribution.
+
+### Examples
+
+    python muse.py \
+    --input_folder ./preprocessed_images \
+    --output_folder ./dataset \
+    --split_ratios 0.7 0.2 0.1 \
+    --augment \
+    --augmentation_types rotate flip_horizontal mixup cutmix \
+    --augmentation_multiplier 2 \
+    --min_size 256 \
+    --allowed_formats JPEG PNG \
+    --stratify
+
+### Steps
+
+Load Metadata: Muse loads metadata from JSON files generated by Curator, Chisel, and FilmFrame.
+Quality Control: Filters out images that do not meet the minimum size or are in unsupported formats.
+Apply Labels: Labels images based on metadata categories.
+Split Dataset: Divides the dataset into training, validation, and test sets according to specified ratios.
+Data Augmentation: Applies specified augmentation techniques to diversify the training data.
+Analyze Dataset: Generates analytics on dataset composition.
+Export Dataset: Saves the organized dataset into designated folders with updated metadata.
+
+Configuration
+Label Mapping
+
+The label_mapping dictionary in the script maps category names to numerical labels. Modify this dictionary in the script to match your dataset's categories.
+
+    label_mapping = {
+    'Category1': 0,
+    'Category2': 1,
+    'Unknown': -1
+    }
+
+### Augmentation Types
+
+Available augmentation types:
+
+    rotate: Rotates images by 90, 180, and 270 degrees.
+    flip_horizontal: Flips images horizontally.
+    flip_vertical: Flips images vertically.
+    crop: Crops the central portion of the image.
+    mixup: Blends two images together.
+    cutmix: Combines parts of two images.
+
+### Quality Control
+
+Muse ensures data quality by performing the following checks:
+
+    Format Verification: Ensures images are in allowed formats (e.g., JPEG, PNG).
+    Size Verification: Excludes images below the minimum size threshold.
+    Metadata Integrity: Validates that metadata files are correctly linked and include necessary information like Creative Commons attribution.
+
+### Performance Optimization
+
+To handle large datasets efficiently, Muse utilizes:
+
+    Multiprocessing: Accelerates data augmentation by processing multiple images in parallel.
+    Progress Indicators: Uses tqdm to display progress bars during processing steps.
+    Resource Management: Optimizes memory and CPU usage to handle extensive datasets without significant slowdowns.
+
+### Dataset Management
+
+Muse ensures your dataset is well-organized and balanced:
+
+Balanced Splits: Maintains representative distributions across training, validation, and test sets.
+
+Stratified Splitting: Preserves label distributions to prevent biases in model training.
+
+Incremental Updates: Facilitates easy updates and maintenance of the dataset as new images are added.
+
+### Analytics & Monitoring
+
+Muse provides valuable insights into your dataset:
+
+Dataset Analytics: Logs total images and label distributions for each split.
+
+Processing Logs: Detailed logs (muse_log.txt) record processing steps, errors, and augmentation details.
+
+Transparency: Records processing steps applied to each image for auditing and compliance.
+
+### Contributing
+
+Contributions are welcome! Please follow these steps to contribute:
+
+Fork the Repository
+
+Create a New Branch
+
+Make Your Changes
+
+Submit a Pull Request
+
+Please ensure that your code adheres to the project's coding standards and includes appropriate documentation.
