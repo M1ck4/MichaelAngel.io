@@ -36,23 +36,33 @@ Muse is a powerful dataset creation and management tool designed to organize, la
 
 Muse is part of a comprehensive AI pipeline for creating ethical and high-quality datasets using Creative Commons images. The pipeline includes:
 
-1. **Curator (Downloader)**
-   - Downloads Creative Commons images from various APIs based on defined search terms or categories.
-   - Extracts and manages metadata, ensuring images meet basic requirements.
+### Curator: The Image Collector
 
-2. **A. FilmFrame (Frame Extractor)**
-   - Extracts frames from movie files and generates associated metadata.
+   Curator downloads Creative Commons images from trusted APIs, collecting legally usable media.
+   It manages metadata from the start, ensuring proper licensing and documentation are attached to every image.
 
-3. **Chisel (Preprocessor)**
-   - Resizes images, removes blurry or corrupted files, and standardizes the dataset.
+### FilmFrame: Frame Extraction for Creative Use
 
-4. **Muse (Dataset Creator and Manager)**
-   - Organizes, labels, augments, and optimizes the dataset for AI model training.
+   FilmFrame extracts frames from Creative Commons-licensed movies, providing a rich resource for creative projects.
+   It emphasizes proper attribution with automated metadata tagging, making it perfect for educational and non-profit projects.
 
-5. **MichaelAngelo (Main AI Model)**
-   - Trains the generative model using the prepared dataset.
+### Chisel: Image Preprocessing with Precision
+
+   Chisel refines your dataset by resizing images, removing blurriness, and ensuring all files meet quality standards.
+   It standardizes images, so they’re ready for use without compromising ethical and legal standards.
+
+### Muse: The Dataset Creator & Manager
+
+   Muse organizes, labels, and augments images, preparing them for AI training while preserving Creative Commons licenses.
+   Every image’s metadata—including attribution, author information, and license details—is securely saved and traceable.
+   Muse validates the dataset's legal compliance, automatically tagging images and creating structured databases for transparency.
+
+### MichaelAngelo: Creating with a Conscience
+
+   Muse's dataset becomes the foundation for MichaelAngelo, our AI model that generates new images. This ensures that AI creations are built upon ethically sourced data, keeping legal and creative integrity    intact.
 
 ### Alternate Workflow
+For quick dataset creation, Muse can be used directly after Curator to organize and manage images instantly. However, to ensure the highest data quality, running Chisel first is always recommended.
 
 - **Musing After Curator**: Quickly manage new datasets by running Muse right after Curator. However, it's recommended to run Chisel first to ensure data quality.
 
