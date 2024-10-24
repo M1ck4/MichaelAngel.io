@@ -36,28 +36,28 @@ Muse is a powerful dataset creation and management tool designed to organize, la
 
 Muse is part of a comprehensive AI pipeline for creating ethical and high-quality datasets using Creative Commons images. The pipeline includes:
 
-### Curator: The Image Collector
+#### Curator: The Image Collector
 
    Curator downloads Creative Commons images from trusted APIs, collecting legally usable media.
    It manages metadata from the start, ensuring proper licensing and documentation are attached to every image.
 
-### FilmFrame: Frame Extraction for Creative Use
+#### FilmFrame: Frame Extraction for Creative Use
 
    FilmFrame extracts frames from Creative Commons-licensed movies, providing a rich resource for creative projects.
    It emphasizes proper attribution with automated metadata tagging, making it perfect for educational and non-profit projects.
 
-### Chisel: Image Preprocessing with Precision
+#### Chisel: Image Preprocessing with Precision
 
    Chisel refines your dataset by resizing images, removing blurriness, and ensuring all files meet quality standards.
    It standardizes images, so they’re ready for use without compromising ethical and legal standards.
 
-### Muse: The Dataset Creator & Manager
+#### Muse: The Dataset Creator & Manager
 
    Muse organizes, labels, and augments images, preparing them for AI training while preserving Creative Commons licenses.
    Every image’s metadata including attribution, author information, and license details are securely saved and traceable.
    Muse validates the dataset's legal compliance, automatically tagging images and creating structured databases for transparency.
 
-### MichaelAngelo: Creating with a Conscience
+#### MichaelAngelo: Creating with a Conscience
 
    Muse's dataset becomes the foundation for MichaelAngelo, our AI model that generates new images. This ensures that AI creations are built upon ethically sourced data, keeping legal and creative integrity    intact.
 
@@ -75,7 +75,7 @@ For quick dataset creation, Muse can be used directly after Curator to organize 
 
 1. **Clone the Repository**
 
-       git clone https://github.com/yourusername/muse.git
+       git clone https://github.com/M1ck4/muse.git
    
         cd muse
    
