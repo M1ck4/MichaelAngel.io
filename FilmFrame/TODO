@@ -3,4 +3,4 @@ Add functionality to upload extracted frames and metadata to online storage solu
 Provide configuration options for specifying storage credentials and target directories.
 Improve logging to capture more granular details about errors and warnings.
 Expand README.md and inline comments to include usage examples and explain each feature clearly.
-
+Transition from individual JSON metadata files to SQLite for storing all metadata. - configure others scripts
