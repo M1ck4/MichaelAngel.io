@@ -54,7 +54,7 @@ Muse is part of a comprehensive AI pipeline for creating ethical and high-qualit
 ### Muse: The Dataset Creator & Manager
 
    Muse organizes, labels, and augments images, preparing them for AI training while preserving Creative Commons licenses.
-   Every image’s metadata—including attribution, author information, and license details—is securely saved and traceable.
+   Every image’s metadata including attribution, author information, and license details are securely saved and traceable.
    Muse validates the dataset's legal compliance, automatically tagging images and creating structured databases for transparency.
 
 ### MichaelAngelo: Creating with a Conscience
