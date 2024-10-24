@@ -1,6 +1,7 @@
 Enhanced attribution extraction.
 Expanding supported images (TIFF, BMP, GIF, and RAW).
 Enhanc duplicate detection.
-Integrat Advanced License Handling (ALH) maintains compliance with licensing terms, safeguarding your project from potential legal issues.
+Integrat Advanced License Handling (ALH).
 Transition from individual JSON metadata files to SQLite for storing all metadata. - configure others scripts
 Enhance support for various Creative Commons licenses, open-source licenses.
+Documentation
