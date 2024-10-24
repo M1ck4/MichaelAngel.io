@@ -6,3 +6,4 @@ Reformat config file
 Expand Dictionary
 Transition from individual JSON metadata files to SQLite for storing all metadata. - configure others scripts
 Update Readme
+Add more API for more downloadable creative commons media recourses.
