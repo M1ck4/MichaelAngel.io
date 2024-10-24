@@ -37,7 +37,7 @@ email_settings:
   send_email: true
 
 search_terms:
-   #Environment:
+   #Environment search terms have been entered. Adjust these as necessary.
     - Waves
     - Coral
     - Sea
