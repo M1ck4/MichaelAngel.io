@@ -211,7 +211,8 @@ Example Configuration: Below is an example of what a configuration file (config.
     }
 
 Parameters Explained:
-    input_folder: The directory containing the images to be processed.
+
+    input_folder: The directory containing the images to be processed.    
     output_folder: The directory where processed images will be saved.
     resize: A boolean indicating whether to resize images, with width and height specifying the new dimensions.
     format: The desired format for the processed images (e.g., JPEG, PNG).
