@@ -164,32 +164,25 @@ To handle large datasets efficiently, Muse utilizes:
 
 Muse ensures your dataset is well-organized and balanced:
 
-Balanced Splits: Maintains representative distributions across training, validation, and test sets.
-
-Stratified Splitting: Preserves label distributions to prevent biases in model training.
-
-Incremental Updates: Facilitates easy updates and maintenance of the dataset as new images are added.
+      Balanced Splits: Maintains representative distributions across training, validation, and test sets.
+      Stratified Splitting: Preserves label distributions to prevent biases in model training.
+      Incremental Updates: Facilitates easy updates and maintenance of the dataset as new images are added.
 
 ### Analytics & Monitoring
 
 Muse provides valuable insights into your dataset:
 
-Dataset Analytics: Logs total images and label distributions for each split.
-
-Processing Logs: Detailed logs (muse_log.txt) record processing steps, errors, and augmentation details.
-
-Transparency: Records processing steps applied to each image for auditing and compliance.
+      Dataset Analytics: Logs total images and label distributions for each split.
+      Processing Logs: Detailed logs (muse_log.txt) record processing steps, errors, and augmentation details.
+      Transparency: Records processing steps applied to each image for auditing and compliance.
 
 ### Contributing
 
 Contributions are welcome! Please follow these steps to contribute:
 
-Fork the Repository
-
-Create a New Branch
-
-Make Your Changes
-
-Submit a Pull Request
+      Fork the Repository
+      Create a New Branch
+      Make Your Changes
+      Submit a Pull Request
 
 Please ensure that your code adheres to the project's coding standards and includes appropriate documentation.
