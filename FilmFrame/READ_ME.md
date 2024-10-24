@@ -21,7 +21,7 @@ FrameFilm is a Python-based tool for extracting frames from movies and collectin
 
 1. Clone this repository:
 
-       git clone https://github.com/yourusername/FilmFrame.git
+       git clone https://github.com/M1cKa/FilmFrame.git
 Navigate to the project directory:
 
     cd FilmFrame
