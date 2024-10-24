@@ -37,6 +37,18 @@ The dataset creator and manager, Muse organizes the preprocessed images into str
 #### MichaelAngelo .io 
 The main generative model, MichaelAngelo, is designed to create new images based on the datasets prepared by Muse. This tool embodies the culmination of our efforts to merge AI and art, allowing for innovative artistic expression.
 
+## On the drawing board
+
+We are dedicated to continuously enhancing our AI framework by exploring innovative tools and features. This section showcases potential programs that are currently under consideration. While these initiatives are still in the planning stages, we are investing time and resources to evaluate their feasibility and impact on ethical AI training and data management. Stay tuned as we develop and expand our suite to better support the creative and ethical goals of our community.
+
+#### ArtisanArchive
+ArtisanArchive is a data lineage tool that keeps a clear record of each image's journey through the AI pipeline from collection with Curator, through preprocessing with Chisel, to dataset management in Muse. It consolidates all metadata, license details, and author attributions into an easy to navigate database, ensuring transparency and accountability. ArtisanArchive guarantees that every image's origin and processing steps are traceable, supporting legal compliance and ethical AI development.
+
+#### StudioShield 
+StudioShield automates the verification and enforcement of license compliance, ensuring that all data in your datasets is ethically sourced and properly licensed. It automatically flags non-compliant images, generates detailed compliance reports, and quarantines unauthorized content, aligning your datasets with data protection laws and ethical standards.
+
+#### Scribe
+Scribe ensures that every tool within the MichaelAngelo.io framework is thoroughly documented, offering clear and comprehensive instructions for integration and usage. It provides an in-depth yet concise guide, complete with numerous examples, configurations, and settings, detailing the entire workflow of the project. This program facilitates easy onboarding for new users, promotes consistent application of tools, and supports the ethical and effective development of AI by making the framework accessible and understandable for everyone.
 
 ## Contribution Guidelines
 
