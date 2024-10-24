@@ -1,8 +1,8 @@
-# Chisel (IN DEVELOPMENT)
+# Chisel
 
 ## Overview
 
-Chisel is a robust and user-friendly image processing tool crafted to enhance, organize, and optimize your image collections effortlessly. Designed for a diverse range of users—from artists and photographers to educators and researchers—Chisel is an essential companion in any digital toolkit. With its seamless integration, powerful features, and intuitive interface, Chisel empowers you to elevate your visual content with precision and ease
+Chisel is a robust and user friendly image processing tool crafted to enhance, organize, and optimize your image collections effortlessly. Designed for a diverse range of users from artists and photographers to educators and researchers—Chisel is an essential companion in any digital toolkit. With its seamless integration, powerful features, and intuitive interface, Chisel empowers you to elevate your visual content with precision and ease
 
 ## Key Features
 
@@ -40,7 +40,7 @@ Chisel is a robust and user-friendly image processing tool crafted to enhance, o
 
 **Web Developers:** Improve website performance by optimizing images for faster load times while maintaining visual quality.
 
-**Marketing Professionals: Enhance visuals for branding campaigns, ensuring compliance with copyright and attribution requirements.
+**Marketing Professionals:** Enhance visuals for branding campaigns, ensuring compliance with copyright and attribution requirements.
 
 **Researchers and Scientists:** Process and analyze images from experiments, ensuring quality and adherence to publication standards.
 
