@@ -64,8 +64,6 @@ Muse is part of a comprehensive AI pipeline for creating ethical and high-qualit
 ### Alternate Workflow
 For quick dataset creation, Muse can be used directly after Curator to organize and manage images instantly. However, to ensure the highest data quality, running Chisel first is always recommended.
 
-- **Musing After Curator**: Quickly manage new datasets by running Muse right after Curator. However, it's recommended to run Chisel first to ensure data quality.
-
 ## Installation
 
 ### Prerequisites
