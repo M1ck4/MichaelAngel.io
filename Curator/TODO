@@ -4,3 +4,4 @@ Add more configuration options, max_workers for the thread pool and log_level fo
 clean-up function for partial downloads.
 Reformat config file
 Expand Dictionary
+Transition from individual JSON metadata files to SQLite for storing all metadata. - configure others scripts
