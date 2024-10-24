@@ -13,6 +13,7 @@ Added
     Email Notifications: Added the --email command-line option and email notification feature with a summary of download metrics.
     Custom Rate Limiter: Developed a SimpleRateLimiter class to handle API rate limits based on configurations.
     Detailed Logging: Enhanced logging messages for better traceability and debugging.
+    Reformated Config file for better useability add new logging directory feature.
 
 Changed
 
