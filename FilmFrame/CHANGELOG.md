@@ -13,14 +13,6 @@ All notable changes to this project will be documented in this file.
 
 - Removed standard library modules (`argparse`, `logging`, `smtplib`, `email`) from `requirements.txt`.
 
-
-## [1.2.0] - 2024-10-23
-
-### Added
-
-- Progress bar using `tqdm` to display operation progress.
-- Command-line option `--image-format` to specify output image formats (jpg, png, bmp, tiff).
-
 ### Changed
 
 - Updated frame saving logic to accommodate different image formats.
