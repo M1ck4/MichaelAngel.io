@@ -2,3 +2,4 @@ Improve error handling by providing more detailed messages or implementing speci
 Adjust the number of threads based on the API's response time.
 Add more configuration options, max_workers for the thread pool and log_level for logging.
 clean-up function for partial downloads.
+Reformat config file
