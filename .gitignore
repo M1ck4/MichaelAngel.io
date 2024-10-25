@@ -1,0 +1,118 @@
+# ================================================
+#          MichaelAngelo Project GitIgnore
+# ================================================
+
+# Byte-compiled / Optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Image cache / Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*.bak
+*.backup
+*.orig
+*.rej
+*.save
+
+# Log Files
+*.log
+logs/
+*_log.txt
+*.txt
+
+# Virtual Environment / Python Environment
+env/
+ENV/
+.venv/
+.ENV/
+venv/
+*.venv/
+*.env
+
+# Downloaded / Processed Images & Frames
+downloaded_images/
+processed_images/
+processed_flickr_images_abstract/
+processed_other_images/
+Frames/
+dataset/
+
+# Master Metadata & Global Metadata Files
+master_metadata.json
+global_metadata.json
+metadata.json
+*.yaml
+
+# Dataset Folders (Muse's Outputs)
+Muse_Dataset/
+output/
+exported_data/
+augmented_data/
+dataset/
+
+# IDE and Editor Settings (Keep your tools personal!)
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Backup and Miscellaneous Files (Unnecessary for the repository)
+*.bak
+*.swp
+*.temp
+*.save
+
+# OS Generated Files (Unnecessary clutter)
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+desktop.ini
+
+# IPython / Jupyter Notebook Settings
+.ipynb_checkpoints
+*.ipynb_checkpoints
+
+# Python Packaging / Build artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+*.whl
+*.wheel
+
+# C Extensions / Compiled Code
+*.so
+
+# Environment Variable Files (Keep secrets secret!)
+.env
+.env.*
+config.yaml  # Custom config with API keys or personal data
+
+# Test Reports / Coverage Reports
+*.cover
+*.py,cover
+.coverage
+.coverage.*
+*.egg
+*.tox/
+.nox/
+.pytest_cache/
+.tox/
+test-reports/
+
+# Project's Temp Files
+cache/
+tmp/
+temp/
+
+# File & Folder Attributes (Keep your creative touch)
+.svn/
+.git/
+.svn/
+
+# Preserve the beauty, Keep it clean!
