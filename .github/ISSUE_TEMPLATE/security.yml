@@ -1,0 +1,61 @@
+name: Security Vulnerability Report
+description: Report a security vulnerability to be addressed privately
+title: "[SECURITY] Vulnerability Report"
+labels: ["security"]
+categories: ["Security"]
+
+# Mark the form as private to ensure only repository collaborators can view and create these issues
+private: true
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Security Vulnerability Report
+
+        Thank you for helping to keep **MichaelAngel.io** secure. Please provide as much detail as possible to help us address the issue effectively.
+
+  - type: input
+    id: vulnerability_summary
+    attributes:
+      label: Vulnerability Summary
+      description: A brief summary of the vulnerability
+      placeholder: Describe the vulnerability in a few words
+    validations:
+      required: true
+
+  - type: textarea
+    id: vulnerability_details
+    attributes:
+      label: Detailed Description
+      description: Provide a detailed description of the vulnerability
+      placeholder: Include information such as how the vulnerability was discovered, potential impact, and any relevant references.
+    validations:
+      required: true
+
+  - type: input
+    id: affected_versions
+    attributes:
+      label: Affected Versions
+      description: Specify the versions of the project that are affected
+      placeholder: e.g., v1.2.3, v2.0.0-beta
+    validations:
+      required: true
+
+  - type: input
+    id: mitigation_steps
+    attributes:
+      label: Mitigation Steps
+      description: Describe any steps that can mitigate the vulnerability
+      placeholder: Provide any temporary fixes or workarounds
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional Context
+      description: Any other relevant information
+      placeholder: Add any other context or screenshots about the vulnerability here
+    validations:
+      required: false
