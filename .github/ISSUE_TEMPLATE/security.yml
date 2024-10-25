@@ -1,11 +1,7 @@
 name: Security Vulnerability Report
-description: Report a security vulnerability to be addressed privately
+description: Report a security vulnerability to help us improve MichaelAngel.io
 title: "[SECURITY] Vulnerability Report"
 labels: ["security"]
-categories: ["Security"]
-
-# Mark the form as private to ensure only repository collaborators can view and create these issues
-private: true
 
 body:
   - type: markdown
@@ -13,7 +9,7 @@ body:
       value: |
         ## Security Vulnerability Report
 
-        Thank you for helping to keep **MichaelAngel.io** secure. Please provide as much detail as possible to help us address the issue effectively.
+        Thank you for taking the time to report a security vulnerability in **MichaelAngel.io**. Please provide as much detail as possible to help us address the issue effectively.
 
   - type: input
     id: vulnerability_summary
