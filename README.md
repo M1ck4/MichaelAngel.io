@@ -46,8 +46,8 @@ In the era of AI-driven creativity, ethics form the cornerstone of our operation
 Our robust framework comprises a suite of specialized tools designed to streamline the creative pipeline, each contributing uniquely to the overall ecosystem:
 
 ---
+### [**Curator**](https://github.com/M1ck4/MichaelAngel.io/tree/main/Curator)
 
-### **Curator**
 
 **Curator** is a sophisticated downloader tool designed to collect Creative Commons images from a variety of trusted API sources. It ensures that all assets are legally sourced and meticulously organized for seamless use in creative projects.
 
@@ -62,7 +62,8 @@ Curator is perfect for artists, developers, and researchers who need a quick and
 
 ---
 
-###  **Chisel**
+### [**Chisel**](https://github.com/M1ck4/MichaelAngel.io/tree/main/Chisel)
+
 
 **Chisel** serves as the preprocessing powerhouse, filtering out low-quality images and preparing them for AI training. It's the critical step that ensures your dataset is both high-quality and ethically sound.
 
@@ -77,7 +78,8 @@ Chisel guarantees that your dataset is clean, organized, and legally compliant, 
 
 ---
 
-### **FilmFrame**
+### [**FilmFrame**](https://github.com/M1ck4/MichaelAngel.io/tree/main/FilmFrame)
+
 
 **FilmFrame** is a specialized tool that extracts still frames from Creative Commons licensed films, offering a unique visual database for artistic exploration and research.
 
@@ -92,7 +94,8 @@ FilmFrame makes it easy to ethically incorporate cinematic elements into creativ
 
 ---
 
-###  **Muse**
+### [**Muse**](https://github.com/M1ck4/MichaelAngel.io/tree/main/Muse)
+
 
 **Muse** is the dataset curator and manager, taking preprocessed images and organizing them into structured, legally compliant datasets for AI training. It’s a cornerstone of the MichaelAngel.io pipeline, ensuring every image is prepared and attributed correctly.
 
