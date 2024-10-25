@@ -19,8 +19,7 @@ Thank you for your interest in helping to improve the security of **MichaelAngel
 
 ### How to Report
 
-Please report any security vulnerabilities by using:
-[Advisors](https://github.com/M1ck4/MichaelAngel.io/security/advisories) or our [Security Vulnerability Report](https://github.com/M1ck4/MichaelAngel.io/blob/main/.github/ISSUE_TEMPLATE/security.yml) form. 
+Please report any security vulnerabilities by using [Advisors](https://github.com/M1ck4/MichaelAngel.io/security/advisories).
 This ensures that your report is handled confidentially and promptly.
 
 To help us address the issue effectively, please include the following information in your report:
