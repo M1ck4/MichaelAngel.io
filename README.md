@@ -5,13 +5,13 @@
 [![Clone](https://img.shields.io/badge/Clone-GitHub-blue?logo=github&style=flat-square)](https://github.com/M1ck4/MichaelAngel.io.git)
 [![GitHub issues](https://img.shields.io/github/issues/M1ck4/MichaelAngel.io.svg)](https://github.com/M1ck4/MichaelAngel.io/issues)
 
-</div>
-
 **MichaelAngel.io** is a visionary project dedicated to merging the realms of generative AI and artistic expression. Our mission is to empower artists with innovative tools that inspire creativity while championing transparency and ethical practices in the digital landscape.
 
 ---
 
 ## Welcome to MichaelAngel.io
+
+</div>
 
 Welcome to **MichaelAngel.io**, a pioneering initiative that blends the transformative power of generative AI with the boundless realms of artistic and creative expression. Our mission is to empower creators across disciplines with tools that not only enhance the creative process but also uphold the highest standards of transparency, ethical practices, and legal integrity.
 
@@ -33,7 +33,7 @@ We believe that every artist deserves recognition and protection for their work.
 
 ---
 
-## 🛡Ethical Practices
+## Ethical Practices
 
 In the era of AI-driven creativity, ethics form the cornerstone of our operations. **MichaelAngel.io** is built on the following ethical pillars:
 
@@ -43,7 +43,7 @@ In the era of AI-driven creativity, ethics form the cornerstone of our operation
 
 - **Community Empowerment:** By fostering an inclusive and diverse environment, we invite creators from all backgrounds to engage, collaborate, and contribute, ensuring that our platform serves as a hub for collective innovation.
 
-- **⚖Legal Integrity:** We adhere strictly to legal standards concerning copyright and data protection, ensuring that all generated content respects intellectual property laws and ethical norms.
+- **Legal Integrity:** We adhere strictly to legal standards concerning copyright and data protection, ensuring that all generated content respects intellectual property laws and ethical norms.
 
 ---
 
@@ -115,16 +115,7 @@ Muse simplifies the dataset preparation process while ensuring that all images a
 
 ### **MichaelAngelo.io**
 
-The flagship generative model, **MichaelAngelo**, synthesizes new images based on datasets curated by **Muse**. This model epitomizes our commitment to merging AI with artistic vision, enabling the creation of innovative and ethically sound visual content.
-
-#### **Key Features:**
-- **High-Quality Image Synthesis:** Generates new visuals using advanced deep learning techniques, leveraging the carefully curated datasets.
-- **Style Variety:** Offers flexibility in creative output, generating images in a range of styles—from photorealistic to abstract.
-- **Ethical Generation:** Ensures that every output image respects the Creative Commons licenses of its source materials, embedding attribution data where needed.
-- **User-Friendly Interface:** Provides an intuitive platform for artists and developers, making it accessible for both beginners and professionals.
-
-**Why Use It?**  
-MichaelAngelo empowers artists, game developers, and creators to explore the potential of AI-generated visuals without sacrificing ethical considerations. It opens up a world of creative possibilities while adhering to rigorous standards of artistic integrity.
+The flagship generative model, **MichaelAngelo** will synthesize new images based on datasets curated by **Muse**. This model epitomizes our commitment to merging AI with artistic vision, enabling the creation of innovative and ethically sound visual content.
 
 ---
 
@@ -155,11 +146,8 @@ We are dedicated to continuously enhancing our AI framework by exploring innovat
 We welcome everyone to be a part of **MichaelAngel.io**! If you're passionate about contributing, here’s how you can get involved:
 
 1. **Fork the Repository**
-   ```bash
-   git clone https://github.com/M1ck4/MichaelAngel.io.git
 
-  
-## Contribution Guidelines
+        git clone https://github.com/M1ck4/MichaelAngel.io.git
 
 </div>
 
