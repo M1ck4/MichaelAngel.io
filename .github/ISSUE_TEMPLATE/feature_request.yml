@@ -1,0 +1,60 @@
+name: Feature Request
+description: Suggest a feature or enhancement for MichaelAngel.io
+title: "[Feature] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for your interest in improving MichaelAngel.io! Please provide the following details to help us understand your feature request.
+
+  - type: input
+    id: title
+    attributes:
+      label: Feature Title
+      description: A short title for your feature request
+      placeholder: Describe the feature in a few words
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: A detailed description of the feature
+      placeholder: Provide a detailed explanation of the feature you are proposing
+    validations:
+      required: true
+
+  - type: input
+    id: use_case
+    attributes:
+      label: Use Case
+      description: How will this feature be used?
+      placeholder: Describe how you or others will use this feature
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: How important is this feature?
+      options:
+        - label: Low
+          value: low
+        - label: Medium
+          value: medium
+        - label: High
+          value: high
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional_details
+    attributes:
+      label: Additional Details
+      description: Any other relevant information
+      placeholder: Add any other context or screenshots about the feature request here
+    validations:
+      required: false
