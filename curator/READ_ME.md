@@ -116,27 +116,14 @@ The script tracks various metrics during the download process, including:
     Time spent on each API
 
 
-Contributing
+<div align="center">
 
-Contributions are welcome! If you would like to contribute to this project, please fork the repository and submit a pull request.
+## Contact
 
+For questions, suggestions, or collaboration opportunities, feel free to reach out:
 
-License
+[![Facebook](https://img.shields.io/badge/Facebook-4267B2?logo=facebook&logoColor=white&style=for-the-badge)](https://www.facebook.com/profile.php?id=61566307182551)  [![Email](https://img.shields.io/badge/Email-Contact%20Us-blue?style=for-the-badge&logo=gmail&logoColor=white)](mailto:michaelangelo_io@protonmail.com)  
 
-This project is licensed under the **Creative Commons Non-Commercial License**. You may copy and redistribute the material in any medium or format, adapt, remix, transform, and build upon the material for non-commercial purposes only. You must give appropriate credit, provide a link to the license, and indicate if changes were made.
+[![GitHub Profile](https://img.shields.io/badge/GitHub-Profile-181717?logo=github&logoColor=white&style=for-the-badge)](https://github.com/M1ck4)
 
-For more details, please refer to the [Creative Commons Attribution-NonCommercial 4.0 International License](https://creativecommons.org/licenses/by-nc/4.0/).
-
-
-For any inquiries or issues, please contact the developer
-Acknowledgments
-
-Thanks to the developers of the API services used in this project for providing access to their resources.
-
-Pixabay: https://pixabay.com/
-
-Unsplash: https://unsplash.com/
-
-Pexels: https://www.pexels.com/
-
-Flickr: https://www.flickr.com/
+</div>
