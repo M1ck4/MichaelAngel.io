@@ -1,8 +1,45 @@
 <div align="center">
 
-# Attribution Guidelines for MichaelAngel.io
+# Attribution for [MichaelAngel.io]
 
 </div>
+
+## Project Overview
+
+This project uses Creative Commons licensed content, various API resources, and open-source tools to ensure ethical AI development.
+
+## Attribution to API Websites
+
+The following API websites were used to source content, data, or media:
+
+- **Pixabay API**: [Pixabay](https://pixabay.com/api/docs/) - Free stock images and videos.
+- **Unsplash API**: [Unsplash](https://unsplash.com/developers) - High-resolution photography.
+- **Pexels API**: [Pexels](https://www.pexels.com/api/) - Free stock photos and videos.
+- **Flickr API**: [Flickr](https://www.flickr.com/services/api/) - Image hosting and sharing.
+
+Content accessed through these APIs is subject to the terms and licenses provided by each platform.
+
+## Creative Commons Attribution
+
+This project respects Creative Commons licensing. Images, videos, and other media are sourced following the Creative Commons guidelines:
+
+- Creative Commons Attribution (CC BY): Proper credit has been given to the creators as required by their licenses.
+- Creative Commons Attribution-NonCommercial-ShareAlike (CC BY-NC-SA): This license has been adhered to when modifying or sharing Creative Commons media.
+
+For more information, please refer to the [Creative Commons License Overview](https://creativecommons.org/licenses/).
+
+## Tools and Open-Source Projects
+
+The following open-source tools and libraries were used in the development of this project:
+
+- **Pillow**: Image processing library. [Pillow GitHub](https://github.com/python-pillow/Pillow)
+- **OpenCV**: Open-source computer vision and machine learning software library. [OpenCV GitHub](https://github.com/opencv/opencv)
+- **Requests**: HTTP library for Python. [Requests GitHub](https://github.com/psf/requests)
+- **SQLAlchemy**: Database toolkit and ORM. [SQLAlchemy GitHub](https://github.com/sqlalchemy/sqlalchemy)
+
+## Disclaimer
+
+No warranties are given. This project follows ethical guidelines for Creative Commons content, API usage, and open-source contributions. See the relevant licenses for each component for more details.
 
 ## How to Attribute
 
