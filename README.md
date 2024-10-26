@@ -2,7 +2,7 @@
   
 ![Project Banner](https://github.com/M1ck4/MichaelAngel.io/blob/main/Assets/banner4.jpg)
 
-[![Creative Commons License](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey?style=for-the-badge&logo=creative-commons&logoColor=white)]([https://creativecommons.org/licenses/by-sa/4.0/](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en))  [![Open Source](https://img.shields.io/badge/Open%20Source-Yes-brightgreen.svg?style=for-the-badge&logo=opensourceinitiative&logoColor=white)](https://opensource.org/licenses)  [![License Compliance](https://img.shields.io/badge/License-Compliant-brightgreen?style=for-the-badge&logo=checkmarx&logoColor=white)](https://github.com/M1ck4/MichaelAngel.io/blob/main/LICENSE.md)
+[![Creative Commons License](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey?style=for-the-badge&logo=creative-commons&logoColor=white)](https://creativecommons.org/licenses/by-nc-sa/4.0/)  [![Open Source](https://img.shields.io/badge/Open%20Source-Yes-brightgreen.svg?style=for-the-badge&logo=opensourceinitiative&logoColor=white)](https://opensource.org/licenses)  [![License Compliance](https://img.shields.io/badge/License-Compliant-brightgreen?style=for-the-badge&logo=checkmarx&logoColor=white)](https://github.com/M1ck4/MichaelAngel.io/blob/main/LICENSE.md)
 
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/m/M1ck4/MichaelAngel.io.svg?style=flat-square)](https://github.com/M1ck4/MichaelAngel.io/commits/main)
 [![Last Commit](https://img.shields.io/github/last-commit/M1ck4/MichaelAngel.io.svg?style=flat-square)](https://github.com/M1ck4/MichaelAngel.io/commits/main)
