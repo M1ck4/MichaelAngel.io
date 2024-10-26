@@ -184,13 +184,14 @@ Muse provides valuable insights into your dataset:
       Processing Logs: Detailed logs (muse_log.txt) record processing steps, errors, and augmentation details.
       Transparency: Records processing steps applied to each image for auditing and compliance.
 
-### Contributing
+<div align="center">
 
-Contributions are welcome! Please follow these steps to contribute:
+## Contact
 
-      Fork the Repository
-      Create a New Branch
-      Make Your Changes
-      Submit a Pull Request
+For questions, suggestions, or collaboration opportunities, feel free to reach out:
 
-Please ensure that your code adheres to the project's coding standards and includes appropriate documentation.
+[![Facebook](https://img.shields.io/badge/Facebook-4267B2?logo=facebook&logoColor=white&style=for-the-badge)](https://www.facebook.com/profile.php?id=61566307182551)  [![Email](https://img.shields.io/badge/Email-Contact%20Us-blue?style=for-the-badge&logo=gmail&logoColor=white)](mailto:michaelangelo_io@protonmail.com)  
+
+[![GitHub Profile](https://img.shields.io/badge/GitHub-Profile-181717?logo=github&logoColor=white&style=for-the-badge)](https://github.com/M1ck4)
+
+</div>
