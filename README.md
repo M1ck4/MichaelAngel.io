@@ -10,8 +10,6 @@
 [![Clone](https://img.shields.io/badge/Clone-GitHub-blue?logo=github&style=flat-square)](https://github.com/M1ck4/MichaelAngel.io.git)
 [![Fork](https://img.shields.io/badge/Fork-GitHub-blue?logo=github&style=flat-square)](https://github.com/M1ck4/MichaelAngel.io/fork)
 
-
-
 **MichaelAngel.io** is a visionary project dedicated to merging the realms of generative AI with human expression, ideas, and information. Our mission is to empower artists, researchers, educators, developers, and other creative professionals with innovative tools that inspire creativity while championing transparency and ethical practices in the digital landscape. Whether you're an educator enhancing your curriculum with AI-generated visuals, a developer integrating creative AI solutions into applications, MichaelAngel.io will create a powerful environment while upholding the highest standards of intellectual property rights.
 
 </div>
@@ -53,10 +51,17 @@ In the era of AI-driven creativity, ethics form the cornerstone of our operation
 Our robust framework comprises a suite of specialized tools designed to streamline the creative pipeline, each contributing uniquely to the overall ecosystem:
 
 ---
-### [**Curator**](https://github.com/M1ck4/MichaelAngel.io/tree/main/Curator)
 
+<div align="center"> 
+  
+[![Clone Curator](https://img.shields.io/badge/Clone%20Curator-%231e90ff?style=for-the-badge&logo=archive)](https://github.com/M1ck4/MichaelAngel.io/tree/main/curator)
+[![Curator README](https://img.shields.io/badge/Curator%20README-%23555555?style=for-the-badge&logo=readme)](https://github.com/M1ck4/MichaelAngel.io/blob/main/curator/READ_ME.md)
 
-**Curator** is a sophisticated downloader tool designed to collect Creative Commons images from a variety of trusted API sources. It ensures that all assets are legally sourced and meticulously organized for seamless use in creative projects.
+### curator 
+
+**curator** is a sophisticated downloader tool designed to collect Creative Commons images from a variety of trusted API sources. It ensures that all assets are legally sourced and meticulously organized for seamless use in creative projects.
+
+</div>
 
 #### **Key Features:**
 - **Multi-Source Collection:** Aggregates images from multiple Creative Commons platforms like Unsplash, Pixabay, and Flickr, offering a diverse selection of content.
@@ -69,10 +74,16 @@ Curator is perfect for artists, developers, and researchers who need a quick and
 
 ---
 
-### [**Chisel**](https://github.com/M1ck4/MichaelAngel.io/tree/main/Chisel)
+<div align="center">
 
+[![Clone Chisel](https://img.shields.io/badge/Clone%20Chisel-%231e90ff?style=for-the-badge&logo=hammer)](https://github.com/M1ck4/MichaelAngel.io/tree/main/chisel)
+[![Chisel README](https://img.shields.io/badge/Chisel%20README-%23555555?style=for-the-badge&logo=readme)](https://github.com/M1ck4/MichaelAngel.io/blob/main/chisel/README.md)
 
-**Chisel** serves as the preprocessing powerhouse, filtering out low-quality images and preparing them for AI training. It's the critical step that ensures your dataset is both high-quality and ethically sound.
+### chisel
+
+**chisel** serves as the preprocessing powerhouse, filtering out low-quality images and preparing them for AI training. It's the critical step that ensures your dataset is both high-quality and ethically sound.
+
+</div>
 
 #### **Key Features:**
 - **Quality Control:** Automatically detects and removes duplicates or low-quality visuals, refining the dataset.
@@ -85,10 +96,16 @@ Chisel guarantees that your dataset is clean, organized, and legally compliant, 
 
 ---
 
-### [**FilmFrame**](https://github.com/M1ck4/MichaelAngel.io/tree/main/FilmFrame)
+<div align="center"> 
 
+[![Clone FilmFrame](https://img.shields.io/badge/Clone%20FilmFrame-%231e90ff?style=for-the-badge&logo=film)](https://github.com/M1ck4/MichaelAngel.io/tree/main/filmframe)
+[![FilmFrame README](https://img.shields.io/badge/FilmFrame%20README-%23555555?style=for-the-badge&logo=readme)](https://github.com/M1ck4/MichaelAngel.io/blob/main/filmframe/READ_ME.md)
+
+### filmframe
 
 **FilmFrame** is a specialized tool that extracts still frames from Creative Commons licensed films, offering a unique visual database for artistic exploration and research.
+
+</div>
 
 #### **Key Features:**
 - **Precise Frame Extraction:** Captures high-quality frames from Creative Commons movies, building a legally sourced database of cinematic stills.
@@ -101,10 +118,16 @@ FilmFrame makes it easy to ethically incorporate cinematic elements into creativ
 
 ---
 
-### [**Muse**](https://github.com/M1ck4/MichaelAngel.io/tree/main/Muse)
+<div align="center">
+  
+[![Clone Muse](https://img.shields.io/badge/Clone%20Muse-%231e90ff?style=for-the-badge&logo=palette)](https://github.com/M1ck4/MichaelAngel.io/tree/main/muse)
+[![Muse README](https://img.shields.io/badge/Muse%20README-%23555555?style=for-the-badge&logo=readme)](https://github.com/M1ck4/MichaelAngel.io/blob/main/muse/READ_ME.md)
 
+### muse
 
 **Muse** is the dataset curator and manager, taking preprocessed images and organizing them into structured, legally compliant datasets for AI training. It’s a cornerstone of the MichaelAngel.io pipeline, ensuring every image is prepared and attributed correctly.
+
+</div>
 
 #### **Key Features:**
 - **Dataset Organization:** Splits datasets into training, validation, and testing subsets, providing a solid foundation for AI development.
@@ -141,53 +164,50 @@ We are dedicated to continuously enhancing our AI framework by exploring innovat
 
 ### **Scribe**
 
-**Scribe** ensures that every tool within the **MichaelAngel.io** framework is thoroughly documented, offering clear and comprehensive instructions for integration and usage. It provides an in-depth yet concise guide, complete with numerous examples, configurations, and settings, detailing the entire workflow of the project. This program facilitates easy onboarding for new users, promotes consistent application of tools, and supports the ethical and effective development of AI by making the framework accessible and understandable for everyone.
+**Scribe** ensures that every tool within the **MichaelAngel.io** framework is thoroughly documented, offering clear and comprehensive instructions for integration and usage. It provides an in-depth yet concise guide, complete with numerous examples, configurations, and settings, detailing the entire workflow of the project. This program facilitates easy onboarding for new users, promotes consistent application of tools, and supports the ethical and effective development of AI by making the framework accessible and understandable for everyone. 
 
 ---
 
-## Contribution Guidelines
+###  Special Thanks
 
-</div>
+A big **Thank You** to everyone involved in making **MichaelAngel.io** a reality. Your support, whether through feedback, contributions, or inspiration, has been instrumental in our journey.
 
-We welcome everyone to be a part of **MichaelAngel.io**! If you're passionate about contributing, here’s how you can get involved:
+---
 
- **Fork the Repository**
- 
-     git clone https://github.com/M1ck4/MichaelAngel.io.git
+### FAQ 
 
-**Create a New Branch**
+Whether you're new to **MichaelAngel.io** or looking to deepen your understanding, our FAQ has answers to the most common questions. 
 
-    git checkout -b feature/your-feature-name
+Explore the FAQ to:
 
-**Commit Your Changes**
+- **Get Started:** Learn how to set up and navigate the platform.
+- **Understand Licensing:** Find detailed information about our Creative Commons licenses.
+- **Contribute:** Discover how you can contribute to the project.
 
-    git commit -m "Add feature X"
+[![View FAQ](https://img.shields.io/badge/View-FAQ-blue?style=for-the-badge&logo=question)](./docs/FAQ.md)
 
-**Push to the Branch and Submit a Pull Request**
-
-    git push origin feature/your-feature-name
-
-Please ensure that your contributions align with our values of transparency and respect for the artistic community. Together, we can create a platform that benefits all.
-
-<div align="center">
-
+---
+  
 ## Bug Reporting 
 
+Encounter a bug or issue? Please report it through: 
 
-Encounter a bug or issue? Please report it through our[GitHub Security Advisories](https://github.com/M1ck4/MichaelAngel.io/security/advisories), our [Email](mailto:michaelangelo_io@protonmail.com), or by using the [Bug Report](https://github.com/M1ck4/MichaelAngel.io/blob/main/.github/ISSUE_TEMPLATE/2-feature_request.yml) to provide detailed information, which helps us address the problem efficiently.
+-  [GitHub Security Advisories](https://github.com/M1ck4/MichaelAngel.io/security/advisories)
+-  [Email](mailto:michaelangelo_io@protonmail.com)
+-  [Bug Report](https://github.com/M1ck4/MichaelAngel.io/blob/main/.github/ISSUE_TEMPLATE/2-feature_request.yml)
 
 <div align="center">
+
+---
 
 ## Contact
 
 For questions, suggestions, or collaboration opportunities, feel free to reach out:
 
-[![Facebook](https://img.shields.io/badge/Facebook-4267B2?logo=facebook&logoColor=white&style=for-the-badge)](https://www.facebook.com/profile.php?id=61566307182551)  [![Email](https://img.shields.io/badge/Email-Contact%20Us-blue?style=for-the-badge&logo=gmail&logoColor=white)](mailto:michaelangelo_io@protonmail.com)  
-
-[![GitHub Profile](https://img.shields.io/badge/GitHub-Profile-181717?logo=github&logoColor=white&style=for-the-badge)](https://github.com/M1ck4)
+[![Facebook](https://img.shields.io/badge/Facebook-4267B2?logo=facebook&logoColor=white&style=for-the-badge)](https://www.facebook.com/profile.php?id=61566307182551)  [![Email](https://img.shields.io/badge/Email-Contact%20Us-blue?style=for-the-badge&logo=gmail&logoColor=white)](mailto:michaelangelo_io@protonmail.com) 
 
 ---
 
-[![Visitor Count](https://profile-counter.glitch.me/M1ck4/count.svg)](https://github.com/M1ck4/MichaelAngel.io)
-
+[![Clone](https://img.shields.io/badge/Clone-GitHub-blue?logo=github&style=flat-square)](https://github.com/M1ck4/MichaelAngel.io.git)
+[![Fork](https://img.shields.io/badge/Fork-GitHub-blue?logo=github&style=flat-square)](https://github.com/M1ck4/MichaelAngel.io/fork)
 </div>
