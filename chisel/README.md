@@ -1,240 +1,356 @@
 # Chisel
 
+Chisel is a powerful preprocessing tool designed to enhance image datasets by filtering out low-quality images and preparing them for AI training. It ensures that your dataset is both high-quality and ethically sound, streamlining the workflow for artists, developers, and researchers.
+Table of Contents
+
 ## Overview
 
-Chisel is a robust and user friendly image processing tool crafted to enhance, organize, and optimize your image collections effortlessly. Designed for a diverse range of users from artists and photographers to educators and researchers—Chisel is an essential companion in any digital toolkit. With its seamless integration, powerful features, and intuitive interface, Chisel empowers you to elevate your visual content with precision and ease
+Chisel serves as the preprocessing powerhouse within the MichaelAngel.io pipeline. Its primary function is to filter out low-quality images and prepare them for AI training by performing the following tasks:
 
-## Key Features
+-    Quality Control: Removes duplicates and low-quality images based on size and blurriness.
+-    Consistent Resizing: Ensures all images meet specified dimensions for uniformity.
+-    Metadata Preservation: Retains essential metadata and attribution information.
+-    Batch Processing: Efficiently handles large volumes of images using parallel processing.
 
-**Image Enhancement:** Transform your images with advanced filters that boost quality. Adjust brightness, contrast, saturation, and sharpness to create stunning visuals that captivate your audience.
+By automating these critical preprocessing steps, Chisel ensures that your image datasets are clean, organized, and ready for AI-driven creative projects.
 
-**Batch Processing:** Save valuable time by processing multiple images simultaneously. Whether you’re working on a large project or simply need to enhance a collection, Chisel makes it efficient.
+## Features
 
-**Format Conversion:**  Easily convert images between popular formats (JPEG, PNG, GIF, etc.) to fit your project needs. Chisel ensures compatibility across various applications.
-
-**Image Resizing:**  Maintain aspect ratios while resizing images to prepare them for specific use cases. Perfect for optimizing images for social media, print, or web use.
-
-**Metadata Management:**  Edit and manage image metadata for improved organization and searchability, ensuring that you keep track of copyright and attribution details.
-
-**Custom Filters:**  Harness the power of Python to create and apply your own filters, allowing for unique image transformations tailored to your artistic vision.
-
-**Error Handling and Logging:**  Comprehensive error handling provides clear feedback on processing issues, while logging keeps you informed about each step taken.
-
-**Attribution Compliance:**  Automatically generate attribution text files for Creative Commons images, ensuring you remain compliant with usage rights effortlessly.
-
-**Documentation and Support:**  Access detailed documentation and a supportive community ready to assist you in maximizing Chisel’s potential.
-
-## Who Will Use Chisel
-
-**Texture Artists:** Easily resize textures, apply color correction, and create consistent texture variants.
-
-**Photographers:** Enhance and organize collections for stunning portfolio presentations.
-
-**Graphic Designers:** Utilize Chisel's processing capabilities for creative projects, such as marketing materials and digital art.
-
-**Digital Artists:** Apply custom filters and effects to enhance artwork, achieving unique styles that stand out.
-
-**Social Media Managers:** Optimize images to ensure high-quality visuals that meet platform-specific requirements.
-
-**Filmmakers and Video Editors:** Process still images for storyboarding or promotional materials.
-
-**Web Developers:** Improve website performance by optimizing images for faster load times while maintaining visual quality.
-
-**Marketing Professionals:** Enhance visuals for branding campaigns, ensuring compliance with copyright and attribution requirements.
-
-**Researchers and Scientists:** Process and analyze images from experiments, ensuring quality and adherence to publication standards.
+-    Automated Quality Checks: Filters images based on size and blurriness to maintain high dataset quality.
+-    Metadata Extraction: Extracts and preserves EXIF metadata for comprehensive dataset information.
+-    Duplicate Detection: Identifies and removes duplicate images using content hashing.
+-    Image Enhancement: Enhances image properties such as brightness, contrast, color, and sharpness.
+-    Flexible Output Formats: Supports saving processed images in JPEG, PNG, or NumPy array formats.
+-    Efficient Processing: Utilizes parallel processing to handle large datasets swiftly.
+-    Comprehensive Logging: Logs all preprocessing activities for transparency and troubleshooting.
 
 ## Installation
 
-To install Chisel.py, follow these steps:
+### Prerequisites
 
-Clone the repository:
+-    Python 3.8+
+-    Git
+
+### Clone the Repository
 
     git clone https://github.com/M1ck4/MichaelAngel.io.git
 
-Navigate to the project directory:
+### Navigate to the Chisel Directory
 
-    cd MichaelAngel.io
+    cd MichaelAngel.io/chisel
 
-Install the required dependencies using the requirements file:
+### Create a Virtual Environment (Optional but Recommended)
+
+    python -m venv venv
+    source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+### Install Dependencies
+
+Ensure you have pip installed, then run:
 
     pip install -r requirements.txt
 
+If you encounter issues with specific packages, ensure you have the necessary system libraries installed, especially for opencv-python.
+
 ## Usage
 
-The very basic use of chisel is:
+Chisel can be executed via the command line with various arguments to customize its behavior.
+Command-Line Arguments
 
-    python chisel.py --input_folder /path/to/input_folder --output_folder /path/to/output_folder
+    python Chisel.py --image_folder <input_folder> --output_folder <output_folder> [options]
 
-Chisel has pretermined defaults and when only the input folder and output folder is given defualts are applied.
+### Required Arguments
 
-## Predefined Defaults in Chisel
+-    image_folder: Path to the input folder containing images to be processed.
+-    output_folder: Path to the output folder where processed images and metadata will be saved.
 
-Chisel comes with sensible defaults to ensure a smooth user experience right out of the box. Below are the predefined default settings for various parameters in the application:
+### Optional Arguments
 
-Input Folder:            
+-    target_size: Target size for image resizing in the format width height. Default is 256 256.
+-    output_format: Output format for processed images. Choices are JPEG, PNG, numpy. Default is JPEG.
+-    min_size: Minimum size (in pixels) for image quality. Images smaller than this will be excluded. Default is 128.
+-    blur_threshold: Blur threshold for image quality check. Images with blurriness below this threshold will be excluded. Default is 100.0.
+-    enhancement_factors: Enhancement factors for brightness, contrast, color, and sharpness in the format brightness contrast color sharpness. Default is 1.0 1.0 1.0 1.0.
+-    quality: Quality for JPEG output (1-100). Default is 85.
 
-    Default: ./input
-This is the folder where Chisel looks for images to process if no input folder is specified.
+## Example Usages
 
-Output Folder:
+**Chisel** offers flexibility through various command-line arguments, allowing you to tailor the preprocessing pipeline to your specific needs. Below are several example usages, ranging from basic to complex scenarios.
 
-    Default: ./processed
-This is the destination folder for processed images. If the folder does not exist, Chisel will create it automatically.
+---
 
-Image Format:
+### Process images using default settings.
 
-    Default: JPEG
-This is the default format in which processed images will be saved. Supported formats include JPEG, PNG, and TIFF.
+    python Chisel.py --image_folder ./raw_images --output_folder ./processed_images
 
-Resize:
-    
-    Default: false
-Images will not be resized unless specified. To enable resizing, you must provide width and height in the command.
+This command processes images from ./raw_images, resizes them to 512x512, saves them in PNG format, excludes images smaller than 150 pixels or with a blur variance below 
+120.0, enhances brightness by 1.2, contrast by 1.1, color by 1.3, leaves sharpness unchanged, and sets JPEG quality to 90.
 
+Description:
+This command processes all images in the ./raw_images directory and saves the processed images and metadata to the ./processed_images directory using default settings:
 
-Resize Dimensions (when enabled):
+-    Resizing: Images are resized to 256x256 pixels.
+-    Output Format: JPEG.
+-    Minimum Size: 128 pixels.
+-    Blur Threshold: 100.0.
+-    Enhancement Factors: Brightness, contrast, color, and sharpness are set to 1.0 (no change).
+-    JPEG Quality: 85.
 
-    Default Width: 800
-    Default Height: 600
-These dimensions apply if resizing is enabled.
+---
 
+### Specifying Output Format
 
-Quality:
+Save processed images in PNG format instead of the default JPEG.
 
-    Default: 85
-This setting determines the quality of the processed images on a scale of 0 to 100. A higher number results in better quality at the cost of larger file size.
+    python Chisel.py --image_folder ./raw_images --output_folder ./processed_images --output_format PNG
 
+Description:
+In addition to the basic processing, this command saves the processed images in PNG format, which is lossless and supports transparency.
 
-Overwrite:
+-    Outful format: PNG
 
-    Default: false
-Chisel will not overwrite existing files in the output folder by default. You must specify the --overwrite flag to allow overwriting.
-To use Chisel with the many options it has, run the following command in your terminal:
+---
 
-    python chisel.py --help
+### Adjusting Image Size
 
-This command will display a list of available options and how to use them. Each feature is designed with user-friendliness in mind, guiding you through the process of enhancing and organizing your images.
+Resize images to custom dimensions.
 
-## Command Line Interface (CLI) Help
+    python Chisel.py --image_folder ./raw_images --output_folder ./processed_images --target_size 512 512
 
-Chisel comes equipped with a user-friendly command line interface that provides easy access to its powerful features. You can view the available commands and options by running:
+Description:
+This command resizes all images to 512x512 pixels, allowing for larger images in the processed dataset.
 
-    python chisel.py --help
+-    Resizing: 512x512 pixels.
 
-When you run the --help command, you'll see the following key options and features that Chisel offers:
-Basic Commands
+---
 
-    --input or -i: 
-Specify the input directory containing the images you want to preprocess. This option allows you to easily point Chisel to the source images you wish to enhance.
+### Enhancing Image Properties
 
-    --output or -o: 
-Define the output directory where the processed images will be saved. This helps you maintain an organized workflow and ensures that your original images remain untouched.
+Enhance brightness and contrast of images.
 
-Preprocessing Options
+    python Chisel.py --image_folder ./raw_images --output_folder ./processed_images --enhancement_factors 1.2 1.1 1.0 1.0
 
-    --resize
-Resize images to specified dimensions. This feature is perfect for optimizing images for different platforms or print sizes without losing quality.
+Description:
+This command adjusts the brightness and contrast of the images:
 
-    --crop 
-Crop images to focus on the essential elements. This can help improve composition and remove unnecessary background noise from images.
+-    Brightness: Increased by a factor of 1.2.
+-    Contrast: Increased by a factor of 1.1.
+-    Color & Sharpness: Remain unchanged (1.0).
 
-    --enhance
-Apply various enhancement filters to improve image quality. This option includes sharpening, brightness adjustment, and contrast enhancement, ensuring your images look their best.
+---
 
-    --format or -f
-Convert images to different formats (e.g., JPG, PNG, BMP). This feature ensures compatibility with various applications and platforms.
+### Combining Multiple Options
 
-Batch Processing
+Perform advanced preprocessing with custom settings.
 
-    --batch
-Process multiple images in a single command. This feature saves time and increases efficiency when working with large datasets or collections of images.
+    python Chisel.py \
+      --image_folder ./raw_images \
+      --output_folder ./processed_images \
+      --target_size 512 512 \
+      --output_format numpy \
+      --min_size 150 \
+      --blur_threshold 120.0 \
+      --enhancement_factors 1.2 1.1 1.3 1.0 \
+      --quality 90
 
-Metadata Management
+Description:
+This comprehensive command performs multiple preprocessing steps to ensure a high-quality and well-organized dataset:
 
-    --metadata
-Include metadata preservation options to keep track of the original image data. This is crucial for photographers and artists who need to maintain copyright and attribution information.
+-    Resizing: 512x512 pixels.
+-    Output Format: NumPy arrays (numpy), suitable for AI training.
+-    Minimum Size: Excludes images smaller than 150 pixels.
+-    Blur Threshold: Excludes images with blur variance below 120.0.
+Enhancements:
+  -    Brightness: Increased by 1.2.
+    -     Contrast: Increased by 1.1.
+    -    Color: Increased by 1.3.
+    -    Sharpness: Unchanged (1.0).
+    -    JPEG Quality: 90 (applicable if output format is JPEG).
 
-Preview and Logging
+This combination ensures that only high-quality, well-enhanced images are included in the final dataset, saved in a format suitable for AI training.
 
-    --preview
-Generate a preview of the processed images before saving. This allows you to make quick adjustments and ensures satisfaction with the final output.
+## Configuration
 
-    --log
-Enable logging to track the processing steps and any issues that arise. This feature is particularly useful for debugging and maintaining a clear workflow.
+Chisel provides flexibility through various command-line arguments, allowing you to tailor the preprocessing pipeline to your specific needs. Below is a breakdown of the key configurations:
 
-## Example Commands
+### Image Quality Parameters:
 
-Enhance an image:
+-    Minimum Size (--min_size): Ensures that only images above a certain resolution are included.
+-    Blur Threshold (--blur_threshold): Filters out blurry images based on variance in Laplacian.
 
-    python chisel.py enhance --input image.jpg --output enhanced_image.jpg --brightness 1.2 --contrast 1.5
+ ### Image Enhancement Factors (--enhancement_factors):
+ 
+-    Brightness: Adjusts the brightness level.
+-    Contrast: Modifies the contrast of the image.
+-    Color or: Alters the color saturation.
+-    Sharpness: Changes the sharpness of the image.
 
-Batch process images:
+### Output Settings:
 
-    python chisel.py batch --input_folder images/ --output_folder processed_images/ --resize 2048x2048
+-    Target Size (--target_size): Specifies the dimensions to which images will be resized.
+-    Output Format (--output_format): Determines the format in which processed images are saved.
+-    Quality (--quality): Sets the quality level for JPEG images.
 
-Batch Processing with watermark and resizing to 1024x1024 and saving in .jpeg at 100% quality:
+## Logging
 
-    python chisel.py --input /path/to/input_folder --output /path/to/output_folder --resize --width 1024 --height 1024 --format JPEG --quality 100
+Chisel maintains a comprehensive log of all preprocessing activities to facilitate transparency and troubleshooting. The logs are saved in a file named preprocessing_log.txt located in the root directory of the Chisel project.
+Log Contents
 
-Convert all PNG images in a folder to JPEG:
+-    Timestamp: Records the date and time of each logged event.
+-    Log Level: Indicates the severity of the event (INFO, WARNING, ERROR).
+-    Message: Describes the event or issue encountered.
 
-    python chisel.py --input /path/to/input_folder --output /path/to/output_folder --format JPEG --batch
+### Example Log Entries
 
-Resize Without Overwriting Existing Files Resize images while ensuring existing files are not overwritten:
+yaml
 
-    python chisel.py --input /path/to/input_folder --output /path/to/output_folder --resize --width 800 --height 600 --quality 85 --overwrite false
+    2024-04-27 12:34:56,789 - INFO - Starting preprocessing for images in ./raw_images
+    2024-04-27 12:35:01,123 - INFO - Image ./raw_images/image1.jpg is too small.
+    2024-04-27 12:35:05,456 - ERROR - Error processing ./raw_images/image2.jpg: [Errno 2] No such file or directory
+    2024-04-27 12:35:10,789 - INFO - Successfully processed and saved ./raw_images/image3.jpg
 
+### Contributing
 
+We welcome contributions to enhance Chisel and make it even more robust and user-friendly. Whether you're fixing bugs, adding new features, or improving documentation, your efforts are highly appreciated!
+How to Contribute
 
-## Configuration Files
+### Fork the Repository:
+Click the "Fork" button at the top-right corner of the repository page to create a personal copy.
 
-Chisel supports the use of configuration files to customize your preprocessing workflow. This feature allows you to define various parameters and settings in a centralized manner, making it easier to manage and reuse configurations across different projects.
-Creating a Configuration File
+### Clone Your Fork:
 
-File Format: The configuration file should be in JSON format for easy readability and compatibility.
+    git clone https://github.com/<your-username>/MichaelAngel.io.git
 
-Example Configuration: Below is an example of what a configuration file (config.json) might look like:
+### Create a New Branch:
 
-    json
+    git checkout -b feature/your-feature-name
 
-    {
-        "input_folder": "C:/images/input",
-        "output_folder": "C:/images/processed",
-        "resize": {
-            "enabled": true,
-            "width": 800,
-            "height": 600
-        },
-        "format": "JPEG",
-        "quality": 85
-    }
+### Make Your Changes:
 
-Parameters Explained:
+Implement your feature or bug fix in the chisel/Chisel.py file or update the README.md as needed.
 
-    input_folder: The directory containing the images to be processed.    
-    output_folder: The directory where processed images will be saved.
-    resize: A boolean indicating whether to resize images, with width and height specifying the new dimensions.
-    format: The desired format for the processed images (e.g., JPEG, PNG).
-    quality: The quality level for formats that support it, on a scale of 0 to 100.
+### Commit Your Changes:
 
-Using a Configuration File
+    git commit -m "Add feature: your feature description"
 
-To run Chisel with a configuration file, use the following command:
+### Push to Your Fork:
 
-    python chisel.py --config /path/to/config.json
+    git push origin feature/your-feature-name
 
+### Create a Pull Request:
 
-Benefits of Using Configuration Files
+Navigate to the original repository and click on "Compare & pull request" to submit your changes for review.
 
-Simplifies Workflow: By defining settings in a config file, you can streamline your processing commands, reducing command-line clutter.
+## Guidelines
 
-Easier Management: Changes to parameters can be made directly in the config file without needing to modify command-line arguments each time.
+-    Code Quality: Ensure your code follows Python best practices and is well-documented.
+-    Testing: Test your changes thoroughly before submitting.
+-    Documentation: Update the README.md or other documentation files if your changes affect usage or functionality.
 
-Reusable Settings: Save and share configuration files for different projects or team members, ensuring consistency in processing.
+### Example Workflow
 
+Here's a step-by-step example of how to use Chisel to preprocess your image dataset:
 
-NOTE: Configuration Files are curretnly being made, they should be uploaded soon. 
+#### Prepare Your Directories:
+
+-    Input Folder: Place all raw images in ./raw_images.
+-    Output Folder: Designate ./processed_images for storing processed images and metadata.
+
+  #### Run Chisel: 
+
+    python Chisel.py --image_folder ./raw_images --output_folder ./processed_images --target_size 512 512 --output_format JPEG --min_size 150 --blur_threshold 120.0 --enhancement_factors 1.2 1.1 1.3 1.0 --quality 90
+
+#### Review Logs:
+
+#### Check preprocessing_log.txt for a detailed log of the preprocessing activities.
+
+#### Inspect Processed Images:
+
+#### Navigate to ./processed_images to find your enhanced and organized image dataset, ready for AI training.
+
+## Troubleshooting
+
+#### Image Not Processing:
+
+-    Issue: Image is too small or too blurry.
+-    Solution: Adjust --min_size and --blur_threshold parameters to be more lenient or ensure your dataset contains high-quality images.
+
+  #### Dependency Errors:
+  
+-    Issue: Missing Python packages.
+-    Solution: Ensure all dependencies are installed by running pip install -r requirements.txt. For issues with opencv-python, ensure you have the necessary system libraries.
+
+#### Permission Errors:
+
+-    Issue: Lack of permissions to read/write files.
+-    Solution: Check directory permissions and ensure you have the necessary rights to access the folders.
+
+## Acknowledgments
+
+We extend our heartfelt gratitude to the following individuals, organizations, and tools that have made Chisel possible:
+
+#### Image Sources
+
+-    Unsplash: Providing high-quality, freely usable images.
+-    Pixabay: A vast collection of free images and videos.
+-    Flickr: A platform for sharing creative work and images.
+
+ #### AI Frameworks
+
+-    TensorFlow: An open-source platform for machine learning.
+-    PyTorch: A deep learning framework that accelerates the path from research prototyping to production deployment.
+
+#### Tools and Libraries
+
+-    Pillow: Python Imaging Library for image processing.
+-    NumPy: Fundamental package for scientific computing with Python.
+-    OpenCV: Open Source Computer Vision Library.
+-    tqdm: Fast, extensible progress bar for Python.
+-    hashlib: Secure hashes and message digests.
+
+#### Community and Contributors
+
+-    Contributors: Special thanks to all the contributors who have participated in this project. Your efforts and dedication are greatly appreciated!
+-    Community Support: Grateful for the continuous support and feedback from our community members.
+
+ #### Inspiration and Support
+
+-    Open Source Community: For being a constant source of inspiration and fostering a collaborative spirit.
+-    Educators, Artists, Developers, and Researchers: Your innovative ideas and creative inputs drive our mission forward. Thank you for your invaluable contributions!
+
+## Requirements
+
+#### Ensure all dependencies are installed by running:
+
+    pip install -r requirements.txt
+
+#### requirements.txt
+
+    Pillow
+    numpy
+    opencv-python
+    tqdm
+
+Ensure that you have the latest versions of these packages for optimal performance.
+
+## License
+
+Chisel is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. You are free to share and adapt the material as long as appropriate credit is given and any derivatives are distributed under the same license.
+
+This project adheres to the highest standards of license compliance, ensuring that all utilized resources respect intellectual property rights and Creative Commons licenses.
+Thank you for using Chisel! We hope it significantly enhances your AI training workflows by providing clean, high-quality, and ethically sourced image datasets.
+
+---
+
+## Bug Reporting 
+
+Encounter a bug or issue? Please report it through: 
+
+-  [GitHub Security Advisories](https://github.com/M1ck4/MichaelAngel.io/security/advisories)
+-  [Email](mailto:michaelangelo_io@protonmail.com)
+-  [Bug Report](https://github.com/M1ck4/MichaelAngel.io/blob/main/.github/ISSUE_TEMPLATE/2-feature_request.yml)
+
+---
 
 <div align="center">
 
@@ -242,10 +358,10 @@ NOTE: Configuration Files are curretnly being made, they should be uploaded soon
 
 For questions, suggestions, or collaboration opportunities, feel free to reach out:
 
-[![Facebook](https://img.shields.io/badge/Facebook-4267B2?logo=facebook&logoColor=white&style=for-the-badge)](https://www.facebook.com/profile.php?id=61566307182551)  [![Email](https://img.shields.io/badge/Email-Contact%20Us-blue?style=for-the-badge&logo=gmail&logoColor=white)](mailto:michaelangelo_io@protonmail.com)  
+[![Facebook](https://img.shields.io/badge/Facebook-4267B2?logo=facebook&logoColor=white&style=for-the-badge)](https://www.facebook.com/profile.php?id=61566307182551)  [![Email](https://img.shields.io/badge/Email-Contact%20Us-blue?style=for-the-badge&logo=gmail&logoColor=white)](mailto:michaelangelo_io@protonmail.com) 
 
-[![GitHub Profile](https://img.shields.io/badge/GitHub-Profile-181717?logo=github&logoColor=white&style=for-the-badge)](https://github.com/M1ck4)
+---
 
+[![Clone](https://img.shields.io/badge/Clone-GitHub-blue?logo=github&style=flat-square)](https://github.com/M1ck4/MichaelAngel.io.git)
+[![Fork](https://img.shields.io/badge/Fork-GitHub-blue?logo=github&style=flat-square)](https://github.com/M1ck4/MichaelAngel.io/fork)
 </div>
-
-
