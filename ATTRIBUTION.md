@@ -41,6 +41,10 @@ The following open-source tools and libraries were used in the development of th
 
 No warranties are given. This project follows ethical guidelines for Creative Commons content, API usage, and open-source contributions. See the relevant licenses for each component for more details.
 
+## Attribution Guide
+
+For detailed information on how to properly attribute content and modifications in this project, please refer to the [Attribution Guide](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/Attributing_Guide.md). This guide provides step-by-step instructions, examples, and templates to ensure compliance with the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International license and to maintain ethical standards in the use of content.
+
 <div align="center">
 
 ## Contact
