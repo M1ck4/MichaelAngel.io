@@ -1,5 +1,93 @@
+<<<<<<< HEAD
+Attribution Guidelines for [Project Title]
+=======
 <div align="center">
 
+<<<<<<< HEAD
+Welcome to the [Project Title] community! To maintain the integrity and legal compliance of our project, it's essential that all contributors and users adhere to the Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) license terms. This guide will help you understand what is required to properly attribute and use the project's materials.
+Table of Contents
+
+    Overview of the License
+    License Terms Explained
+        Attribution
+        NonCommercial
+        ShareAlike
+        No Additional Restrictions
+    How to Properly Attribute
+        Attribution Template
+        Example Attribution
+    Best Practices
+    Frequently Asked Questions (FAQ)
+    Contact Information
+    Additional Resources
+
+Overview of the License
+
+The CC BY-NC-SA 4.0 International license allows you to:
+
+    Share: Copy and redistribute the material in any medium or format.
+    Adapt: Remix, transform, and build upon the material.
+
+However, you must follow these terms:
+
+    Attribution: Give appropriate credit, provide a link to the license, and indicate if changes were made.
+    NonCommercial: You may not use the material for commercial purposes.
+    ShareAlike: If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
+    No Additional Restrictions: You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
+
+License Terms Explained
+Attribution
+
+What You Must Do:
+
+    Credit the Creator: Acknowledge the original creator's name.
+    Link to the License: Provide a URL to the CC BY-NC-SA 4.0 license.
+    Indicate Changes: Clearly state if you made any modifications to the original material.
+
+How to Do It:
+
+    Include the creator’s name.
+    Provide a link to the license text.
+    Mention any changes you’ve made to the original work.
+
+NonCommercial
+
+What You Must Do:
+
+    Use for Non-Commercial Purposes Only: You cannot use the material for any commercial activities.
+
+How to Do It:
+
+    Ensure that your use of the material does not involve any commercial advantage or monetary compensation.
+
+ShareAlike
+
+What You Must Do:
+
+    Distribute Under the Same License: If you modify or build upon the material, you must distribute your contributions under the same CC BY-NC-SA 4.0 license.
+
+How to Do It:
+
+    Apply the CC BY-NC-SA 4.0 license to your derivative works.
+    Ensure that others who use your contributions adhere to the same licensing terms.
+
+No Additional Restrictions
+
+What You Must Do:
+
+    Don’t Add Further Limitations: You cannot impose any legal terms or technological measures that restrict others from exercising the rights granted by the license.
+
+How to Do It:
+
+    Do not use Digital Rights Management (DRM) or other technologies to prevent others from accessing or using the material as permitted by the license.
+
+How to Properly Attribute
+
+Proper attribution ensures that creators receive the recognition they deserve and that users understand the licensing terms. Follow the steps below to attribute correctly.
+Attribution Template
+
+Use the following Markdown template to ensure all necessary elements are included when attributing the material:
+=======
 # Attribution for MichaelAngel.io
 
 </div>
@@ -58,3 +146,5 @@ For questions, suggestions, or collaboration opportunities, feel free to reach o
 [![GitHub Profile](https://img.shields.io/badge/GitHub-Profile-181717?logo=github&logoColor=white&style=for-the-badge)](https://github.com/M1ck4)
 
 </div>
+
+>>>>>>> ce567b4f110357de64cb0ff96102a983c9cd4b4d
