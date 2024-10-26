@@ -4,7 +4,7 @@ Proper attribution ensures that creators receive the recognition they deserve an
 
 ## Attribution Template
 
-Copy and paste the following Markdown template into a new ATTRIBUTION.md file and then place the file into the root directory of your project. Modify the "Modifications" section with your overall modifications.
+Copy and paste the following Markdown template into a new or existing ATTRIBUTION.md file and then place the file into your project. Modify the "Modifications" section with your overall modifications.
 
 ---
 
