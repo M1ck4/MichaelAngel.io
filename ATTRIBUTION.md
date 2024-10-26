@@ -1,6 +1,6 @@
 <div align="center">
 
-# Attribution for [MichaelAngel.io]
+# Attribution for MichaelAngel.io
 
 </div>
 
@@ -16,6 +16,7 @@ The following API websites were used to source content, data, or media:
 - **Unsplash API**: [Unsplash](https://unsplash.com/developers) - High-resolution photography.
 - **Pexels API**: [Pexels](https://www.pexels.com/api/) - Free stock photos and videos.
 - **Flickr API**: [Flickr](https://www.flickr.com/services/api/) - Image hosting and sharing.
+- **Google APIs**: [CSE](https://programmablesearchengine.google.com/about/) - Google custom search engine.
 
 Content accessed through these APIs is subject to the terms and licenses provided by each platform.
 
@@ -36,6 +37,7 @@ The following open-source tools and libraries were used in the development of th
 - **OpenCV**: Open-source computer vision and machine learning software library. [OpenCV GitHub](https://github.com/opencv/opencv)
 - **Requests**: HTTP library for Python. [Requests GitHub](https://github.com/psf/requests)
 - **SQLAlchemy**: Database toolkit and ORM. [SQLAlchemy GitHub](https://github.com/sqlalchemy/sqlalchemy)
+- **BeautifulSoup**: Library for web scraping. [BeautifulSoup Documentation](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
 
 ## Disclaimer
 
