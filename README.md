@@ -2,8 +2,15 @@
   
 ![Project Banner](https://github.com/M1ck4/MichaelAngel.io/blob/main/Assets/banner4.jpg)
 
+[![Creative Commons License](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey?style=for-the-badge&logo=creative-commons&logoColor=white)](https://creativecommons.org/licenses/by-sa/4.0/)  [![Open Source](https://img.shields.io/badge/Open%20Source-Yes-brightgreen.svg?style=for-the-badge&logo=opensourceinitiative&logoColor=white)](https://opensource.org/licenses)  [![License Compliance](https://img.shields.io/badge/License-Compliant-brightgreen?style=for-the-badge&logo=checkmarx&logoColor=white)](https://github.com/M1ck4/MichaelAngel.io/blob/main/LICENSE)
+
+[![GitHub commit activity](https://img.shields.io/github/commit-activity/m/M1ck4/MichaelAngel.io.svg?style=flat-square)](https://github.com/M1ck4/MichaelAngel.io/commits/main)
+[![Last Commit](https://img.shields.io/github/last-commit/M1ck4/MichaelAngel.io.svg?style=flat-square)](https://github.com/M1ck4/MichaelAngel.io/commits/main)
+
 [![Clone](https://img.shields.io/badge/Clone-GitHub-blue?logo=github&style=flat-square)](https://github.com/M1ck4/MichaelAngel.io.git)
-[![GitHub issues](https://img.shields.io/github/issues/M1ck4/MichaelAngel.io.svg)](https://github.com/M1ck4/MichaelAngel.io/issues)
+[![Fork](https://img.shields.io/badge/Fork-GitHub-blue?logo=github&style=flat-square)](https://github.com/M1ck4/MichaelAngel.io/fork)
+
+
 
 **MichaelAngel.io** is a visionary project dedicated to merging the realms of generative AI with human expression, ideas, and information. Our mission is to empower artists, researchers, educators, developers, and other creative professionals with innovative tools that inspire creativity while championing transparency and ethical practices in the digital landscape. Whether you're an educator enhancing your curriculum with AI-generated visuals, a developer integrating creative AI solutions into applications, MichaelAngel.io will create a powerful environment while upholding the highest standards of intellectual property rights.
 
@@ -140,12 +147,6 @@ We are dedicated to continuously enhancing our AI framework by exploring innovat
 
 ## Contribution Guidelines
 
-We welcome everyone to be a part of **MichaelAngel.io**! If you're passionate about contributing, here’s how you can get involved:
-
-1. **Fork the Repository**
-
-        git clone https://github.com/M1ck4/MichaelAngel.io.git
-
 </div>
 
 We welcome everyone to be a part of **MichaelAngel.io**! If you're passionate about contributing, here’s how you can get involved:
@@ -170,21 +171,23 @@ Please ensure that your contributions align with our values of transparency and 
 
 <div align="center">
 
-## Bug Reporting
-  
-</div>
+## Bug Reporting 
 
-Encounter a bug or issue? Please report it through our [GitHub Security Advisories](https://github.com/M1ck4/MichaelAngel.io/security/advisories), our [Email](mailto:michaelangelo_io@protonmail.com), or by using the [Bug Report](https://github.com/M1ck4/MichaelAngel.io/blob/main/.github/ISSUE_TEMPLATE/2-feature_request.yml) to provide detailed information, which helps us address the problem efficiently.
+
+Encounter a bug or issue? Please report it through our[GitHub Security Advisories](https://github.com/M1ck4/MichaelAngel.io/security/advisories), our [Email](mailto:michaelangelo_io@protonmail.com), or by using the [Bug Report](https://github.com/M1ck4/MichaelAngel.io/blob/main/.github/ISSUE_TEMPLATE/2-feature_request.yml) to provide detailed information, which helps us address the problem efficiently.
 
 <div align="center">
 
 ## Contact
 
-</div>
-
 For questions, suggestions, or collaboration opportunities, feel free to reach out:
 
-- **GitHub:** [M1ck4](https://github.com/M1ck4)
-- **Email:** [michaelangelo_io@protonmail.com](mailto:michaelangelo_io@protonmail.com)
+[![Facebook](https://img.shields.io/badge/Facebook-4267B2?logo=facebook&logoColor=white&style=for-the-badge)](https://www.facebook.com/profile.php?id=61566307182551)  [![Email](https://img.shields.io/badge/Email-Contact%20Us-blue?style=for-the-badge&logo=gmail&logoColor=white)](mailto:michaelangelo_io@protonmail.com)  
 
-Thank you for your interest in **MichaelAngel.io**!
+[![GitHub Profile](https://img.shields.io/badge/GitHub-Profile-181717?logo=github&logoColor=white&style=for-the-badge)](https://github.com/M1ck4)
+
+---
+
+[![Visitor Count](https://profile-counter.glitch.me/M1ck4/count.svg)](https://github.com/M1ck4/MichaelAngel.io)
+
+</div>
