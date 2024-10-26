@@ -8,7 +8,7 @@ To run the MichaelAngel.io tools efficiently, you should have:
 -    Sufficient CPU/GPU power for handling image processing and AI training.
 -    Libraries such as Pillow, OpenCV, SQLAlchemy, and Requests.
 -    Consider using a virtual environment to manage dependencies.
--    Each tools requirements.txt file
+-    Each tools requirements.txt which can be found within the root directory of that tool
 
 ### What is MichaelAngel.io?
 
@@ -160,7 +160,7 @@ You should create an ATTRIBUTION.md file in your modified project that includes:
 
 If you make modifications to the project, the ShareAlike condition requires that you share your modified version under the same license (CC BY-NC-SA 4.0). This promotes openness and collaboration within the community.
 
-10. Can I modify the attribution format?
+### Can I modify the attribution format?
 
 Yes, you can modify the format of the attribution for clarity or presentation purposes, as long as all the necessary elements are included: the original creator's name, a description of changes, a link to the original work, and a statement about the license.
 
