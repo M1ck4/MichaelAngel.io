@@ -7,7 +7,7 @@
 [![Clone](https://img.shields.io/badge/Clone-GitHub-blue?logo=github&style=flat-square)](https://github.com/M1ck4/MichaelAngel.io.git)
 [![Fork](https://img.shields.io/badge/Fork-GitHub-blue?logo=github&style=flat-square)](https://github.com/M1ck4/MichaelAngel.io/fork)
 
-[![Ethical AI](https://img.shields.io/badge/Ethical%20AI-Priority-orange.svg)](https://www.ibm.com/topics/ai-ethics) 
+[![Ethical AI](https://img.shields.io/badge/Ethical%20AI-Priority-orange.svg)](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/AI_Artisians_FAQ.md) 
 
 **MichaelAngel.io** is a visionary project dedicated to merging the realms of generative AI with human expression, ideas, and information. Our mission is to empower artists, researchers, educators, developers, and other creative professionals with innovative tools that inspire creativity while championing transparency and ethical practices in the digital landscape. Whether you're an educator enhancing your curriculum with AI-generated visuals, a developer integrating creative AI solutions into applications, MichaelAngel.io will create a powerful environment while upholding the highest standards of intellectual property rights.
 
