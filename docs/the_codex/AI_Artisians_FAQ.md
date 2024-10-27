@@ -23,7 +23,7 @@ Below is the list of available documents in **The Codex**, arranged in a logical
 **[Transparency and Explainability](./Transparency_and_Explainability.md)**: Best practices for creating transparent AI systems that are easy to understand and interpret.  
 **[Accountability](./Accountability.md)**: Insights into establishing accountability in AI projects, including roles and responsibilities.  
 **[Privacy Protection and Security](./Privacy_Protection_and_Security.md)**: Guidelines for safeguarding privacy and security in AI applications.  
-**[Data Governance](.Data_Governance.md)**: Best practices for managing data ethically, including data collection, usage, and storage.    
+**[Data Governance](./Data_Governance.md)**: Best practices for managing data ethically, including data collection, usage, and storage.    
 **[AI Bodies by Country](./AI_Bodies_by_Country.md)**: A detailed list of AI regulatory bodies by country, including guidelines and ethical standards they follow.  
 **[AI Ethics Resources](./AI_Ethics_Resources.md)**: A curated list of resources for learning more about AI ethics. 
 
