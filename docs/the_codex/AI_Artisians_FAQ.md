@@ -17,7 +17,7 @@ This guide ensures that the AI we create are not only intelligent but also an et
 
 Below is the list of available documents in **The Codex**, arranged in a logical order for easy navigation:
 
-**[AI Artisan's FAQ](.AI_Artisians_FAQ.md)**: Frequently asked questions on ethical AI, covering common concerns and best practices.  
+**[AI Artisan's FAQ](./AI_Artisians_FAQ.md)**: Frequently asked questions on ethical AI, covering common concerns and best practices.  
 **[Foundations of Ethical AI](./Foundations_of_Ethical_AI.md)**: Introduction to ethical AI principles, including core concepts and foundational guidelines.    
 **[Human-Centric Values](./Human-Centric_Values.md)**: Guidelines on prioritizing human values, inclusivity, and fairness in AI development.    
 **[Transparency and Explainability](./Transparency_and_Explainability.md)**: Best practices for creating transparent AI systems that are easy to understand and interpret.  
