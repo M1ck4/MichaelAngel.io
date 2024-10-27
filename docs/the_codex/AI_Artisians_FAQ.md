@@ -61,7 +61,7 @@ At **The Codex**, we believe that the integration of professional standards and 
 To begin using **The Codex**, follow these steps:
 1. **Clone the Repository**: 
    
-       git clone https://github.com/M1ck4/the_codex.git
+       git clone https://github.com/M1ck4/MichaelAngel.io/docs/the_codex/AI_Artisians_FAQ.git
  
 2. **Explore the Contents**: Navigate through the different sections to familiarize yourself with the guidelines and principles.
 3. **Implement Guidelines**: Apply the practical guidelines and checklists to your AI projects to ensure ethical compliance.
