@@ -32,7 +32,7 @@ A comprehensive list of countries and their respective national or governmental 
 
 ---
 
-## 1. Australia
+## Australia
 ### **National AI Centre (NAIC)**
 - **Description:** Part of CSIRO’s Data61, the NAIC coordinates AI-related activities, focusing on responsible AI development and supporting innovation.
 - **Link:** [NAIC](https://www.csiro.au/en/about/facilities-collections/CSIRO-data61)
@@ -45,7 +45,7 @@ A comprehensive list of countries and their respective national or governmental 
 
 ---
 
-## 2. Brazil
+## Brazil
 ### **Brazilian AI Strategy**
 - **Description:** Brazil’s strategy for AI development, emphasizing ethics, transparency, and fostering innovation across various sectors.
 - **Link:** [Brazil AI Strategy](https://www.gov.br/governodigital/pt-br/estrategia-brasileira-de-inteligencia-artificial)
@@ -58,7 +58,7 @@ A comprehensive list of countries and their respective national or governmental 
 
 ---
 
-## 3. Canada
+## Canada
 ### **Canadian Institute for Advanced Research (CIFAR)**
 - **Description:** CIFAR hosts the Pan-Canadian AI Strategy, focusing on advancing AI research and ethical AI development through a network of AI research institutes.
 - **Link:** [CIFAR](https://www.cifar.ca)
@@ -71,7 +71,7 @@ A comprehensive list of countries and their respective national or governmental 
 
 ---
 
-## 4. China
+## China
 ### **National AI Strategy (AIDP)**
 - **Description:** China’s Artificial Intelligence Development Plan, which outlines goals to become a global leader in AI by 2030, with a focus on innovation and ethical considerations.
 - **Link:** [Chinese AI Strategy Overview](http://english.www.gov.cn/policies/latest_releases/2017/07/20/content_281475742458322.htm)
@@ -84,7 +84,7 @@ A comprehensive list of countries and their respective national or governmental 
 
 ---
 
-## 5. Denmark
+## Denmark
 ### **Danish National AI Strategy**
 - **Description:** Denmark’s strategy emphasizes ethical AI, transparency, and the use of AI for public good and welfare.
 - **Link:** [Danish AI Strategy](https://eng.em.dk/news/2021/april/denmark-s-new-national-strategy-for-ai/)
@@ -97,7 +97,7 @@ A comprehensive list of countries and their respective national or governmental 
 
 ---
 
-## 6. European Union
+##  European Union
 ### **European Commission's High-Level Expert Group on AI**
 - **Description:** An expert group that advises the EU on AI policy, including the creation of the Ethics Guidelines for Trustworthy AI.
 - **Link:** [High-Level Expert Group on AI](https://ec.europa.eu/digital-strategy/our-policies/expert-group-ai_en)
@@ -110,7 +110,7 @@ A comprehensive list of countries and their respective national or governmental 
 
 ---
 
-## 7. Finland
+## Finland
 ### **AI Finland (AI Forum)**
 - **Description:** Finland’s national strategy focusing on AI ethics, transparency, and societal impact.
 - **Link:** [AI Finland](https://tem.fi/en/artificial-intelligence)
@@ -123,7 +123,7 @@ A comprehensive list of countries and their respective national or governmental 
 
 ---
 
-## 8. France
+## France
 ### **French National AI Strategy (AI for Humanity)**
 - **Description:** France's national AI strategy, which emphasizes ethical AI, research, and open data. Overseen by the National Council on Artificial Intelligence.
 - **Link:** [AI for Humanity](https://www.aiforhumanity.fr)
@@ -136,7 +136,7 @@ A comprehensive list of countries and their respective national or governmental 
 
 ---
 
-## 9. Germany
+## Germany
 ### **German AI Strategy (AI Made in Germany)**
 - **Description:** Germany's AI strategy focusing on ethical AI, innovation, and strengthening AI research with a human-centered approach.
 - **Link:** [AI Made in Germany](https://www.bmbf.de/bmbf/en/research/artificial-intelligence/artificial-intelligence.html)
@@ -149,7 +149,7 @@ A comprehensive list of countries and their respective national or governmental 
 
 ---
 
-## 10. India
+## India
 ### **National AI Strategy by NITI Aayog**
 - **Description:** A strategic framework for AI development in India, focusing on inclusive growth and ethical AI deployment.
 - **Link:** [NITI Aayog AI Strategy](https://www.niti.gov.in/national-strategy-ai-discussion-paper)
@@ -162,7 +162,7 @@ A comprehensive list of countries and their respective national or governmental 
 
 ---
 
-## 11. Israel
+## Israel
 ### **Israeli National AI Initiative**
 - **Description:** A strategy to advance Israel’s AI capabilities, focusing on innovation and ethical AI development.
 - **Link:** [Israeli AI Initiative Overview](https://innovationisrael.org.il/en)
@@ -175,7 +175,7 @@ A comprehensive list of countries and their respective national or governmental 
 
 ---
 
-## 12. Italy
+## Italy
 ### **Italian AI Strategy**
 - **Description:** Italy’s national AI plan aimed at fostering innovation, ethical AI deployment, and education.
 - **Link:** [Italian AI Strategy](https://innovazione.gov.it/en/)
@@ -188,7 +188,7 @@ A comprehensive list of countries and their respective national or governmental 
 
 ---
 
-## 13. Japan
+## Japan
 ### **Council for Science, Technology, and Innovation (CSTI)**
 - **Description:** Japan's main governmental body overseeing AI strategy, emphasizing ethics, innovation, and public engagement.
 - **Link:** [CSTI](https://www8.cao.go.jp/cstp/english/)
@@ -201,7 +201,7 @@ A comprehensive list of countries and their respective national or governmental 
 
 ---
 
-## 14. Netherlands
+## Netherlands
 ### **Dutch AI Coalition (NL AIC)**
 - **Description:** A public-private partnership that promotes AI innovation, ethics, and responsible deployment across sectors in the Netherlands.
 - **Link:** [NL AIC](https://nlaic.com)
@@ -214,7 +214,7 @@ A comprehensive list of countries and their respective national or governmental 
 
 ---
 
-## 15. New Zealand
+## New Zealand
 ### **New Zealand AI Forum**
 - **Description:** Aims to advance AI in New Zealand, focusing on ethical AI practices and its positive impact on society and the economy.
 - **Link:** [NZ AI Forum](https://www.aiforum.org.nz)
@@ -227,7 +227,7 @@ A comprehensive list of countries and their respective national or governmental 
 
 ---
 
-## 16. Norway
+## Norway
 ### **Norwegian National AI Strategy**
 - **Description:** Norway's approach to AI development, focusing on ethics, transparency, and human-centered AI.
 - **Link:** [Norwegian AI Strategy](https://www.regjeringen.no/en/topics/research/innsiktsartikler/norwegian-strategy-for-ai/id2674104/)
@@ -240,7 +240,7 @@ A comprehensive list of countries and their respective national or governmental 
 
 ---
 
-## 17. Russia
+## Russia
 ### **Russian AI Strategy**
 - **Description:** Russia’s national AI strategy with a focus on technological development, ethical considerations, and public safety.
 - **Link:** [Russian AI Strategy Overview](http://government.ru/en/docs/38712/)
@@ -253,7 +253,7 @@ A comprehensive list of countries and their respective national or governmental 
 
 ---
 
-## 18. Saudi Arabia
+## Saudi Arabia
 ### **Saudi Data and Artificial Intelligence Authority (SDAIA)**
 - **Description:** The main body overseeing AI ethics, strategy, and development in Saudi Arabia, aiming to lead the region in responsible AI.
 - **Link:** [SDAIA](https://sdaia.gov.sa)
@@ -266,7 +266,7 @@ A comprehensive list of countries and their respective national or governmental 
 
 ---
 
-## 19. Singapore
+## Singapore
 ### **Singapore's National AI Strategy**
 - **Description:** Focuses on AI ethics, governance, and responsible deployment as Singapore aims to become a leader in AI innovation.
 - **Link:** [National AI Strategy](https://www.smartnation.gov.sg/why-Smart-Nation/NationalAIStrategy)
@@ -279,7 +279,7 @@ A comprehensive list of countries and their respective national or governmental 
 
 ---
 
-## 20. South Korea
+## South Korea
 ### **Korea AI Strategy**
 - **Description:** South Korea's AI strategy, which includes ethical guidelines, research, and public engagement to promote responsible AI.
 - **Link:** [Korea AI Strategy Overview](https://english.msit.go.kr)
@@ -292,7 +292,7 @@ A comprehensive list of countries and their respective national or governmental 
 
 ---
 
-## 21. Spain
+## Spain
 ### **Spanish National AI Strategy**
 - **Description:** Spain’s strategy for AI development, focusing on ethical AI, transparency, and public engagement.
 - **Link:** [Spanish AI Strategy](https://www.lamoncloa.gob.es/lang/en/government/Paginas/nationalstrategy-ai.aspx)
@@ -305,7 +305,7 @@ A comprehensive list of countries and their respective national or governmental 
 
 ---
 
-## 22. Sweden
+## Sweden
 ### **Swedish National AI Strategy**
 - **Description:** Sweden’s strategy focuses on ethical AI development, transparency, and innovation for the public good.
 - **Link:** [Swedish AI Strategy](https://www.government.se/articles/2020/03/national-strategy-for-artificial-intelligence/)
@@ -318,7 +318,7 @@ A comprehensive list of countries and their respective national or governmental 
 
 ---
 
-## 23. Switzerland
+## Switzerland
 ### **Swiss AI Strategy**
 - **Description:** Switzerland’s strategy on AI focuses on innovation, ethics, transparency, and responsible AI use across sectors.
 - **Link:** [Swiss AI Strategy Overview](https://www.sbfi.admin.ch/sbfi/en/home/news/medienmitteilungen/2020/2020-12-17.html)
@@ -331,7 +331,7 @@ A comprehensive list of countries and their respective national or governmental 
 
 ---
 
-## 24. United Arab Emirates (UAE)
+## United Arab Emirates (UAE)
 ### **UAE Artificial Intelligence Strategy 2031**
 - **Description:** A national AI strategy aimed at making the UAE a global leader in AI, with a focus on ethics, efficiency, and education.
 - **Link:** [AI Strategy 2031](https://ai.gov.ae)
@@ -344,7 +344,7 @@ A comprehensive list of countries and their respective national or governmental 
 
 ---
 
-## 25. United Kingdom
+## United Kingdom
 ### **Office for AI**
 - **Description:** The UK government's office for AI strategy and policy, focusing on ethical AI deployment, innovation, and regulation.
 - **Link:** [Office for AI](https://www.gov.uk/government/organisations/office-for-artificial-intelligence)
@@ -357,7 +357,7 @@ A comprehensive list of countries and their respective national or governmental 
 
 ---
 
-## 26. United States
+## United States
 ### **National AI Initiative Office**
 - **Description:** Coordinates AI research and development across the U.S. government, focusing on ethical AI practices and innovation.
 - **Link:** [National AI Initiative Office](https://www.ai.gov)
