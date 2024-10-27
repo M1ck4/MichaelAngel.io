@@ -69,10 +69,6 @@ To begin using **The Codex**, follow these steps:
 
 ---
 
-## Frequently Asked Questions
-
-For any common questions, please refer to our [AI Artisan's FAQ](./docs/the_codex/AI_Artisans_FAQ.md).
-
 <div align="center">
 
 ---
