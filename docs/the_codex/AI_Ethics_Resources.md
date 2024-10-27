@@ -210,7 +210,7 @@ Various groups on Facebook focus on AI ethics discussions and networking among p
 
 [![View MichaelAngel.io on GitHub](https://img.shields.io/badge/GitHub-View%20MichaelAngel.io-blue?logo=github)](https://github.com/M1ck4/MichaelAngel.io)
 
-[![Ethical AI](https://img.shields.io/badge/Ethical%20AI-Priority-orange.svg)](https://www.ibm.com/topics/ai-ethics) 
+[![Ethical AI](https://img.shields.io/badge/Ethical%20AI-Priority-orange.svg)](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/AI_Artisians_FAQ.md) 
 
 ---
 
