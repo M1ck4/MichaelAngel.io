@@ -17,15 +17,16 @@ This guide ensures that the AI we create are not only intelligent but also an et
 
 Below is the list of available documents in **The Codex**, arranged in a logical order for easy navigation:
 
-**[Foundations of Ethical AI](./docs/the_codex/Foundations_of_Ethical_AI.md)**: Introduction to ethical AI principles, including core concepts and foundational guidelines.    
-**[Human-Centric Values](./docs/the_codex/Human-Centric_Values.md)**: Guidelines on prioritizing human values, inclusivity, and fairness in AI development.    
-**[Transparency and Explainability](./docs/the_codex/Transparency_and_Explainability.md)**: Best practices for creating transparent AI systems that are easy to understand and interpret.  
-**[Accountability](./docs/the_codex/Accountability.md)**: Insights into establishing accountability in AI projects, including roles and responsibilities.    
-**[AI Bodies by Country](./docs/the_codex/AI_Bodies_by_Country.md)**: A detailed list of AI regulatory bodies by country, including guidelines and ethical standards they follow.  
-**[AI Ethics Resources](./docs/the_codex/AI_Ethics_Resources.md)**: A curated list of resources for learning more about AI ethics..  
-**[Privacy Protection and Security](./docs/the_codex/Privacy_Protection_and_Security.md)**: Guidelines for safeguarding privacy and security in AI applications.  
-**[Data Governance](./docs/the_codex/Data_Governance.md)**: Best practices for managing data ethically, including data collection, usage, and storage.  
-**[AI Artisan's FAQ](./docs/the_codex/AI_Artisans_FAQ.md)**: Frequently asked questions on ethical AI, covering common concerns and best practices.  
+**[AI Artisan's FAQ](.AI_Artisians_FAQ.md)**: Frequently asked questions on ethical AI, covering common concerns and best practices.  
+**[Foundations of Ethical AI](./Foundations_of_Ethical_AI.md)**: Introduction to ethical AI principles, including core concepts and foundational guidelines.    
+**[Human-Centric Values](./Human-Centric_Values.md)**: Guidelines on prioritizing human values, inclusivity, and fairness in AI development.    
+**[Transparency and Explainability](./Transparency_and_Explainability.md)**: Best practices for creating transparent AI systems that are easy to understand and interpret.  
+**[Accountability](./Accountability.md)**: Insights into establishing accountability in AI projects, including roles and responsibilities.  
+**[Privacy Protection and Security](./Privacy_Protection_and_Security.md)**: Guidelines for safeguarding privacy and security in AI applications.  
+**[Data Governance](.Data_Governance.md)**: Best practices for managing data ethically, including data collection, usage, and storage.    
+**[AI Bodies by Country](./AI_Bodies_by_Country.md)**: A detailed list of AI regulatory bodies by country, including guidelines and ethical standards they follow.  
+**[AI Ethics Resources](./AI_Ethics_Resources.md)**: A curated list of resources for learning more about AI ethics. 
+
 
 ## Integrating Professionalism with Ethical AI
 
