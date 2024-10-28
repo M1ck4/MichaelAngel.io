@@ -4,4 +4,4 @@ Enhanc duplicate detection.
 Integrat Advanced License Handling (ALH).
 Transition from individual JSON metadata files to SQLite for storing all metadata. - configure others scripts
 Enhance support for various Creative Commons licenses, open-source licenses.
-
+Integrate Config
