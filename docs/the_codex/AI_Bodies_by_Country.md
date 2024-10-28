@@ -35,7 +35,7 @@ A comprehensive list of countries and their respective national or governmental 
 ## Australia
 ### **National AI Centre (NAIC)**
 - **Description:** Part of CSIRO’s Data61, the NAIC coordinates AI-related activities, focusing on responsible AI development and supporting innovation.
-- **Link:** [NAIC](https://www.csiro.au/en/about/facilities-collections/CSIRO-data61)
+- **Link:** [NAIC](https://www.csiro.au/en/work-with-us/industries/technology/National-AI-Centre)
 
 ### **Office of the eSafety Commissioner**
 - **Description:** Focuses on the ethical implications of digital technologies, including AI, particularly in terms of user safety and online harms.
@@ -48,7 +48,7 @@ A comprehensive list of countries and their respective national or governmental 
 ## Brazil
 ### **Brazilian AI Strategy**
 - **Description:** Brazil’s strategy for AI development, emphasizing ethics, transparency, and fostering innovation across various sectors.
-- **Link:** [Brazil AI Strategy](https://www.gov.br/governodigital/pt-br/estrategia-brasileira-de-inteligencia-artificial)
+- **Link:** [Brazil AI Strategy](https://oecd.ai/en/wonk/brazils-path-to-responsible-ai)
 
 ### **Brazilian Chamber of Artificial Intelligence**
 - **Description:** An advisory body that promotes ethical AI research, policy, and practices in Brazil.
@@ -87,7 +87,7 @@ A comprehensive list of countries and their respective national or governmental 
 ## Denmark
 ### **Danish National AI Strategy**
 - **Description:** Denmark’s strategy emphasizes ethical AI, transparency, and the use of AI for public good and welfare.
-- **Link:** [Danish AI Strategy](https://eng.em.dk/news/2021/april/denmark-s-new-national-strategy-for-ai/)
+- **Link:** [Danish AI Strategy](https://en.digst.dk/strategy/the-danish-national-strategy-for-artificial-intelligence/)
 
 ### **Danish Board of Technology**
 - **Description:** Provides guidance and recommendations on ethical AI use to the Danish government and public.
@@ -100,7 +100,7 @@ A comprehensive list of countries and their respective national or governmental 
 ##  European Union
 ### **European Commission's High-Level Expert Group on AI**
 - **Description:** An expert group that advises the EU on AI policy, including the creation of the Ethics Guidelines for Trustworthy AI.
-- **Link:** [High-Level Expert Group on AI](https://ec.europa.eu/digital-strategy/our-policies/expert-group-ai_en)
+- **Link:** [High-Level Expert Group on AI](https://digital-strategy.ec.europa.eu/en/policies/expert-group-ai)
 
 ### **European AI Alliance**
 - **Description:** A multi-stakeholder platform created by the European Commission to involve citizens in shaping European AI policies.
@@ -126,7 +126,7 @@ A comprehensive list of countries and their respective national or governmental 
 ## France
 ### **French National AI Strategy (AI for Humanity)**
 - **Description:** France's national AI strategy, which emphasizes ethical AI, research, and open data. Overseen by the National Council on Artificial Intelligence.
-- **Link:** [AI for Humanity](https://www.aiforhumanity.fr)
+- **Link:** [AI for Humanity](https://ai-watch.ec.europa.eu/countries/france/france-ai-strategy-report_en)
 
 ### **INRIA (French Institute for Research in Computer Science and Automation)**
 - **Description:** A leading research institute involved in AI development and ethical considerations.
@@ -139,7 +139,7 @@ A comprehensive list of countries and their respective national or governmental 
 ## Germany
 ### **German AI Strategy (AI Made in Germany)**
 - **Description:** Germany's AI strategy focusing on ethical AI, innovation, and strengthening AI research with a human-centered approach.
-- **Link:** [AI Made in Germany](https://www.bmbf.de/bmbf/en/research/artificial-intelligence/artificial-intelligence.html)
+- **Link:** [AI Made in Germany](https://www.bmbf.de/bmbf/en/home/home_node.html)
 
 ### **German Research Center for Artificial Intelligence (DFKI)**
 - **Description:** A leading research center dedicated to AI development, ethics, and AI's impact on society.
@@ -152,11 +152,11 @@ A comprehensive list of countries and their respective national or governmental 
 ## India
 ### **National AI Strategy by NITI Aayog**
 - **Description:** A strategic framework for AI development in India, focusing on inclusive growth and ethical AI deployment.
-- **Link:** [NITI Aayog AI Strategy](https://www.niti.gov.in/national-strategy-ai-discussion-paper)
+- **Link:** [NITI Aayog AI Strategy](https://www.niti.gov.in/sites/default/files/2023-03/National-Strategy-for-Artificial-Intelligence.pdf)
 
 ### **Centre for Artificial Intelligence and Robotics (CAIR)**
 - **Description:** A defense research organization focusing on AI applications, security, and ethical implications.
-- **Link:** [CAIR](https://www.drdo.gov.in/labs-and-establishments/centre-artificial-intelligence-and-robotics-cair)
+- **Link:** [CAIR](https://www.drdo.gov.in/drdo/)
 
 [Back to Top](#table-of-contents)
 
@@ -165,7 +165,7 @@ A comprehensive list of countries and their respective national or governmental 
 ## Israel
 ### **Israeli National AI Initiative**
 - **Description:** A strategy to advance Israel’s AI capabilities, focusing on innovation and ethical AI development.
-- **Link:** [Israeli AI Initiative Overview](https://innovationisrael.org.il/en)
+- **Link:** [Israeli AI Initiative Overview](https://innovationisrael.org.il/en/)
 
 ### **AI Policy Program by The Israel Democracy Institute**
 - **Description:** Focuses on creating ethical AI guidelines and public policy recommendations for responsible AI use.
@@ -178,7 +178,7 @@ A comprehensive list of countries and their respective national or governmental 
 ## Italy
 ### **Italian AI Strategy**
 - **Description:** Italy’s national AI plan aimed at fostering innovation, ethical AI deployment, and education.
-- **Link:** [Italian AI Strategy](https://innovazione.gov.it/en/)
+- **Link:** [Italian AI Strategy](https://www.agid.gov.it/en/news/the-italian-strategy-for-artificial-intelligence)
 
 ### **Italian Association for Artificial Intelligence (AIxIA)**
 - **Description:** A non-profit that promotes ethical AI research, public policy, and education in Italy.
@@ -230,7 +230,7 @@ A comprehensive list of countries and their respective national or governmental 
 ## Norway
 ### **Norwegian National AI Strategy**
 - **Description:** Norway's approach to AI development, focusing on ethics, transparency, and human-centered AI.
-- **Link:** [Norwegian AI Strategy](https://www.regjeringen.no/en/topics/research/innsiktsartikler/norwegian-strategy-for-ai/id2674104/)
+- **Link:** [Norwegian AI Strategy](https://www.regjeringen.no/en/dokumenter/nasjonal-strategi-for-kunstig-intelligens/id2685594/?ch=2)
 
 ### **Norwegian Board of Technology**
 - **Description:** Provides recommendations on ethical technology use, including AI, to the Norwegian government.
@@ -243,7 +243,7 @@ A comprehensive list of countries and their respective national or governmental 
 ## Russia
 ### **Russian AI Strategy**
 - **Description:** Russia’s national AI strategy with a focus on technological development, ethical considerations, and public safety.
-- **Link:** [Russian AI Strategy Overview](http://government.ru/en/docs/38712/)
+- **Link:** [Russian AI Strategy Overview](https://ai.gov.ru/en/national-strategy/)
 
 ### **Skolkovo Institute of Science and Technology (Skoltech)**
 - **Description:** A leading AI research institution in Russia, focusing on AI development, ethics, and innovation.
@@ -269,7 +269,7 @@ A comprehensive list of countries and their respective national or governmental 
 ## Singapore
 ### **Singapore's National AI Strategy**
 - **Description:** Focuses on AI ethics, governance, and responsible deployment as Singapore aims to become a leader in AI innovation.
-- **Link:** [National AI Strategy](https://www.smartnation.gov.sg/why-Smart-Nation/NationalAIStrategy)
+- **Link:** [National AI Strategy](https://www.pdpc.gov.sg/help-and-resources/2020/01/model-ai-governance-framework)
 
 ### **AI Ethics and Governance Body (IMDA)**
 - **Description:** Led by the Infocomm Media Development Authority, this body oversees ethical AI practices and governance frameworks.
@@ -282,7 +282,7 @@ A comprehensive list of countries and their respective national or governmental 
 ## South Korea
 ### **Korea AI Strategy**
 - **Description:** South Korea's AI strategy, which includes ethical guidelines, research, and public engagement to promote responsible AI.
-- **Link:** [Korea AI Strategy Overview](https://english.msit.go.kr)
+- **Link:** [Korea AI Strategy Overview](https://www.industry.gov.au/publications/seoul-declaration-countries-attending-ai-seoul-summit-21-22-may-2024)
 
 ### **Artificial Intelligence Industry Alliance**
 - **Description:** A collaborative platform for industry leaders to discuss ethical AI practices and foster innovation.
@@ -295,7 +295,7 @@ A comprehensive list of countries and their respective national or governmental 
 ## Spain
 ### **Spanish National AI Strategy**
 - **Description:** Spain’s strategy for AI development, focusing on ethical AI, transparency, and public engagement.
-- **Link:** [Spanish AI Strategy](https://www.lamoncloa.gob.es/lang/en/government/Paginas/nationalstrategy-ai.aspx)
+- **Link:** [Spanish AI Strategy](https://ai-watch.ec.europa.eu/countries/spain/spain-ai-strategy-report_en)
 
 ### **AI Ethics Observatory**
 - **Description:** A body focused on monitoring and guiding the ethical use of AI technologies in Spain.
@@ -308,7 +308,7 @@ A comprehensive list of countries and their respective national or governmental 
 ## Sweden
 ### **Swedish National AI Strategy**
 - **Description:** Sweden’s strategy focuses on ethical AI development, transparency, and innovation for the public good.
-- **Link:** [Swedish AI Strategy](https://www.government.se/articles/2020/03/national-strategy-for-artificial-intelligence/)
+- **Link:** [Swedish AI Strategy](https://www.ai.se/en/decision-makers/ai-strategy-sweden)
 
 ### **AI Innovation of Sweden**
 - **Description:** A collaborative organization that promotes AI research, innovation, and ethical practices.
@@ -321,7 +321,7 @@ A comprehensive list of countries and their respective national or governmental 
 ## Switzerland
 ### **Swiss AI Strategy**
 - **Description:** Switzerland’s strategy on AI focuses on innovation, ethics, transparency, and responsible AI use across sectors.
-- **Link:** [Swiss AI Strategy Overview](https://www.sbfi.admin.ch/sbfi/en/home/news/medienmitteilungen/2020/2020-12-17.html)
+- **Link:** [Swiss AI Strategy Overview](https://digital.swiss/en/strategy/focus-topics/swiss-approach-to-regulating-ai-systems)
 
 ### **Swiss Digital Initiative**
 - **Description:** An organization promoting ethical AI and digital responsibility in Switzerland, ensuring transparent and fair AI systems.
