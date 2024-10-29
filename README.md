@@ -145,6 +145,14 @@ The flagship generative model, **MichaelAngelo** will synthesize new images base
 
 ---
 
+### Project Outline
+
+The current implementation of the modular framework.
+
+![Project Map](https://github.com/M1ck4/MichaelAngel.io/blob/main/assets/map01.png)
+
+---
+
 ## On the Drawing Board
 
 We are dedicated to continuously enhancing our AI framework by exploring innovative tools and features. This section showcases potential programs currently under consideration. While these initiatives are still in the planning stages, we are investing time and resources to evaluate their feasibility and impact on ethical AI training and data management. Stay tuned as we develop and expand our suite to better support the creative and ethical goals of our community.
