@@ -1,6 +1,6 @@
 # Basic AI Ethics Checklist
 
-This ** AI Ethics Checklist** provides an expanded overview of essential ethical considerations for AI system development and deployment. It integrates key elements from various ethical domains to ensure responsible and trustworthy AI practices, offering a more detailed guide than the basic checklist while remaining concise and actionable.
+This **AI Ethics Checklist** provides an expanded overview of essential ethical considerations for AI system development and deployment. It integrates key elements from various ethical domains to ensure responsible and trustworthy AI practices, offering a more detailed guide than the basic checklist while remaining concise and actionable.
 
 ## Table of Contents
 
