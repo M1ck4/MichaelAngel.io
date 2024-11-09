@@ -1,63 +1,42 @@
-# ================================================
-#           IMAGE PROCESSING CONFIGURATION
-# ================================================
+# Config.yaml - Configuration for Image Preprocessing Script
 
-# -----------------------------------------------
-# Input and Output Configuration
-# -----------------------------------------------
-# Specify the paths for input and output folders.
-# The input folder should contain the images to be processed.
-# The output folder will store the processed images and metadata.
-input_output:
-  image_folder: "path/to/input_images"
-  output_folder: "path/to/processed_images"
+# Paths
+image_folder: "./images"           # Path to the input folder containing images
+output_folder: "./processed_images" # Path to the output folder for processed images
 
-# -----------------------------------------------
-# Image Processing Settings
-# -----------------------------------------------
-# Configure how images should be processed and resized.
-processing_settings:
-  target_size:              # Target size for image resizing [width, height]
-    width: 512
-    height: 512
-  output_format: "JPEG"     # Output format for processed images [JPEG, PNG, numpy]
-  quality: 85               # Quality setting for JPEG output (1-100)
+# Target settings
+target_size:                       # Target size for image resizing (width, height)
+  - 256
+  - 256
+output_format: "JPEG"              # Output format for processed images (JPEG, PNG, numpy)
 
-# -----------------------------------------------
-# Quality Control Parameters
-# -----------------------------------------------
-# Set minimum requirements for images to be processed.
-quality_control:
-  min_size: 128             # Minimum size in pixels for image width/height
-  blur_threshold: 100.0     # Blur threshold for image quality check
+# Quality control settings
+min_size: 128                      # Minimum size (in pixels) for image quality
+blur_threshold: 100.0              # Blur threshold for image quality check
 
-# -----------------------------------------------
-# Image Enhancement Settings
-# -----------------------------------------------
-# Configure image enhancement factors.
-# Values greater than 1.0 increase the effect, less than 1.0 decrease it.
-enhancement_settings:
-  brightness: 1.0
-  contrast: 1.0
-  color: 1.0
-  sharpness: 1.0
+# Enhancement factors
+enhancement_factors:               # Enhancement factors for brightness, contrast, color, and sharpness
+  - 1.0                            # Brightness factor
+  - 1.0                            # Contrast factor
+  - 1.0                            # Color factor
+  - 1.0                            # Sharpness factor
 
-# -----------------------------------------------
-# Performance Settings
-# -----------------------------------------------
-# Configure settings related to processing performance.
-performance:
-  num_processes: 4          # Number of parallel processes to use
+# Output quality settings
+quality: 85                        # Quality for JPEG output (1-100)
 
-# -----------------------------------------------
-# Logging Configuration
-# -----------------------------------------------
-# Specify the directory where log files will be stored.
-# Ensure that the application has write permissions to this directory.
-logging:
-  log_directory: "./logs"
-  log_level: "INFO"         # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
+# Duplicate detection settings
+supported_formats:                 # List of supported image formats for processing
+  - ".jpg"
+  - ".jpeg"
+  - ".png"
+  - ".bmp"
+  - ".tiff"
 
-# ================================================
-#                END OF CONFIGURATION
-# ================================================
+# Thread settings
+max_workers: 8                     # Maximum number of threads for concurrent image processing
+
+# Logging settings
+log_level: "INFO"                  # Log level (DEBUG, INFO, WARNING, ERROR, CRITICAL)
+
+# Duplicate handling settings
+enable_duplicate_removal: true     # Enable or disable duplicate removal
