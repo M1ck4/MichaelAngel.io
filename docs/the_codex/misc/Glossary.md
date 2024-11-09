@@ -296,5 +296,3 @@
 **Definition:** Managing external libraries or packages that a software application depends on, ensuring compatibility and security.
 
 ---
-
-Feel free to add additional terms and definitions as needed.
