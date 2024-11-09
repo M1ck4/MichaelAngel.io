@@ -221,19 +221,6 @@ The toolkit comprises six key ethical dimensions. For each dimension, a checklis
 - **SHAP (Explainable AI):** [SHAP](https://github.com/slundberg/shap)
 - **Data Protection Impact Assessment (DPIA) Toolkit:** [ICO DPIA Toolkit](https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/accountability-and-governance/data-protection-impact-assessment-dpia/)
 
-### Literature and Articles
-
-- **“The Ethical Algorithm” by Michael Kearns and Aaron Roth**
-- **“Weapons of Math Destruction” by Cathy O'Neil**
-- **“Artificial Unintelligence” by Meredith Broussard**
-- **“Ethics of Artificial Intelligence and Robotics” - Stanford Encyclopedia of Philosophy:** [Stanford SEP](https://plato.stanford.edu/entries/ethics-ai/)
-
-### Training and Courses
-
-- **AI Ethics Specialization (Coursera):** [AI Ethics on Coursera](https://www.coursera.org/specializations/ai-ethics)
-- **Ethics in AI (edX):** [edX AI Ethics](https://www.edx.org/course/ethics-in-ai)
-- **Responsible AI Practices (Microsoft Learn):** [Microsoft Responsible AI](https://learn.microsoft.com/en-us/training/paths/responsible-ai-practices/)
-
 ---
 
 ## Conclusion
