@@ -171,7 +171,7 @@ We welcome contributions to enhance Chisel and make it even more robust and user
 2. **Clone Your Fork**:
 
    ```sh
-   git clone https://github.com/<your-username>/MichaelAngel.io.git
+   git clone https://github.com/M1ck4/MichaelAngel.io.git
    ```
 
 3. **Create a New Branch**:
