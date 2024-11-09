@@ -269,9 +269,6 @@
 ### MichaelAngelo
 **Definition:** The main AI model of the MichaelAngel.io Framework, which generates creative outputs based on the curated datasets.
 
-### Palette
-**Definition:** A tool used for automatic tagging and metadata generation to assist in dataset creation, working alongside other tools in the MichaelAngel.io Framework.
-
 ### Scribe
 **Definition:** A program that consolidates all metadata throughout the entire AI pipeline, ensuring Creative Commons attribution information is clearly tracked and presented.
 
