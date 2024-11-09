@@ -1,6 +1,6 @@
-# Medium AI Ethics Checklist
+# AI Ethics Checklist
 
-This **Medium AI Ethics Checklist** offers a more detailed framework for ensuring ethical considerations in AI system development and deployment. It builds upon the fundamental aspects of the Minimal Checklist by incorporating additional key elements from various ethical domains, providing a balanced approach to responsible AI practices.
+This **AI Ethics Checklist** offers a framework for ensuring ethical considerations in AI system development and deployment.
 
 ## Table of Contents
 
