@@ -1,42 +1,59 @@
-# Config.yaml - Configuration for Image Preprocessing Script
+# ================================================
+#    _____ _     _          _ 
+#   / ____| |   (_)        | |
+#  | |    | |__  _ ___  ___| |
+#  | |    | '_ \| / __|/ _ \ |
+#  | |____| | | | \__ \  __/ |
+#   \_____|_| |_|_|___/\___|_|
+#
+#          Chisel Configuration File
+# ================================================
 
 # Paths
-image_folder: "./images"           # Path to the input folder containing images
-output_folder: "./processed_images" # Path to the output folder for processed images
+paths:
+  image_folder: "./images"           # Path to the input folder containing images
+  output_folder: "./processed_images" # Path to the output folder for processed images
 
-# Target settings
-target_size:                       # Target size for image resizing (width, height)
-  - 256
-  - 256
-output_format: "JPEG"              # Output format for processed images (JPEG, PNG, numpy)
+# Target Settings
+target:
+  size:                           # Target size for image resizing (width, height)
+    - 256
+    - 256
+  format: "JPEG"                  # Output format for processed images (JPEG, PNG, numpy)
 
-# Quality control settings
-min_size: 128                      # Minimum size (in pixels) for image quality
-blur_threshold: 100.0              # Blur threshold for image quality check
+# Quality Control Settings
+quality_control:
+  min_size: 128                  # Minimum size (in pixels) for image quality
+  blur_threshold: 100.0          # Blur threshold for image quality check
 
-# Enhancement factors
-enhancement_factors:               # Enhancement factors for brightness, contrast, color, and sharpness
-  - 1.0                            # Brightness factor
-  - 1.0                            # Contrast factor
-  - 1.0                            # Color factor
-  - 1.0                            # Sharpness factor
+# Enhancement Factors
+enhancement:
+  brightness: 1.0                # Brightness factor
+  contrast: 1.0                  # Contrast factor
+  color: 1.0                     # Color factor
+  sharpness: 1.0                 # Sharpness factor
 
-# Output quality settings
-quality: 85                        # Quality for JPEG output (1-100)
+# Output Quality Settings
+output:
+  quality: 85                    # Quality for JPEG output (1-100)
 
-# Duplicate detection settings
-supported_formats:                 # List of supported image formats for processing
-  - ".jpg"
-  - ".jpeg"
-  - ".png"
-  - ".bmp"
-  - ".tiff"
+# Duplicate Detection Settings
+duplicate_detection:
+  supported_formats:             # List of supported image formats for processing
+    - ".jpg"
+    - ".jpeg"
+    - ".png"
+    - ".bmp"
+    - ".tiff"
 
-# Thread settings
-max_workers: 8                     # Maximum number of threads for concurrent image processing
+# Thread Settings
+threads:
+  max_workers: 8                 # Maximum number of threads for concurrent image processing
 
-# Logging settings
-log_level: "INFO"                  # Log level (DEBUG, INFO, WARNING, ERROR, CRITICAL)
+# Logging Settings
+logging:
+  level: "INFO"                  # Log level (DEBUG, INFO, WARNING, ERROR, CRITICAL)
 
-# Duplicate handling settings
-enable_duplicate_removal: true     # Enable or disable duplicate removal
+# Duplicate Handling Settings
+duplicate_handling:
+  enable_removal: true           # Enable or disable duplicate removal
