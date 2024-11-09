@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 ## [2.0.0] - 2024-11-09
 
 ### Added
-- Configuration management through a YAML increased
+- Expanded configuration management through YAML
 - Support for multithreaded frame extraction using `ThreadPoolExecutor` for improved performance.
 - GPU acceleration option for frame extraction if CUDA is available.
 - Customizable metadata fields expanded
