@@ -208,21 +208,6 @@ Integrating this checklist into the development process promotes the creation of
 - **LIME (Explainable AI):** [LIME](https://github.com/marcotcr/lime)
 - **SHAP (Explainable AI):** [SHAP](https://github.com/slundberg/shap)
 
-### Literature and Articles
-
-- **“Fairness and Machine Learning” by Solon Barocas, Moritz Hardt, and Arvind Narayanan**  
-  [Fairness and Machine Learning](https://fairmlbook.org/)
-- **“The Moral Character of Cryptographic Work” by Philip Rogaway**  
-  [Link](https://www.schneier.com/essays/archives/1998/10/the_moral_character_of_crypt.html)
-- **“Discrimination in Online Ad Delivery” by Latanya Sweeney**  
-  [Link](https://perso.telecom-paristech.fr/~latanya.sweeney/AdDeliverDiscrim.pdf)
-
-### Training and Courses
-
-- **Fairness and Bias in AI (Coursera):** [Coursera Fairness in AI](https://www.coursera.org/learn/fairness-machine-learning)
-- **AI for Everyone (Coursera):** [AI for Everyone](https://www.coursera.org/learn/ai-for-everyone)
-- **Fairness in Machine Learning (edX):** [edX Fairness](https://www.edx.org/course/fairness-in-machine-learning)
-
 ---
 
 ## Conclusion
