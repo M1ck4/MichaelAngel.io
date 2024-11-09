@@ -107,10 +107,6 @@ If you encounter issues with the project, please use GitHub Issues to report the
 - Include your system information and environment setup.
 - If applicable, add screenshots or error messages.
 
-## License Attribution
-
-MichaelAngel.io Framework is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/). Please ensure any modifications are properly attributed.
-
 ### Attribution Template
 
 For proper attribution, include the following details in a new or existing `ATTRIBUTION.md` file:
