@@ -1,10 +1,5 @@
 # ================================================
-#    ____ _     _          _ 
-#   / ___| |__ (_)___  ___| |
-#  | |   | '_ \| / __|/ _ \ |
-#  | |___| | | | \__ \  __/ |
-#   \____|_| |_|_|___/\___|_|
-#                            
+#           IMAGE PROCESSING CONFIGURATION
 # ================================================
 
 # -----------------------------------------------
@@ -13,46 +8,35 @@
 # Specify the paths for input and output folders.
 # The input folder should contain the images to be processed.
 # The output folder will store the processed images and metadata.
-
-image_folder: "path/to/input_images"
-output_folder: "path/to/processed_images"
+input_output:
+  image_folder: "path/to/input_images"
+  output_folder: "path/to/processed_images"
 
 # -----------------------------------------------
 # Image Processing Settings
 # -----------------------------------------------
 # Configure how images should be processed and resized.
-
-# Target size for image resizing (width height)
-target_size:
-  - 512
-  - 512
-
-# Output format for processed images
-# Options: JPEG, PNG, numpy
-output_format: "JPEG"
-
-# Quality setting for JPEG output (1-100)
-quality: 85
+processing_settings:
+  target_size:              # Target size for image resizing [width, height]
+    width: 512
+    height: 512
+  output_format: "JPEG"     # Output format for processed images [JPEG, PNG, numpy]
+  quality: 85               # Quality setting for JPEG output (1-100)
 
 # -----------------------------------------------
 # Quality Control Parameters
 # -----------------------------------------------
 # Set minimum requirements for images to be processed.
-
-# Minimum size in pixels (width and height)
-min_size: 128
-
-# Blur threshold for image quality check
-# Images with blurriness below this threshold will be excluded
-blur_threshold: 100.0
+quality_control:
+  min_size: 128             # Minimum size in pixels for image width/height
+  blur_threshold: 100.0     # Blur threshold for image quality check
 
 # -----------------------------------------------
 # Image Enhancement Settings
 # -----------------------------------------------
 # Configure image enhancement factors.
 # Values greater than 1.0 increase the effect, less than 1.0 decrease it.
-
-enhancement_factors:
+enhancement_settings:
   brightness: 1.0
   contrast: 1.0
   color: 1.0
@@ -62,19 +46,18 @@ enhancement_factors:
 # Performance Settings
 # -----------------------------------------------
 # Configure settings related to processing performance.
-
-# Number of parallel processes to use
-num_processes: 4
+performance:
+  num_processes: 4          # Number of parallel processes to use
 
 # -----------------------------------------------
 # Logging Configuration
 # -----------------------------------------------
 # Specify the directory where log files will be stored.
 # Ensure that the application has write permissions to this directory.
-
-log_directory: "./logs"
-log_level: "INFO"  # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
+logging:
+  log_directory: "./logs"
+  log_level: "INFO"         # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
 
 # ================================================
-#                End of Configuration
+#                END OF CONFIGURATION
 # ================================================
