@@ -20,7 +20,7 @@ There are several ways you can contribute to MichaelAngel.io:
    Start by forking the repository to your personal GitHub account.
 
    ```sh
-   git clone https://github.com/M1ck4/MichaelAngel.io.git
+   git clone https://github.com/your-username/MichaelAngel.io.git
    ```
 
 2. **Create a Branch**
@@ -109,64 +109,28 @@ If you encounter issues with the project, please use GitHub Issues to report the
 
 ## License Attribution
 
-MichaelAngel.io Framework is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/). Any modifications must also follow these licensing terms.
+MichaelAngel.io Framework is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/). Please ensure any modifications are properly attributed.
 
-### How to Attribute
+### Attribution Template
 
-Proper attribution ensures that creators receive the recognition they deserve and that users understand the licensing terms. Follow the steps below to attribute correctly.
-
-**Attribution Template**
-
-Copy and paste the following Markdown template into a new or existing `ATTRIBUTION.md` file and then place the file into your project. Modify the "Modifications" section with your overall modifications.
+For proper attribution, include the following details in a new or existing `ATTRIBUTION.md` file:
 
 ```
 [Modified Project Title]
 
 **Original Work:** Based on "MichaelAngel.io" by M1ck4, licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
-**Modifications:**  #Note your own modifications.
-# - "Modified by [Modifier's Name] on [Date]. Changes include..."    
+**Modifications:** Modified by [Modifier's Name] on [Date]. Changes include...
 
-**License:** This derivative work is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/). See the [License](https://creativecommons.org/licenses/by-nc-sa/4.0/) for more details.
+**License:** This derivative work is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
 **Material Link:** [Link to the modified project material]
 
-**Availability:** This material is available under the same license conditions as the original. You can view the full license [here](https://creativecommons.org/licenses/by-nc-sa/4.0/).
-```
-
-### Overview of the License
-
-The CC BY-NC-SA 4.0 International license allows you to:
-
-- **Share**: Copy and redistribute the material in any medium or format.
-- **Adapt**: Remix, transform, and build upon the material.
-
-However, you must follow these terms:
-
-- **Attribution**: Give appropriate credit, provide a link to the license, and indicate if changes were made.
-- **NonCommercial**: You may not use the material for commercial purposes.
-- **ShareAlike**: If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
-- **No Additional Restrictions**: You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
-
-### License Terms Explained
-
-- **Attribution**
-  - **What You Must Do**: Acknowledge the original creator's name, provide a link to the license, and indicate if modifications were made.
-  - **How to Do It**: Include the creator’s name, provide a link to the license text, and mention any changes made to the original work.
-- **NonCommercial**
-  - **What You Must Do**: Use the material for non-commercial purposes only.
-  - **How to Do It**: Ensure your use of the material does not involve any commercial advantage or monetary compensation.
-- **ShareAlike**
-  - **What You Must Do**: Distribute under the same license if you modify or build upon the material.
-  - **How to Do It**: Apply the CC BY-NC-SA 4.0 license to your derivative works and ensure that others adhere to the same licensing terms.
-- **No Additional Restrictions**
-  - **What You Must Do**: Do not add further limitations beyond those already stated in the license.
-  - **How to Do It**: Avoid using Digital Rights Management (DRM) or other technologies that restrict others from accessing or using the material.
-
-## Suggestions and Ideas
+**Availability:** Available under the same license conditions as the original.
+```## Suggestions and Ideas
 
 We are always open to new ideas! Feel free to open an issue for suggestions or discuss them in your pull request.
 
 ## Thank You!
-
+```
 Thank you for your interest in contributing to the MichaelAngel.io Framework. Your support helps drive the mission of creating ethically grounded AI tools. We can't wait to see what you'll contribute!
