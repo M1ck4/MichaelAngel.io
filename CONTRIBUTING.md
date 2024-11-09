@@ -133,4 +133,17 @@ We are always open to new ideas! Feel free to open an issue for suggestions or d
 
 ## Thank You!
 ```
+<div align="center">
+
 Thank you for your interest in contributing to the MichaelAngel.io Framework. Your support helps drive the mission of creating ethically grounded AI tools. We can't wait to see what you'll contribute!
+
+---
+[![Clone](https://img.shields.io/badge/Clone-GitHub-blue?logo=github&style=flat-square)](https://github.com/M1ck4/MichaelAngel.io.git)
+
+[![Creative Commons License](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey?style=for-the-badge&logo=creative-commons&logoColor=white)](https://creativecommons.org/licenses/by-nc-sa/4.0/) 
+
+</div>
+
+---
+
+
