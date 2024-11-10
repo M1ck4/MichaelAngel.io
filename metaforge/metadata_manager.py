@@ -6,8 +6,8 @@ import json
 import yaml
 import os
 
-from metaforge.models import Base, ImageMetadata, ImageProcessingMetadata, DatasetMetadata
-from metaforge.schemas import ImageMetadataSchema, ImageProcessingMetadataSchema, DatasetMetadataSchema
+from metaforge.models import Base, ImageMetadata, ImageProcessingMetadata, DatasetMetadata, FilmFrameMetadata
+from metaforge.schemas import ImageMetadataSchema, ImageProcessingMetadataSchema, DatasetMetadataSchema, FilmFrameMetadataSchema
 
 
 class Metaforge:
@@ -16,6 +16,7 @@ class Metaforge:
         Base.metadata.create_all(self.engine)
         self.Session = sessionmaker(bind=self.engine)
     
+    # Image Metadata Management
     def add_image_metadata(self, metadata: ImageMetadataSchema):
         session = self.Session()
         try:
@@ -28,7 +29,7 @@ class Metaforge:
                 lineage=metadata.lineage,
                 file_metadata=metadata.file_metadata
             )
-            session.merge(db_metadata)  # Use merge to handle existing records
+            session.merge(db_metadata)
             session.commit()
         except Exception as e:
             session.rollback()
@@ -54,6 +55,7 @@ class Metaforge:
         finally:
             session.close()
     
+    # Image Processing Metadata Management
     def add_image_processing_metadata(self, metadata: ImageProcessingMetadataSchema):
         session = self.Session()
         try:
@@ -66,7 +68,7 @@ class Metaforge:
                 attribution=metadata.attribution,
                 extracted_metadata=metadata.extracted_metadata
             )
-            session.merge(db_metadata)  # Use merge to handle existing records
+            session.merge(db_metadata)
             session.commit()
         except Exception as e:
             session.rollback()
@@ -92,6 +94,7 @@ class Metaforge:
         finally:
             session.close()
     
+    # Dataset Metadata Management
     def add_dataset_metadata(self, metadata: DatasetMetadataSchema):
         session = self.Session()
         try:
@@ -129,6 +132,46 @@ class Metaforge:
         finally:
             session.close()
     
+    # Film Frame Metadata Management
+    def add_film_frame_metadata(self, metadata: FilmFrameMetadataSchema):
+        session = self.Session()
+        try:
+            db_metadata = FilmFrameMetadata(
+                frame_id=metadata.frame_id,
+                film_id=metadata.film_id,
+                frame_number=metadata.frame_number,
+                timestamp=metadata.timestamp,
+                resolution=metadata.resolution,
+                processing_steps=metadata.processing_steps,
+                extracted_metadata=metadata.extracted_metadata
+            )
+            session.merge(db_metadata)
+            session.commit()
+        except Exception as e:
+            session.rollback()
+            raise e
+        finally:
+            session.close()
+    
+    def get_film_frame_metadata(self, frame_id: str) -> Optional[FilmFrameMetadataSchema]:
+        session = self.Session()
+        try:
+            db_metadata = session.query(FilmFrameMetadata).filter(FilmFrameMetadata.frame_id == frame_id).first()
+            if db_metadata:
+                return FilmFrameMetadataSchema(
+                    frame_id=db_metadata.frame_id,
+                    film_id=db_metadata.film_id,
+                    frame_number=db_metadata.frame_number,
+                    timestamp=db_metadata.timestamp,
+                    resolution=db_metadata.resolution,
+                    processing_steps=db_metadata.processing_steps,
+                    extracted_metadata=db_metadata.extracted_metadata
+                )
+            return None
+        finally:
+            session.close()
+    
+    # Export Metadata
     def export_metadata(self, formats: List[str], export_dir: str):
         os.makedirs(export_dir, exist_ok=True)
         session = self.Session()
@@ -190,8 +233,29 @@ class Metaforge:
                             json.dump(data, f, indent=2)
                         elif fmt == 'yaml':
                             yaml.dump(data, f)
+
+            # Export Film Frame Metadata
+            all_film_frame_metadata = session.query(FilmFrameMetadata).all()
+            for metadata in all_film_frame_metadata:
+                data = {
+                    'frame_id': metadata.frame_id,
+                    'film_id': metadata.film_id,
+                    'frame_number': metadata.frame_number,
+                    'timestamp': metadata.timestamp.isoformat(),
+                    'resolution': metadata.resolution,
+                    'processing_steps': metadata.processing_steps,
+                    'extracted_metadata': metadata.extracted_metadata
+                }
+                for fmt in formats:
+                    file_path = os.path.join(export_dir, f"{metadata.frame_id}_film_frame_metadata.{fmt}")
+                    with open(file_path, 'w', encoding='utf-8') as f:
+                        if fmt == 'json':
+                            json.dump(data, f, indent=2)
+                        elif fmt == 'yaml':
+                            yaml.dump(data, f)
         finally:
             session.close()
     
+    # Close Database Connection
     def close_connection(self):
         self.engine.dispose()
