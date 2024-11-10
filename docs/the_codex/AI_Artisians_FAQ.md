@@ -1,4 +1,4 @@
-# The Codex
+# AI Artisians FAQ
 
 ## Overview
 
