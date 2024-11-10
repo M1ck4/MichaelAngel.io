@@ -1,12 +1,10 @@
 <div align="center">
   
-![Project Banner](https://github.com/M1ck4/MichaelAngel.io/blob/main/assets/banner4.jpg)
+![Project Banner](https://github.com/M1ck4/MichaelAngel.io/blob/main/assets/project_banner.jpg)
 
 [![Creative Commons License](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey?style=for-the-badge&logo=creative-commons&logoColor=white)](https://creativecommons.org/licenses/by-nc-sa/4.0/)  [![License Compliance](https://img.shields.io/badge/License-Compliant-brightgreen?style=for-the-badge&logo=checkmarx&logoColor=white)](https://github.com/M1ck4/MichaelAngel.io/blob/main/LICENSE.md)
 
 [![Clone](https://img.shields.io/badge/Clone-GitHub-blue?logo=github&style=flat-square)](https://github.com/M1ck4/MichaelAngel.io.git)
-[![Fork](https://img.shields.io/badge/Fork-GitHub-blue?logo=github&style=flat-square)](https://github.com/M1ck4/MichaelAngel.io/fork)
-
 [![Ethical AI](https://img.shields.io/badge/Ethical%20AI-Priority-orange.svg)](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/AI_Artisians_FAQ.md) 
 
 **MichaelAngel.io** is a visionary project dedicated to merging the realms of generative AI with human expression, ideas, and information. Our mission is to empower artists, researchers, educators, developers, and other creative professionals with innovative tools that inspire creativity while championing transparency and ethical practices in the digital landscape. Whether you're an educator enhancing your curriculum with AI-generated visuals, a developer integrating creative AI solutions into applications, MichaelAngel.io will create a powerful environment while upholding the highest standards of intellectual property rights.
@@ -53,8 +51,8 @@ Our robust framework comprises a suite of specialized tools designed to streamli
 
 <div align="center"> 
   
-[![Clone Curator](https://img.shields.io/badge/Clone%20Curator-%231e90ff?style=for-the-badge&logo=archive)](https://github.com/M1ck4/MichaelAngel.io/tree/main/curator)
-[![Curator README](https://img.shields.io/badge/Curator%20README-%23555555?style=for-the-badge&logo=readme)](https://github.com/M1ck4/MichaelAngel.io/blob/main/curator/READ_ME.md)
+[![Clone Curator](https://img.shields.io/badge/Clone%20Curator-%231e90ff?style=for-the-badge&logo=archive)](https://github.com/M1ck4/MichaelAngel.io/tree/main/modules/curator)
+[![Curator README](https://img.shields.io/badge/Curator%20README-%23555555?style=for-the-badge&logo=readme)](https://github.com/M1ck4/MichaelAngel.io/blob/main/modules/curator/README.md)
 
 ### curator 
 
@@ -75,8 +73,8 @@ Curator is perfect for artists, developers, and researchers who need a quick and
 
 <div align="center">
 
-[![Clone Chisel](https://img.shields.io/badge/Clone%20Chisel-%231e90ff?style=for-the-badge&logo=hammer)](https://github.com/M1ck4/MichaelAngel.io/tree/main/chisel)
-[![Chisel README](https://img.shields.io/badge/Chisel%20README-%23555555?style=for-the-badge&logo=readme)](https://github.com/M1ck4/MichaelAngel.io/blob/main/chisel/README.md)
+[![Clone Chisel](https://img.shields.io/badge/Clone%20Chisel-%231e90ff?style=for-the-badge&logo=hammer)](https://github.com/M1ck4/MichaelAngel.io/tree/main/modules/chisel)
+[![Chisel README](https://img.shields.io/badge/Chisel%20README-%23555555?style=for-the-badge&logo=readme)](https://github.com/M1ck4/MichaelAngel.io/blob/main/modules/chisel/README.md)
 
 ### chisel
 
@@ -97,8 +95,8 @@ Chisel guarantees that your dataset is clean, organized, and legally compliant, 
 
 <div align="center"> 
 
-[![Clone FilmFrame](https://img.shields.io/badge/Clone%20FilmFrame-%231e90ff?style=for-the-badge&logo=film)](https://github.com/M1ck4/MichaelAngel.io/tree/main/filmframe)
-[![FilmFrame README](https://img.shields.io/badge/FilmFrame%20README-%23555555?style=for-the-badge&logo=readme)](https://github.com/M1ck4/MichaelAngel.io/blob/main/filmframe/READ_ME.md)
+[![Clone FilmFrame](https://img.shields.io/badge/Clone%20FilmFrame-%231e90ff?style=for-the-badge&logo=film)](https://github.com/M1ck4/MichaelAngel.io/tree/main/modules/filmframe)
+[![FilmFrame README](https://img.shields.io/badge/FilmFrame%20README-%23555555?style=for-the-badge&logo=readme)](https://github.com/M1ck4/MichaelAngel.io/blob/main/modules/filmframe/README.md)
 
 ### filmframe
 
@@ -119,8 +117,8 @@ FilmFrame makes it easy to ethically incorporate cinematic elements into creativ
 
 <div align="center">
   
-[![Clone Muse](https://img.shields.io/badge/Clone%20Muse-%231e90ff?style=for-the-badge&logo=palette)](https://github.com/M1ck4/MichaelAngel.io/tree/main/muse)
-[![Muse README](https://img.shields.io/badge/Muse%20README-%23555555?style=for-the-badge&logo=readme)](https://github.com/M1ck4/MichaelAngel.io/blob/main/muse/READ_ME.md)
+[![Clone Muse](https://img.shields.io/badge/Clone%20Muse-%231e90ff?style=for-the-badge&logo=palette)](https://github.com/M1ck4/MichaelAngel.io/tree/main/modules/muse)
+[![Muse README](https://img.shields.io/badge/Muse%20README-%23555555?style=for-the-badge&logo=readme)](https://github.com/M1ck4/MichaelAngel.io/blob/main/modules/muse/README.md)
 
 ### muse
 
@@ -149,7 +147,7 @@ The flagship generative model, **MichaelAngelo** will synthesize new images base
 
 The current implementation of the modular framework.
 
-![Project Map](https://github.com/M1ck4/MichaelAngel.io/blob/main/assets/map01.png)
+![Project Map](https://github.com/M1ck4/MichaelAngel.io/blob/main/assets/project_map.png)
 
 ---
 
@@ -211,10 +209,11 @@ Encounter a bug or issue? Please report it through:
 
 For questions, suggestions, or collaboration opportunities, feel free to reach out:
 
-[![Facebook](https://img.shields.io/badge/Facebook-4267B2?logo=facebook&logoColor=white&style=for-the-badge)](https://www.facebook.com/profile.php?id=61566307182551)  [![Email](https://img.shields.io/badge/Email-Contact%20Us-blue?style=for-the-badge&logo=gmail&logoColor=white)](mailto:michaelangelo_io@protonmail.com) 
-
----
+[![Email](https://img.shields.io/badge/Email-Contact%20Us-blue?style=for-the-badge&logo=gmail&logoColor=white)](mailto:michaelangelo_io@protonmail.com) 
 
 [![Clone](https://img.shields.io/badge/Clone-GitHub-blue?logo=github&style=flat-square)](https://github.com/M1ck4/MichaelAngel.io.git)
-[![Fork](https://img.shields.io/badge/Fork-GitHub-blue?logo=github&style=flat-square)](https://github.com/M1ck4/MichaelAngel.io/fork)
+
+---
+![Creative Commons License](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey?style=for-the-badge&logo=creative-commons&logoColor=white)
+
 </div>

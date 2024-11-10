@@ -110,3 +110,16 @@ This Post-Deployment Monitoring Template is designed to help AI developers and s
 ---
 
 This post-deployment monitoring template should be revisited regularly to ensure the AI system is being monitored effectively and that it continues to meet ethical, performance, and user experience goals.
+
+<div align="center">
+
+---
+
+[![View MichaelAngel.io on GitHub](https://img.shields.io/badge/GitHub-View%20MichaelAngel.io-blue?logo=github)](https://github.com/M1ck4/MichaelAngel.io)
+
+[![Ethical AI](https://img.shields.io/badge/Ethical%20AI-Priority-orange.svg)](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/AI_Artisians_FAQ.md) 
+
+---
+
+![Creative Commons License](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey?style=for-the-badge&logo=creative-commons&logoColor=white)
+</div>

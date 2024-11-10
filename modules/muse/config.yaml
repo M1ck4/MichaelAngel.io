@@ -1,0 +1,144 @@
+# ================================================
+#    __  __                
+#   |  \/  |_   _ ___  ___ 
+#   | |\/| | | | / __|/ _ \
+#   | |  | | |_| \__ \  __/
+#   |_|  |_|\__,_|___/\___|
+#                          
+# ================================================
+#
+#               Muse Configuration File
+# ================================================
+#
+# This configuration file manages settings for the Muse module,
+# responsible for dataset creation, augmentation, splitting,
+# metadata management, and integrating with the Metaforge database.
+
+# -----------------------------------------------
+# Input and Output Configuration
+# -----------------------------------------------
+# Specify the paths for input and output folders.
+# The input folder should contain preprocessed images from Chisel.
+# The output folder will store the organized dataset.
+
+paths:
+  input_folder: "path/to/preprocessed_images"   # Path to the input folder containing preprocessed images
+  output_folder: "path/to/output_dataset"       # Path to the output folder for the organized dataset
+  metadata_export_dir: "metaforge/exports/muse" # Directory to export metadata JSON/YAML files
+  log_directory: "./logs"                       # Directory to store log files
+
+# -----------------------------------------------
+# Dataset Splitting Configuration
+# -----------------------------------------------
+# Define the ratios for splitting the dataset into training, validation, and test sets.
+# The sum of these ratios should equal 1.0.
+
+split_ratios:
+  train: 0.8   # 80% of data for training
+  val: 0.1     # 10% of data for validation
+  test: 0.1    # 10% of data for testing
+
+# -----------------------------------------------
+# Data Augmentation Settings
+# -----------------------------------------------
+# Configure data augmentation to increase dataset variety and prevent overfitting.
+
+augmentation:
+  enable: true                       # Set to false to disable augmentation
+  augmentation_types:                # Types of augmentation to apply
+    - rotate
+    - flip_horizontal
+    - mixup
+    - cutmix
+  augmentation_multiplier: 1         # Number of times to apply augmentation per image
+  num_workers: 4                     # Number of multiprocessing workers for augmentation
+
+# -----------------------------------------------
+# Quality Control Parameters
+# -----------------------------------------------
+# Set minimum requirements for images to be included in the dataset.
+
+quality_control:
+  min_size:
+    width: 128                        # Minimum width in pixels
+    height: 128                       # Minimum height in pixels
+  allowed_formats:                   # List of allowed image formats
+    - "JPEG"
+    - "PNG"
+
+# -----------------------------------------------
+# Advanced Settings
+# -----------------------------------------------
+# Additional options for dataset creation and management.
+
+advanced:
+  stratify: true                      # Maintain class distribution across splits
+  frame_filename_template: "frame_{frame_number}"  # Template for frame filenames
+  preserve_timestamps: true           # Preserve original image timestamps
+  use_gpu: false                      # Enable GPU acceleration if available
+
+# -----------------------------------------------
+# Label Mapping
+# -----------------------------------------------
+# Define the mapping of categories to numerical labels.
+# Modify this section to match your dataset's categories.
+
+label_mapping:
+  Category1: 0
+  Category2: 1
+  Unknown: -1
+
+# -----------------------------------------------
+# Logging Configuration
+# -----------------------------------------------
+# Configure logging settings, including log level and log file.
+
+logging:
+  level: "INFO"                        # Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  log_file: "muse.log"                 # Log file path
+  format: "%(asctime)s - %(levelname)s - %(message)s"  # Log message format
+
+# -----------------------------------------------
+# Database Configuration
+# -----------------------------------------------
+# Specify the database URL for Metaforge integration.
+# Ensure this matches the database URL used by other modules (Chisel, Curator, FilmFrame).
+
+database:
+  url: 'sqlite:///metaforge.db'         # Database URI (e.g., sqlite:///metaforge.db or postgresql://user:pass@localhost/dbname)
+
+# -----------------------------------------------
+# Metadata Export Settings
+# -----------------------------------------------
+# Define where to export metadata JSON/YAML files.
+
+metadata_export:
+  export_dir: 'metaforge/exports/muse'  # Directory to export metadata JSON/YAML files
+  formats:                              # Formats to export metadata
+    - json
+    - yaml
+
+# -----------------------------------------------
+# Email Notification Settings (Optional)
+# -----------------------------------------------
+# Enable email notifications to receive reports upon completion.
+# Fill in the SMTP server details and recipient information.
+# Ensure that your SMTP server supports the specified port and security settings.
+
+email_settings:
+  enable_notifications: false          # Enable or disable email notifications
+  smtp:
+    server: "smtp.example.com"          # Your SMTP server address (e.g., smtp.gmail.com)
+    port: 587                           # SMTP server port (e.g., 587 for TLS)
+    use_tls: true                       # Use TLS for SMTP connection
+    username: "your_username"           # Your SMTP account username
+    password: "your_password"           # Your SMTP account password
+  notification:
+    from_email: "sender@example.com"    # Email address to send from
+    to_email: "recipient@example.com"   # Email address to send notifications to
+    subject: "Muse: Dataset Creation Complete"  # Subject of the notification email
+    body_template: "Dataset creation has completed for {dataset_name}. Total images: {image_count}"  # Email body template
+
+# ================================================
+#                End of Configuration
+# ================================================

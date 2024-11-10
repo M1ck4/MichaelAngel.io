@@ -1,5 +1,3 @@
-# modules/muse/__init__.py
+from .muse_dataset_manager import MuseDatasetManager
 
-from .muse import process_with_muse
-
-__all__ = ['process_with_muse']
+__all__ = ['MuseDatasetManager']

@@ -1,6 +1,3 @@
-# modules/curator/__init__.py
+from .metadata_manager import CuratorMetadataManager
 
-from .curator import process_with_curator
-
-__all__ = ['process_with_curator']
-
+__all__ = ['CuratorMetadataManager']

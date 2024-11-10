@@ -214,6 +214,5 @@ Various groups on Facebook focus on AI ethics discussions and networking among p
 
 ---
 
-[![Clone](https://img.shields.io/badge/Clone-GitHub-blue?logo=github&style=flat-square)](https://github.com/M1ck4/MichaelAngel.io.git)
-[![Fork](https://img.shields.io/badge/Fork-GitHub-blue?logo=github&style=flat-square)](https://github.com/M1ck4/MichaelAngel.io/fork)
+![Creative Commons License](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey?style=for-the-badge&logo=creative-commons&logoColor=white)
 </div>

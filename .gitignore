@@ -116,3 +116,4 @@ temp/
 .svn/
 
 # Preserve the beauty, Keep it clean!
+config/config.yaml

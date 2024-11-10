@@ -18,7 +18,7 @@ from urllib.parse import urlparse  # Added import for URL parsing
 
 # Import Metaforge components
 from metaforge.metadata_manager import Metaforge
-from metaforge.models import ImageMetadata, ProcessingStep
+from metaforge.schemas import ImageMetadataSchema
 from metaforge.utils import export_metadata_to_json, export_metadata_to_yaml
 
 # Additional imports for image metadata extraction
@@ -56,6 +56,7 @@ class Config:
         if os.path.exists(file_path):
             with open(file_path, 'r') as file:
                 self.data = yaml.safe_load(file)
+                logger.debug('Configuration loaded successfully.')
         else:
             logger.error(f'Configuration file {file_path} not found.')
             self.data = {}
@@ -76,7 +77,7 @@ def setup_logging():
     formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
 
     # File handler for logging (keep at DEBUG level)
-    log_file_path = os.path.join(log_directory, 'image_downloader.log')
+    log_file_path = os.path.join(log_directory, 'curator.log')
     file_handler = logging.FileHandler(log_file_path)
     file_handler.setLevel(logging.DEBUG)
     file_handler.setFormatter(formatter)
@@ -117,6 +118,7 @@ def download_image(url: str, path: str) -> bool:
                 f.write(chunk)
         with METRICS_LOCK:
             METRICS['successful_requests'] += 1
+        logger.debug(f'Successfully downloaded image from {url} to {path}')
         return True
     except Exception as e:
         with METRICS_LOCK:
@@ -159,37 +161,25 @@ def save_metadata(
         file_meta = extract_file_metadata(image_path)
         metadata['file_metadata'] = file_meta
 
-    # Create ImageMetadata instance
-    image_metadata = ImageMetadata(
+    # Create ImageMetadataSchema instance
+    image_metadata_schema = ImageMetadataSchema(
         image_id=image_id,
         source_api=api,
         download_info=metadata.get('download_info', {}),
         attribution=metadata.get('attribution', {}),
-        processing_steps=[],  # No processing steps at download
         additional_metadata=metadata.get('additional_metadata', {}),
-        lineage=[f"{api.capitalize()}: Downloaded image and extracted metadata."],
-        created_at=datetime.utcnow(),
-        updated_at=datetime.utcnow()
+        lineage=metadata.get('lineage', []),
+        file_metadata=metadata.get('file_metadata', {})
     )
 
-    # Add metadata to Metaforge
-    metaforge.add_image_metadata(image_metadata)
+    # Add metadata to Metaforge (SQL Database)
+    metaforge.add_image_metadata(image_metadata_schema)
 
     # Save comprehensive metadata file in the module's directory
     comprehensive_metadata_path = os.path.join(folder, f"{image_id}_metadata.json")
     try:
         with open(comprehensive_metadata_path, 'w', encoding='utf-8') as f:
-            json.dump({
-                'image_id': image_metadata.image_id,
-                'source_api': image_metadata.source_api,
-                'download_info': image_metadata.download_info,
-                'attribution': image_metadata.attribution,
-                'additional_metadata': image_metadata.additional_metadata,
-                'lineage': image_metadata.lineage,
-                'file_metadata': image_metadata.file_metadata if 'file_metadata' in metadata else {},
-                'created_at': image_metadata.created_at.isoformat(),
-                'updated_at': image_metadata.updated_at.isoformat()
-            }, f, indent=2)
+            json.dump(image_metadata_schema.dict(), f, indent=2)
         logger.debug(f'Comprehensive metadata saved at {comprehensive_metadata_path}')
     except Exception as e:
         logger.error(f"Error saving comprehensive metadata to {comprehensive_metadata_path}: {e}")
@@ -375,12 +365,12 @@ def download_image_batch(
                     logger.info(f"No more images available for term '{params.get('q') or params.get('query')}' from {api_name}")
                     break
 
-        # Ensure all futures are completed
-        for future in as_completed(futures):
-            try:
-                future.result()
-            except Exception as e:
-                logger.error(f"Error processing image: {e}")
+    # Ensure all futures are completed
+    for future in as_completed(futures):
+        try:
+            future.result()
+        except Exception as e:
+            logger.error(f"Error processing image: {e}")
 
     with METRICS_LOCK:
         METRICS['total_images_downloaded'] += total_downloaded
@@ -612,11 +602,11 @@ def download_from_google_cse(
 
 # Define a mapping for API name-to-function
 API_FUNCTIONS = {
-    'pixabay': {'func': download_from_pixabay, 'name': 'pixabay'},
-    'unsplash': {'func': download_from_unsplash, 'name': 'unsplash'},
-    'pexels': {'func': download_from_pexels, 'name': 'pexels'},
-    'flickr': {'func': download_from_flickr, 'name': 'flickr'},
-    'google_cse': {'func': download_from_google_cse, 'name': 'google_cse'}
+    'pixabay': download_from_pixabay,
+    'unsplash': download_from_unsplash,
+    'pexels': download_from_pexels,
+    'flickr': download_from_flickr,
+    'google_cse': download_from_google_cse
 }
 
 def general_api_call(url: str, params: Dict[str, Any], headers: Optional[Dict[str, str]] = None) -> Optional[Dict[str, Any]]:
@@ -663,18 +653,15 @@ def check_images_exist(api_call_function: Callable, url: str, params: Dict[str, 
         return False
 
 def download_images(
-    api_function_mapping: Dict[str, Dict[str, Any]],
+    api_function_mapping: Dict[str, Callable],
     search_terms: List[str],
     metaforge: Metaforge,
     max_images_per_term: int,
-    extract_file_meta: bool = True  # Set to True by default
+    extract_file_meta: bool = True  # Extraction is on by default
 ):
     for term in search_terms:
-        for api_key, api_info in api_function_mapping.items():
-            api_func = api_info['func']
-            api_name = api_info['name']
-
-            logger.info(f'Starting download from {api_name} for term: {term}')
+        for api_name, api_func in api_function_mapping.items():
+            logger.info(f'Starting download from {api_name} for term: "{term}"')
 
             # Retrieve API key from config
             api_keys = config.data.get('api_keys', {})
@@ -712,7 +699,7 @@ def send_email_notification(email_address: str, subject: str, body: str):
         return
 
     msg = EmailMessage()
-    msg.set_content(body)
+    msg.set_content(body, subtype='html')  # Use HTML for better formatting
     msg['Subject'] = subject
     msg['From'] = email_settings.get('from_email')
     msg['To'] = email_address
@@ -726,13 +713,25 @@ def send_email_notification(email_address: str, subject: str, body: str):
     except Exception as e:
         logger.error(f'Failed to send email notification: {e}')
 
+def clean_up_partial_files(base_dir: str):
+    logger.info('Cleaning up any partial files...')
+    for root, dirs, files in os.walk(base_dir):
+        for file in files:
+            if file.endswith('.part'):
+                file_path = os.path.join(root, file)
+                try:
+                    os.remove(file_path)
+                    logger.debug(f'Removed partial file: {file_path}')
+                except Exception as e:
+                    logger.error(f'Error removing partial file {file_path}: {e}')
+
 def main():
     parser = argparse.ArgumentParser(description='Download images from APIs.')
     parser.add_argument('--config', type=str, help='Path to the configuration file.')
     parser.add_argument('--email', '-e', action='store_true', help='Enable email notifications.')
     args = parser.parse_args()
 
-    config_path = args.config or 'config.yaml'
+    config_path = args.config or 'config/config.yaml'
     config.load(config_path)
 
     # Setup logging after loading config
@@ -740,17 +739,32 @@ def main():
 
     ensure_directory_exists(BASE_DIR)
 
-    # Initialize Metaforge
-    metaforge = Metaforge()
+    # Initialize Metaforge with database URL from config
+    metaforge = Metaforge(db_url=config.data.get('database', {}).get('url', 'sqlite:///metaforge.db'))
 
+    # Clean up any partial files from previous runs
+    clean_up_partial_files(BASE_DIR)
+
+    # Load search terms and max images
     search_terms = config.data.get('search_terms', DEFAULT_SEARCH_TERMS)
     max_images_per_term = config.data.get('max_images_per_term', DEFAULT_MAX_IMAGES_PER_TERM)
-    extract_file_meta = True  # Extraction is on by default
+    extract_file_meta = config.data.get('extract_file_meta', True)  # Extraction is on by default
+
+    # Define API functions mapping
+    API_FUNCTIONS = {
+        'pixabay': download_from_pixabay,
+        'unsplash': download_from_unsplash,
+        'pexels': download_from_pexels,
+        'flickr': download_from_flickr,
+        'google_cse': download_from_google_cse
+    }
 
     download_images(API_FUNCTIONS, search_terms, metaforge, max_images_per_term, extract_file_meta)
 
     # Export metadata
-    metaforge.export_metadata(['json', 'yaml'], export_dir='metaforge/exports/curator')
+    export_dir = config.data.get('metadata_export_dir', 'metaforge/exports/curator')
+    ensure_directory_exists(export_dir)
+    metaforge.export_metadata(['json', 'yaml'], export_dir=export_dir)
 
     # Print summary
     logger.info("\nDownload Summary:")
@@ -762,18 +776,36 @@ def main():
     if METRICS['failed_requests'] > 0:
         logger.warning(f"Failed requests: {METRICS['failed_requests']}")
 
-    if args.email:
-        subject = 'Image Download Report'
+    # Send email notification if enabled
+    if args.email and config.data.get('email_settings', {}).get('enabled', False):
+        subject = 'Curator - Image Download Report'
         body = f"""
-        Date: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
-        Total images downloaded: {METRICS['total_images_downloaded']}
-        Images per category: {json.dumps({k: v for k, v in METRICS['images_per_category'].items()}, indent=2)}
-        Total requests made: {METRICS['total_requests_made']}
-        Successful requests: {METRICS['successful_requests']}
-        Failed requests: {METRICS['failed_requests']}
-        API time spent: {json.dumps({k: v for k, v in METRICS['api_times'].items()}, indent=2)}
-        API retries: {json.dumps({k: v for k, v in METRICS['api_retries'].items()}, indent=2)}
+        <h2>Curator - Image Download Report</h2>
+        <p><strong>Date:</strong> {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</p>
+        <p><strong>Total images downloaded:</strong> {METRICS['total_images_downloaded']}</p>
+        <p><strong>Images per category:</strong></p>
+        <ul>
         """
+        for category, count in METRICS['images_per_category'].items():
+            body += f"<li>{category}: {count} images</li>"
+        body += "</ul>"
+        body += f"""
+        <p><strong>Total requests made:</strong> {METRICS['total_requests_made']}</p>
+        <p><strong>Successful requests:</strong> {METRICS['successful_requests']}</p>
+        <p><strong>Failed requests:</strong> {METRICS['failed_requests']}</p>
+        <p><strong>API time spent:</strong></p>
+        <ul>
+        """
+        for api, duration in METRICS['api_times'].items():
+            body += f"<li>{api}: {duration:.2f} seconds</li>"
+        body += "</ul>"
+        body += f"""
+        <p><strong>API retries:</strong></p>
+        <ul>
+        """
+        for api, retries in METRICS['api_retries'].items():
+            body += f"<li>{api}: {retries} retries</li>"
+        body += "</ul>"
         send_email_notification(config.data['email_settings']['to_email'], subject, body)
 
     # Close Metaforge connection

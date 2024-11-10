@@ -1,5 +1,3 @@
-# modules/filmframe/__init__.py
+from .filmframe_processor import FilmFrameProcessor
 
-from .filmframe import process_with_filmframe
-
-__all__ = ['process_with_filmframe']
+__all__ = ['FilmFrameProcessor']

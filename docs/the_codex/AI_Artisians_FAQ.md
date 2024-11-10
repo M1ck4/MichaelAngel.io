@@ -67,8 +67,6 @@ To begin using **The Codex**, follow these steps:
 3. **Implement Guidelines**: Apply the practical guidelines and checklists to your AI projects to ensure ethical compliance.
 4. **Contribute**: Share your insights and feedback to help improve **The Codex**.
 
----
-
 <div align="center">
 
 ---
@@ -79,6 +77,5 @@ To begin using **The Codex**, follow these steps:
 
 ---
 
-[![Clone](https://img.shields.io/badge/Clone-GitHub-blue?logo=github&style=flat-square)](https://github.com/M1ck4/MichaelAngel.io.git)
-[![Fork](https://img.shields.io/badge/Fork-GitHub-blue?logo=github&style=flat-square)](https://github.com/M1ck4/MichaelAngel.io/fork)
+![Creative Commons License](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey?style=for-the-badge&logo=creative-commons&logoColor=white)
 </div>

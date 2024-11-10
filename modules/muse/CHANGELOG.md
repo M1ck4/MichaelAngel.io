@@ -2,13 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+## Muse Changelog
 
-## [1.0.0] - 2024-10-24
+All notable changes to Muse will be documented in this file.
 
-### Added
+### [1.0.1] - 2024-11-11
 
+#### Added
+- **Database Integration:** SQL support incorporated to track image metadata from preprocessing to dataset creation, allowing for efficient metadata queries and management.
+- **JSONL and SQL Storage:** Stores metadata in both JSONL and SQL formats for flexible access.
+
+#### Changed
+- **Metadata Workflow:** Enhanced to support SQL integration, ensuring each image’s metadata is logged consistently from input to export stages.
+
+### [1.0.0] - 2024-10-24
+
+#### Added
 - **Metadata Loading:**
   - Implemented `load_metadata` to aggregate metadata from multiple JSON files within the input directory.
   - Ensured absolute file paths are correctly assigned to each image based on metadata.
@@ -47,8 +56,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Developed `export_dataset` to organize and save datasets into designated folders (`train`, `val`, `test`).
   - Preserved metadata with detailed processing steps for each image.
 
-### Changed
-
+#### Changed
 - **Script Structure:**
   - Refactored script for better readability and maintainability.
   - Separated augmentation logic to facilitate multiprocessing compatibility.
@@ -60,8 +68,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Enhanced unique naming for augmented images to prevent filename collisions.
   - Ensured all images are converted to RGB mode before processing to maintain consistency.
 
-### Fixed
-
+#### Fixed
 - **Import Issues:**
   - Removed unused imports (`random`, `ImageOps`) to eliminate IDE warnings and optimize performance.
 

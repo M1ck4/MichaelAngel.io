@@ -1,0 +1,7 @@
+# Core Libraries
+Pillow
+NumPy
+opencv-python
+tqdm
+scikit-image
+
