@@ -76,7 +76,7 @@ Curator is perfect for artists, developers, and researchers who need a quick and
 <div align="center">
 
 [![Clone Chisel](https://img.shields.io/badge/Clone%20Chisel-%231e90ff?style=for-the-badge&logo=hammer)](https://github.com/M1ck4/MichaelAngel.io/tree/main/chisel)
-[![Chisel README](https://img.shields.io/badge/Chisel%20README-%23555555?style=for-the-badge&logo=readme)](https://github.com/M1ck4/MichaelAngel.io/blob/main/chisel/README.md)
+[![Chisel README](https://img.shields.io/badge/Chisel%20README-%23555555?style=for-the-badge&logo=readme)](https://github.com/M1ck4/MichaelAngel.io/blob/main/modules/chisel/README.md)
 
 ### chisel
 
@@ -98,7 +98,7 @@ Chisel guarantees that your dataset is clean, organized, and legally compliant, 
 <div align="center"> 
 
 [![Clone FilmFrame](https://img.shields.io/badge/Clone%20FilmFrame-%231e90ff?style=for-the-badge&logo=film)](https://github.com/M1ck4/MichaelAngel.io/tree/main/filmframe)
-[![FilmFrame README](https://img.shields.io/badge/FilmFrame%20README-%23555555?style=for-the-badge&logo=readme)](https://github.com/M1ck4/MichaelAngel.io/blob/main/filmframe/READ_ME.md)
+[![FilmFrame README](https://img.shields.io/badge/FilmFrame%20README-%23555555?style=for-the-badge&logo=readme)](https://github.com/M1ck4/MichaelAngel.io/blob/main/modules/filmframe/READ_ME.md)
 
 ### filmframe
 
@@ -120,7 +120,7 @@ FilmFrame makes it easy to ethically incorporate cinematic elements into creativ
 <div align="center">
   
 [![Clone Muse](https://img.shields.io/badge/Clone%20Muse-%231e90ff?style=for-the-badge&logo=palette)](https://github.com/M1ck4/MichaelAngel.io/tree/main/muse)
-[![Muse README](https://img.shields.io/badge/Muse%20README-%23555555?style=for-the-badge&logo=readme)](https://github.com/M1ck4/MichaelAngel.io/blob/main/muse/READ_ME.md)
+[![Muse README](https://img.shields.io/badge/Muse%20README-%23555555?style=for-the-badge&logo=readme)](https://github.com/M1ck4/MichaelAngel.io/blob/main/modules/muse/READ_ME.md)
 
 ### muse
 
