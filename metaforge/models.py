@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String, Integer, Float, DateTime, Text, JSON
+from sqlalchemy import Column, String, Integer, Float, DateTime, Text, JSON, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 from datetime import datetime
 
@@ -35,3 +35,13 @@ class DatasetMetadata(Base):
     total_images = Column(Integer, nullable=False)
     label_distribution = Column(JSON, nullable=False)
     processing_steps = Column(JSON, nullable=False)
+
+class FilmFrameMetadata(Base):
+    __tablename__ = 'film_frame_metadata'
+    frame_id = Column(String, primary_key=True, index=True)  # Unique identifier for each frame
+    film_id = Column(String, nullable=False, index=True)  # Identifier for the film or video source
+    frame_number = Column(Integer, nullable=False)  # Frame number within the film
+    timestamp = Column(DateTime, nullable=True)  # Timestamp of the frame in the video
+    resolution = Column(JSON, nullable=False)  # Resolution as { "width": int, "height": int }
+    processing_steps = Column(JSON, nullable=False)  # Steps applied to the frame
+    extracted_metadata = Column(JSON, nullable=True)  # Additional metadata extracted from the frame
