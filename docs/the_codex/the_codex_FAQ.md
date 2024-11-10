@@ -21,57 +21,57 @@ Explore the curated resources within **The Codex** for guidance across all stage
 
 ### Core Documents 
 
-- **[Foundations of Ethical AI](./docs/the_codex/archive/Foundations_of_Ethical_AI.md)**: Introduction to core principles, including fairness, accountability, and transparency.
-- **[Human-Centric Values](./docs/the_codex/archive/Human-Centric_Values.md)**: Guidelines on prioritizing inclusivity, fairness, and human dignity in AI design.
-- **[Transparency and Explainability](./docs/the_codex/archive/Transparency_and_Explainability.md)**: Best practices for building transparent and interpretable AI systems.
-- **[Accountability](./docs/the_codex/archive/Accountability.md)**: Insights into establishing clear roles and responsibilities in AI projects.
-- **[Privacy Protection and Security](./docs/the_codex/archive/Privacy_Protection_and_Security.md)**: Guidelines for safeguarding privacy and ensuring secure AI practices.
-- **[Data Governance](./docs/the_codex/archive/Data_Governance.md)**: Ethical practices for data collection, management, and storage.
-- **[Bias](./docs/the_codex/archive/Bias.md)**: Strategies to identify and mitigate bias in AI systems.
+- **[Foundations of Ethical AI](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/archive/Foundations_of_Ethical_AI.md)**: Introduction to core principles, including fairness, accountability, and transparency.
+- **[Human-Centric Values](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/archive/Human-Centric_Values.md)**: Guidelines on prioritizing inclusivity, fairness, and human dignity in AI design.
+- **[Transparency and Explainability](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/archive/Transparency_and_Explainability.md)**: Best practices for building transparent and interpretable AI systems.
+- **[Accountability](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/archive/Accountability.md)**: Insights into establishing clear roles and responsibilities in AI projects.
+- **[Privacy Protection and Security](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/archive/Privacy_Protection_and_Security.md)**: Guidelines for safeguarding privacy and ensuring secure AI practices.
+- **[Data Governance](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/archive/Data_Governance.md)**: Ethical practices for data collection, management, and storage.
+- **[Bias](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/archive/Bias.md)**: Strategies to identify and mitigate bias in AI systems.
 
 ### Miscellaneous Resources
 
-- **[AI Bodies by Country](./docs/the_codex/misc/AI_Bodies_by_Country.md)**: A list of AI regulatory bodies worldwide, including their ethical guidelines.
-- **[AI Ethics Resources](./docs/the_codex/misc/AI_Ethics_Resources.md)**: A curated list of additional resources for deepening knowledge in AI ethics.
-- **[Glossary](./docs/the_codex/misc/Glossary.md)**: Definitions of key terms used throughout **The Codex**.
+- **[AI Bodies by Country](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/misc/AI_Bodies_by_Country.md)**: A list of AI regulatory bodies worldwide, including their ethical guidelines.
+- **[AI Ethics Resources](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/misc/AI_Ethics_Resources.md)**: A curated list of additional resources for deepening knowledge in AI ethics.
+- **[Glossary](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/misc/Glossary.md)**: Definitions of key terms used throughout **The Codex**.
 
 ### Checklists
 
 Detailed checklists to guide ethical considerations across various aspects of AI projects:
 
-- **[Basic Ethical AI Checklist](./docs/the_codex/checklists/Basic_Ethical_AI_Checklist.md)**
-- **[Ethical AI Checklist](./docs/the_codex/checklists/Ethical_AI_Checklist.md)**
+- **[Basic Ethical AI Checklist](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/checklists/Basic_Ethical_AI_Checklist.md)**
+- **[Ethical AI Checklist](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/checklists/Ethical_AI_Checklist.md)**
 
 #### Comprehensive Checklists:
 
-- **[AI Governance & Strategy Checklist](./docs/the_codex/checklists/comprehensive_checklists/AI_Governance_%26_Strategy_Checklist.md)**
-- **[Accessibility & Inclusivity Checklist](./docs/the_codex/checklists/comprehensive_checklists/Accessibility_%26_Inclusivity_Checklist.md)**
-- **[Accountability & Governance Checklist](./docs/the_codex/checklists/comprehensive_checklists/Accountability_%26_Governance_Checklist.md)**
-- **[Bias & Fairness Checklist](./docs/the_codex/checklists/comprehensive_checklists/Bias_%26_Fairness_Checklist.md)**
-- **[Compliance & Legal Checklist](./docs/the_codex/checklists/comprehensive_checklists/Compliance_%26_Legal_Checklist.md)**
-- **[Data Privacy & Security Checklist](./docs/the_codex/checklists/comprehensive_checklists/Data_Privacy_%26_Security_Checklist.md)**
-- **[Ethical AI Assessment Checklist](./docs/the_codex/checklists/comprehensive_checklists/Ethical_AI_Assessment_Checklist.md)**
-- **[Human-AI Interaction Checklist](./docs/the_codex/checklists/comprehensive_checklists/Human-AI_Interaction_Checklist.md)**
-- **[Safety & Security Checklist](./docs/the_codex/checklists/comprehensive_checklists/Safety_%26_Security_Checklist.md)**
-- **[Sustainability & Environmental Impact Checklist](./docs/the_codex/checklists/comprehensive_checklists/Sustainability_%26_Environmental_Impact_Checklist.md)**
-- **[Transparency & Explainability Checklist](./docs/the_codex/checklists/comprehensive_checklists/Transparency_%26_Explainability_Checklist.md)**
-- **[User Consent & Data Governance Checklist](./docs/the_codex/checklists/comprehensive_checklists/User_Consent_%26_Data_Governance_Checklist.md)**
+- **[AI Governance & Strategy Checklist](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/checklists/comprehensive_checklists/AI_Governance_%26_Strategy_Checklist.md)**
+- **[Accessibility & Inclusivity Checklist](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/checklists/comprehensive_checklists/Accessibility_%26_Inclusivity_Checklist.md)**
+- **[Accountability & Governance Checklist](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/checklists/comprehensive_checklists/Accountability_%26_Governance_Checklist.md)**
+- **[Bias & Fairness Checklist](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/checklists/comprehensive_checklists/Bias_%26_Fairness_Checklist.md)**
+- **[Compliance & Legal Checklist](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/checklists/comprehensive_checklists/Compliance_%26_Legal_Checklist.md)**
+- **[Data Privacy & Security Checklist](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/checklists/comprehensive_checklists/Data_Privacy_%26_Security_Checklist.md)**
+- **[Ethical AI Assessment Checklist](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/checklists/comprehensive_checklists/Ethical_AI_Assessment_Checklist.md)**
+- **[Human-AI Interaction Checklist](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/checklists/comprehensive_checklists/Human-AI_Interaction_Checklist.md)**
+- **[Safety & Security Checklist](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/checklists/comprehensive_checklists/Safty_%26_Security_Checklist.md)**
+- **[Sustainability & Environmental Impact Checklist](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/checklists/comprehensive_checklists/Sustainability_%26_Environmental_Impact_Checklist.md)**
+- **[Transparency & Explainability Checklist](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/checklists/comprehensive_checklists/Transparency_%26_Explainability_Checklist.md)**
+- **[User Consent & Data Governance Checklist](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/checklists/comprehensive_checklists/User_Consent_%26_Data_Governance_Checklist.md)**
 
 ### Templates
 
 Essential templates for structuring AI projects with ethical considerations:
 
-- **[AI Impact Assessment Template](./docs/the_codex/templates/AI_Impact_Assessment_Template.md)**
-- **[Consent Form Template](./docs/the_codex/templates/Consent_Form_Template.md)**
-- **[Data Annotation Guidelines Template](./docs/the_codex/templates/Data_Annotation_Guidelines_Template.md)**
-- **[Ethical Risk Assessment Template](./docs/the_codex/templates/Ethical_Risk_Assessment_Template.md)**
-- **[Incident Response Plan Template](./docs/the_codex/templates/Incident_Response_Plan_Template.md)**
-- **[Model Update Template](./docs/the_codex/templates/Model_Update_Template.md)**
-- **[Post-Deployment Monitoring Template](./docs/the_codex/templates/Post-Deployment_Monitoring_Template.md)**
-- **[Privacy Impact Assessment Template](./docs/the_codex/templates/Privacy_Impact_Assessment_Template.md)**
-- **[Risk-Benefit Analysis Template](./docs/the_codex/templates/Risk-Benefit_Analysis_Template.md)**
-- **[Stakeholder Analysis Template](./docs/the_codex/templates/Stakeholder_Analysis_Template.md)**
-- **[Transparency Report Template](./docs/the_codex/templates/Transparency_Report_Template.md)**
+- **[AI Impact Assessment Template](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/templates/AI_Impact_Assessment_Template.md)**
+- **[Consent Form Template](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/templates/Consent_Form_Template.md)**
+- **[Data Annotation Guidelines Template](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/templates/Data_Annotation_Guidelines_Template.md)**
+- **[Ethical Risk Assessment Template](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/templates/Ethical_Risk_Assessment_Template.md)**
+- **[Incident Response Plan Template](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/templates/Incident_Response_Plan_Template.md)**
+- **[Model Update Template](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/templates/Model_Update_Template.md)**
+- **[Post-Deployment Monitoring Template](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/templates/Post-Deployment_Monitoring_Template.md)**
+- **[Privacy Impact Assessment Template](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/templates/Privacy_Impact_Assessment_Template.md)**
+- **[Risk-Benefit Analysis Template](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/templates/Risk-Benefit_Analysis_Template.md)**
+- **[Stakeholder Analysis Template](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/templates/Stakeholder_Analysis_Template.md)**
+- **[Transparency Report Template](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/templates/Transparency_Report_Template.md)**
 
 ---
 
