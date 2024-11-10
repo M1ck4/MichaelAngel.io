@@ -10,9 +10,9 @@
 
 # Input Configuration
 input:
-  path: "path/to/movies"
-  batch_mode: false
-  supported_formats:
+  path: "path/to/movies"                   # Path to the input folder containing movies
+  batch_mode: false                        # Enable batch mode for processing multiple movies
+  supported_formats:                      # List of supported video formats for processing
     - .mp4
     - .avi
     - .mov
@@ -26,18 +26,18 @@ input:
 
 # Output Configuration
 output:
-  frames_directory: "Frames"
-  image_formats:  # List of image formats to save frames in
+  frames_directory: "Frames"               # Directory to store extracted frames
+  image_formats:                           # List of image formats to save frames in
     - "jpg"
     - "png"
     - "bmp"
     - "tiff"
-  quality: 95  # Quality setting for JPEG images
+  quality: 95                               # Quality setting for JPEG images
 
 # Frame Extraction Settings
 extraction:
-  interval: 60
-  mode: "interval"
+  interval: 60                              # Time interval between frames in seconds
+  mode: "interval"                          # Extraction mode: "interval"
 
 # Metadata Settings
 metadata:
@@ -48,7 +48,7 @@ metadata:
     - license
     - url
   default_license: "Creative Commons Attribution-NonCommercial-ShareAlike 4.0"
-  format: "yaml"
+  format: "yaml"                            # Metadata storage format: "yaml" or "json"
   custom_fields:
     - genre
     - language
@@ -62,7 +62,7 @@ email:
     port: 587
     use_tls: true
     username: "your_username"
-    password: "your_password"  # You may choose to prompt for this instead
+    password: "your_password"              # Consider prompting for this instead for security
   notification:
     from_email: "sender@example.com"
     to_email: "recipient@example.com"
@@ -71,24 +71,36 @@ email:
 
 # Processing Settings
 processing:
-  max_processes: 4
-  show_progress: true
-  skip_existing: true
-  existing_dir_action: 'ask'
+  max_processes: 4                          # Number of parallel threads for frame extraction
+  show_progress: true                      # Display a progress bar during processing
+  skip_existing: true                      # Skip extraction for existing frames to avoid reprocessing
+  existing_dir_action: 'ask'               # Options: 'ask', 'overwrite', 'create_new', 'skip'
 
 # Logging Configuration
 logging:
-  file: "filmframe.log"
-  level: "INFO"
+  file: "filmframe.log"                     # Log file path
+  level: "INFO"                             # Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
   format: "%(asctime)s - %(levelname)s - %(message)s"
 
 # Error Handling Settings
 error_handling:
-  save_error_report: true
-  error_report_path: "error_reports/"
+  save_error_report: true                  # Enable or disable saving error reports
+  error_report_path: "error_reports/"       # Directory to save error reports
 
 # Advanced Settings
 advanced:
-  frame_filename_template: "frame_{frame_number}"
-  preserve_timestamps: true
-  use_gpu: false
+  frame_filename_template: "frame_{frame_number}"  # Template for frame filenames
+  preserve_timestamps: true                     # Preserve original video timestamps
+  use_gpu: false                                # Enable GPU acceleration if available
+
+# Database Configuration
+database:
+  url: 'sqlite:///metaforge.db'                   # Ensure this matches the Curator's database or is accessible by both
+
+# Metadata Export Settings
+metadata_export:
+  export_dir: 'metaforge/exports/filmframe'       # Directory to export metadata JSON/YAML files
+
+# ================================================
+#                End of Configuration
+# ================================================
