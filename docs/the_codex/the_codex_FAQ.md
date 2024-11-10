@@ -19,7 +19,7 @@ Welcome to **The Codex**, a comprehensive guide and ethical framework crafted to
 
 Explore the curated resources within **The Codex** for guidance across all stages of AI development. Resources are organized by category for easy navigation and implementation.
 
-### Core Documents
+### Core Documents 
 
 - **[The Codex FAQ](./docs/the_codex/the_codex_FAQ.md)**: Frequently asked questions about ethical AI, addressing common concerns and best practices.
 - **[Foundations of Ethical AI](./docs/the_codex/archive/Foundations_of_Ethical_AI.md)**: Introduction to core principles, including fairness, accountability, and transparency.
