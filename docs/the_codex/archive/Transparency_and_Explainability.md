@@ -155,7 +155,6 @@ To ensure transparency and explainability in AI systems, follow these key practi
 ## Conclusion
 
 Transparency and explainability are essential for the ethical and trustworthy development of AI systems. By providing clear documentation, utilizing explainable models, and implementing robust disclosure practices, organizations can build AI systems that are both understandable and reliable. Advanced techniques and adherence to regulatory standards further enhance the integrity and trustworthiness of AI technologies. **The Codex** serves as your comprehensive guide to embedding these principles into every stage of AI development, ensuring that the technologies we create not only advance human capabilities but also uphold the highest standards of ethical responsibility.
-
 <div align="center">
 
 ---
@@ -166,6 +165,5 @@ Transparency and explainability are essential for the ethical and trustworthy de
 
 ---
 
-[![Clone](https://img.shields.io/badge/Clone-GitHub-blue?logo=github&style=flat-square)](https://github.com/M1ck4/MichaelAngel.io.git)
-[![Fork](https://img.shields.io/badge/Fork-GitHub-blue?logo=github&style=flat-square)](https://github.com/M1ck4/MichaelAngel.io/fork)
+![Creative Commons License](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey?style=for-the-badge&logo=creative-commons&logoColor=white)
 </div>
