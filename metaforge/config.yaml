@@ -1,0 +1,59 @@
+# ================================================
+#                 _         __                     
+#                | |       / _|                    
+#  _ __ ___   ___| |_ __ _| |_ ___  _ __ __ _  ___ 
+# | '_ ` _ \ / _ \ __/ _` |  _/ _ \| '__/ _` |/ _ \
+# | | | | | |  __/ || (_| | || (_) | | | (_| |  __/
+# |_| |_| |_|\___|\__\__,_|_| \___/|_|  \__, |\___|
+#                                        __/ |     
+#                                       |___/      
+#               Metaforge Configuration
+# ================================================
+#
+# This configuration file manages settings for Metaforge,
+# responsible for handling and consolidating metadata from
+# all modules (Curator, Chisel, FilmFrame, and Muse).
+# It configures the database connection, logging, and metadata export.
+
+# -----------------------------------------------
+# Database Configuration
+# -----------------------------------------------
+# Specify the database URL for Metaforge integration.
+# This should match the database URL used by other modules (e.g., sqlite:///metaforge.db).
+
+database:
+  url: 'sqlite:///metaforge.db'         # URI for connecting to the database
+
+# -----------------------------------------------
+# Metadata Export Settings
+# -----------------------------------------------
+# Define settings for exporting metadata to JSON or YAML files.
+
+metadata_export:
+  export_dir: 'metaforge/exports'       # Directory to export metadata files
+  formats:                              # Formats to export metadata in
+    - json
+    - yaml
+
+# -----------------------------------------------
+# Logging Configuration
+# -----------------------------------------------
+# Configure logging settings, including log level and log file path.
+
+logging:
+  level: "INFO"                          # Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  log_file: "metaforge.log"              # Log file path
+  format: "%(asctime)s - %(levelname)s - %(message)s"  # Log message format
+
+# -----------------------------------------------
+# Error Handling
+# -----------------------------------------------
+# Configure options for error handling and recovery.
+
+error_handling:
+  save_error_report: true               # Save error reports in case of processing failures
+  error_report_path: "metaforge/error_reports/"  # Directory to store error reports
+
+# ================================================
+#                End of Configuration
+# ================================================
