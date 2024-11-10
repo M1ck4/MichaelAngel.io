@@ -5,12 +5,16 @@
 #   '  '--'\'  ''  '|  |   \ '-'  |  |  |  ' '-' '|  |       
 #    `-----' `----' `--'    `--`--'  `--'   `---' `--'
 # ================================================
+#
+#               Curator Configuration File
+# ================================================
 
 # -----------------------------------------------
 # API Keys for Image Services
 # -----------------------------------------------
 # Obtain API keys by registering on each service's website.
-# Ensure that the keys are kept secure and not shared publicly.
+# It's recommended to use environment variables for sensitive information.
+# Replace "YOUR_..." placeholders with actual keys or reference environment variables.
 
 api_keys:
   pixabay:
@@ -30,25 +34,22 @@ api_keys:
 # -----------------------------------------------
 # Define the list of search terms for which images will be downloaded.
 # Each term should be on a separate line.
-# The Search_Terms_Dictionary will have some examples which can be found in the base directory.
 
 search_terms:
   - nature
   - city
   - animals
   - space
-  - ocean                                                     
-       
-                
+  - ocean
 
 # -----------------------------------------------
-# Rate Limits for API Calls (Optional)
+# Rate Limits for API Calls
 # -----------------------------------------------
 # Configure rate limits to comply with each API's usage policies.
 # Set 'calls' to the maximum number of API requests allowed within the 'period' (in seconds).
-# If no rate limit is needed, you can omit the section or set 'calls' to 0.
+# If no rate limit is needed for a service, you can omit its section or set 'calls' to 0.
 
-rate_limits: #Set for free API limits
+rate_limits:
   pixabay:
     calls: 100
     period: 60
@@ -69,16 +70,51 @@ rate_limits: #Set for free API limits
 # Download Settings
 # -----------------------------------------------
 # Define the maximum number of images to download per search term.
+# Optionally, set the minimum and maximum resolution for downloaded images.
 
-max_images_per_term: 100
+download_settings:
+  max_images_per_term: 100
+  min_resolution:
+    width: 300
+    height: 300
+  max_resolution:
+    width: 4000
+    height: 4000
+
+# -----------------------------------------------
+# Duplicate Detection Settings
+# -----------------------------------------------
+# Configure duplicate detection to avoid downloading duplicate images.
+# Enable or disable duplicate detection and specify the method.
+
+duplicate_detection:
+  enable: true                           # Enable or disable duplicate detection
+  method: "hash"                         # Method for duplicate detection (e.g., "hash", "metadata")
+  supported_formats:                     # List of supported image file extensions for processing
+    - ".jpg"
+    - ".jpeg"
+    - ".png"
+    - ".bmp"
+    - ".tiff"
+
+# -----------------------------------------------
+# Paths Configuration
+# -----------------------------------------------
+# Define paths for image storage, metadata export, and logs.
+
+paths:
+  image_folder: "./downloaded_images"     # Path to store downloaded images
+  metadata_export_dir: "metaforge/exports/curator"  # Directory to export metadata JSON/YAML files
+  log_directory: "./logs"                 # Directory to store log files
 
 # -----------------------------------------------
 # Logging Configuration
 # -----------------------------------------------
-# Specify the directory where log files will be stored.
-# Ensure that the application has write permissions to this directory.
+# Configure logging settings, including log level and log file name.
 
-log_directory: "./logs"
+logging:
+  level: "INFO"                          # Log level (DEBUG, INFO, WARNING, ERROR, CRITICAL)
+  log_file: "curator.log"                # Log file name
 
 # -----------------------------------------------
 # Email Notification Settings (Optional)
@@ -88,19 +124,22 @@ log_directory: "./logs"
 # Ensure that your SMTP server supports the specified port and security settings.
 
 email_settings:
-  smtp_server: "smtp.example.com"         # Your SMTP server address (e.g., smtp.gmail.com)
-  smtp_port: 587                          # SMTP server port (e.g., 587 for TLS)
-  smtp_login: "your_username"             # Your SMTP account username
-  smtp_password: "your_password"          # Your SMTP account password
-  from_email: "from@example.com"          # Email address to send from
-  to_email: "to@example.com"              # Email address to send notifications to
+  enable_notifications: false            # Enable or disable email notifications
+  smtp_server: "smtp.example.com"        # Your SMTP server address (e.g., smtp.gmail.com)
+  smtp_port: 587                         # SMTP server port (e.g., 587 for TLS)
+  smtp_login: "your_username"            # Your SMTP account username
+  smtp_password: "your_password"         # Your SMTP account password
+  from_email: "from@example.com"         # Email address to send from
+  to_email: "to@example.com"             # Email address to send notifications to
 
 # -----------------------------------------------
 # Database Configuration
 # -----------------------------------------------
+# Configure the database URL for Metaforge integration.
+# Ensure this matches the database URL used by other modules (e.g., Chisel, Muse).
 
 database:
-  url: 'sqlite:///metaforge.db'  # Change to your preferred database URI
+  url: 'sqlite:///metaforge.db'           # Database URI (e.g., sqlite:///metaforge.db or postgresql://user:pass@localhost/dbname)
 
 # ================================================
 #                End of Configuration
