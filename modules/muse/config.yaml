@@ -82,6 +82,22 @@ label_mapping:
 log_file: "muse_log.txt"
 log_level: "INFO"  # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
 
+# -----------------------------------------------
+# Database Configuration
+# -----------------------------------------------
+# Specify the database URL for Metaforge integration.
+
+database:
+  url: 'sqlite:///metaforge.db'  # Ensure this matches other modules or points to a shared database
+
+# -----------------------------------------------
+# Metadata Export Settings
+# -----------------------------------------------
+# Define where to export metadata JSON/YAML files.
+
+metadata_export:
+  export_dir: 'metaforge/exports/muse'  # Directory to export metadata JSON/YAML files
+
 # ================================================
 #                End of Configuration
 # ================================================
