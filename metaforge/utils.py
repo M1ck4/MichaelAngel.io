@@ -1,12 +1,17 @@
-import json
+# metaforge/utils.py
+
 import yaml
-from typing import List
-from models import ImageMetadata
+import json
+from typing import Any, Dict
 
-def export_metadata_to_json(metadata_list: List[ImageMetadata], file_path: str):
-    with open(file_path, 'w', encoding='utf-8') as f:
-        json.dump([metadata.__dict__ for metadata in metadata_list], f, indent=2, default=str)
+def export_metadata_to_json(metadata: Dict[str, Any], export_dir: str):
+    for image_id, data in metadata.items():
+        file_path = f"{export_dir}/{image_id}_metadata.json"
+        with open(file_path, 'w', encoding='utf-8') as f:
+            json.dump(data.dict(), f, indent=2)
 
-def export_metadata_to_yaml(metadata_list: List[ImageMetadata], file_path: str):
-    with open(file_path, 'w', encoding='utf-8') as f:
-        yaml.dump([metadata.__dict__ for metadata in metadata_list], f)
+def export_metadata_to_yaml(metadata: Dict[str, Any], export_dir: str):
+    for image_id, data in metadata.items():
+        file_path = f"{export_dir}/{image_id}_metadata.yaml"
+        with open(file_path, 'w', encoding='utf-8') as f:
+            yaml.dump(data.dict(), f)
