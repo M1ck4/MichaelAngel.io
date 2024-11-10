@@ -1,4 +1,15 @@
 from .metadata_manager import Metaforge
-from .schemas import ImageMetadataSchema, ImageProcessingMetadataSchema, DatasetMetadataSchema
+from .schemas import (
+    ImageMetadataSchema, 
+    ImageProcessingMetadataSchema, 
+    DatasetMetadataSchema,
+    FilmFrameMetadataSchema
+)
 
-__all__ = ['Metaforge', 'ImageMetadataSchema', 'ImageProcessingMetadataSchema', 'DatasetMetadataSchema', 'FilmFrameProcessor']
+__all__ = [
+    'Metaforge', 
+    'ImageMetadataSchema', 
+    'ImageProcessingMetadataSchema', 
+    'DatasetMetadataSchema', 
+    'FilmFrameMetadataSchema'
+]
