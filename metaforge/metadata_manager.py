@@ -1,33 +1,16 @@
 # metaforge/metadata_manager.py
 
-from sqlalchemy import create_engine, Column, String, Integer, Float, DateTime, Text, JSON
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from pydantic import BaseModel
+from typing import Optional, List
 from datetime import datetime
 import json
+import yaml
+import os
 
-Base = declarative_base()
+from metaforge.models import Base, ImageMetadata, ImageProcessingMetadata, DatasetMetadata
+from metaforge.schemas import ImageMetadataSchema, ImageProcessingMetadataSchema, DatasetMetadataSchema
 
-class ImageMetadata(Base):
-    __tablename__ = 'image_metadata'
-    image_id = Column(String, primary_key=True, index=True)
-    source_api = Column(String, nullable=False)
-    download_info = Column(JSON, nullable=False)
-    attribution = Column(JSON, nullable=False)
-    additional_metadata = Column(JSON, nullable=False)
-    lineage = Column(JSON, nullable=False)
-    file_metadata = Column(JSON, nullable=False)
-
-class ImageProcessingMetadata(Base):
-    __tablename__ = 'image_processing_metadata'
-    image_id = Column(String, primary_key=True, index=True)
-    source_image_path = Column(String, nullable=False)
-    processed_image_path = Column(String, nullable=False)
-    download_timestamp = Column(DateTime, default=datetime.utcnow)
-    processing_steps = Column(JSON, nullable=False)
-    attribution = Column(JSON, nullable=False)
-    extracted_metadata = Column(JSON, nullable=False)
 
 class Metaforge:
     def __init__(self, db_url: str = 'sqlite:///metaforge.db'):
@@ -35,7 +18,7 @@ class Metaforge:
         Base.metadata.create_all(self.engine)
         self.Session = sessionmaker(bind=self.engine)
     
-    def add_image_metadata(self, metadata: 'ImageMetadataSchema'):
+    def add_image_metadata(self, metadata: ImageMetadataSchema):
         session = self.Session()
         try:
             db_metadata = ImageMetadata(
@@ -55,7 +38,7 @@ class Metaforge:
         finally:
             session.close()
     
-    def get_image_metadata(self, image_id: str) -> Optional['ImageMetadataSchema']:
+    def get_image_metadata(self, image_id: str) -> Optional[ImageMetadataSchema]:
         session = self.Session()
         try:
             db_metadata = session.query(ImageMetadata).filter(ImageMetadata.image_id == image_id).first()
@@ -73,7 +56,7 @@ class Metaforge:
         finally:
             session.close()
     
-    def add_image_processing_metadata(self, metadata: 'ImageProcessingMetadataSchema'):
+    def add_image_processing_metadata(self, metadata: ImageProcessingMetadataSchema):
         session = self.Session()
         try:
             db_metadata = ImageProcessingMetadata(
@@ -93,7 +76,7 @@ class Metaforge:
         finally:
             session.close()
     
-    def get_image_processing_metadata(self, image_id: str) -> Optional['ImageProcessingMetadataSchema']:
+    def get_image_processing_metadata(self, image_id: str) -> Optional[ImageProcessingMetadataSchema]:
         session = self.Session()
         try:
             db_metadata = session.query(ImageProcessingMetadata).filter(ImageProcessingMetadata.image_id == image_id).first()
@@ -111,8 +94,44 @@ class Metaforge:
         finally:
             session.close()
     
+    def add_dataset_metadata(self, metadata: DatasetMetadataSchema):
+        session = self.Session()
+        try:
+            db_metadata = DatasetMetadata(
+                dataset_split=metadata.dataset_split,
+                dataset_path=metadata.dataset_path,
+                total_images=metadata.total_images,
+                label_distribution=metadata.label_distribution,
+                processing_steps=metadata.processing_steps
+            )
+            session.add(db_metadata)
+            session.commit()
+        except Exception as e:
+            session.rollback()
+            raise e
+        finally:
+            session.close()
+    
+    def get_dataset_metadata(self, dataset_split: str, dataset_path: str) -> Optional[DatasetMetadataSchema]:
+        session = self.Session()
+        try:
+            db_metadata = session.query(DatasetMetadata).filter(
+                DatasetMetadata.dataset_split == dataset_split,
+                DatasetMetadata.dataset_path == dataset_path
+            ).first()
+            if db_metadata:
+                return DatasetMetadataSchema(
+                    dataset_split=db_metadata.dataset_split,
+                    dataset_path=db_metadata.dataset_path,
+                    total_images=db_metadata.total_images,
+                    label_distribution=db_metadata.label_distribution,
+                    processing_steps=db_metadata.processing_steps
+                )
+            return None
+        finally:
+            session.close()
+    
     def export_metadata(self, formats: List[str], export_dir: str):
-        import os
         os.makedirs(export_dir, exist_ok=True)
         session = self.Session()
         try:
@@ -134,7 +153,6 @@ class Metaforge:
                         if fmt == 'json':
                             json.dump(data, f, indent=2)
                         elif fmt == 'yaml':
-                            import yaml
                             yaml.dump(data, f)
             
             # Export Image Processing Metadata
@@ -155,7 +173,24 @@ class Metaforge:
                         if fmt == 'json':
                             json.dump(data, f, indent=2)
                         elif fmt == 'yaml':
-                            import yaml
+                            yaml.dump(data, f)
+            
+            # Export Dataset Metadata
+            all_dataset_metadata = session.query(DatasetMetadata).all()
+            for metadata in all_dataset_metadata:
+                data = {
+                    'dataset_split': metadata.dataset_split,
+                    'dataset_path': metadata.dataset_path,
+                    'total_images': metadata.total_images,
+                    'label_distribution': metadata.label_distribution,
+                    'processing_steps': metadata.processing_steps
+                }
+                for fmt in formats:
+                    file_path = os.path.join(export_dir, f"{metadata.dataset_split}_dataset_metadata.{fmt}")
+                    with open(file_path, 'w', encoding='utf-8') as f:
+                        if fmt == 'json':
+                            json.dump(data, f, indent=2)
+                        elif fmt == 'yaml':
                             yaml.dump(data, f)
         finally:
             session.close()
