@@ -243,7 +243,7 @@ def process_single_image(args: Tuple[str, str, Tuple[int, int], str, int, float,
             image_id=Path(img_path).stem,
             source_image_path=img_path,
             processed_image_path=str(output_path),
-            download_timestamp=metadata.get('download_info', {}).get('download_timestamp', datetime.utcnow().isoformat()),
+            download_timestamp=metadata.get('download_info', {}).get('download_timestamp', datetime.utcnow()),
             processing_steps=metadata.get('processing_steps', []),
             attribution=attribution,
             extracted_metadata=metadata
