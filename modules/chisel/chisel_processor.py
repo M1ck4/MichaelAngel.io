@@ -1,5 +1,3 @@
-# chisel/chisel_processor.py
-
 import logging
 from PIL import Image
 from typing import Any, Dict
