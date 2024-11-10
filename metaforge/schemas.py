@@ -1,5 +1,3 @@
-# metaforge/schemas.py
-
 from pydantic import BaseModel, Field
 from typing import List, Dict, Any
 from datetime import datetime
