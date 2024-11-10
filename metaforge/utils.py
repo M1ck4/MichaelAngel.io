@@ -1,17 +1,29 @@
 # metaforge/utils.py
 
-import yaml
 import json
-from typing import Any, Dict
+import yaml
+from typing import Any
 
-def export_metadata_to_json(metadata: Dict[str, Any], export_dir: str):
-    for image_id, data in metadata.items():
-        file_path = f"{export_dir}/{image_id}_metadata.json"
-        with open(file_path, 'w', encoding='utf-8') as f:
-            json.dump(data.dict(), f, indent=2)
 
-def export_metadata_to_yaml(metadata: Dict[str, Any], export_dir: str):
-    for image_id, data in metadata.items():
-        file_path = f"{export_dir}/{image_id}_metadata.yaml"
-        with open(file_path, 'w', encoding='utf-8') as f:
-            yaml.dump(data.dict(), f)
+def serialize_json(data: Any, file_path: str):
+    """Serialize data to JSON and save to file."""
+    with open(file_path, 'w', encoding='utf-8') as f:
+        json.dump(data, f, indent=2)
+
+
+def serialize_yaml(data: Any, file_path: str):
+    """Serialize data to YAML and save to file."""
+    with open(file_path, 'w', encoding='utf-8') as f:
+        yaml.dump(data, f)
+
+
+def deserialize_json(file_path: str) -> Any:
+    """Deserialize JSON data from a file."""
+    with open(file_path, 'r', encoding='utf-8') as f:
+        return json.load(f)
+
+
+def deserialize_yaml(file_path: str) -> Any:
+    """Deserialize YAML data from a file."""
+    with open(file_path, 'r', encoding='utf-8') as f:
+        return yaml.safe_load(f)
