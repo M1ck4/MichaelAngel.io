@@ -149,6 +149,8 @@ The current implementation of the modular framework.
 
 ![Project Map](https://github.com/M1ck4/MichaelAngel.io/blob/main/assets/project_map.png)
 
+![Project Map2](https://github.com/M1ck4/MichaelAngel.io/blob/main/assets/project_map02.png)
+
 ---
 
 ## On the Drawing Board
