@@ -53,7 +53,7 @@ Our robust framework comprises a suite of specialized tools designed to streamli
 
 <div align="center"> 
   
-[![Clone Curator](https://img.shields.io/badge/Clone%20Curator-%231e90ff?style=for-the-badge&logo=archive)](https://github.com/M1ck4/MichaelAngel.io/tree/main/curator)
+[![Clone Curator](https://img.shields.io/badge/Clone%20Curator-%231e90ff?style=for-the-badge&logo=archive)](https://github.com/M1ck4/MichaelAngel.io/tree/main/modules/curator)
 [![Curator README](https://img.shields.io/badge/Curator%20README-%23555555?style=for-the-badge&logo=readme)](https://github.com/M1ck4/MichaelAngel.io/blob/main/modules/curator/README.md)
 
 ### curator 
@@ -75,7 +75,7 @@ Curator is perfect for artists, developers, and researchers who need a quick and
 
 <div align="center">
 
-[![Clone Chisel](https://img.shields.io/badge/Clone%20Chisel-%231e90ff?style=for-the-badge&logo=hammer)](https://github.com/M1ck4/MichaelAngel.io/tree/main/chisel)
+[![Clone Chisel](https://img.shields.io/badge/Clone%20Chisel-%231e90ff?style=for-the-badge&logo=hammer)](https://github.com/M1ck4/MichaelAngel.io/tree/main/modules/chisel)
 [![Chisel README](https://img.shields.io/badge/Chisel%20README-%23555555?style=for-the-badge&logo=readme)](https://github.com/M1ck4/MichaelAngel.io/blob/main/modules/chisel/README.md)
 
 ### chisel
@@ -97,7 +97,7 @@ Chisel guarantees that your dataset is clean, organized, and legally compliant, 
 
 <div align="center"> 
 
-[![Clone FilmFrame](https://img.shields.io/badge/Clone%20FilmFrame-%231e90ff?style=for-the-badge&logo=film)](https://github.com/M1ck4/MichaelAngel.io/tree/main/filmframe)
+[![Clone FilmFrame](https://img.shields.io/badge/Clone%20FilmFrame-%231e90ff?style=for-the-badge&logo=film)](https://github.com/M1ck4/MichaelAngel.io/tree/main/modules/filmframe)
 [![FilmFrame README](https://img.shields.io/badge/FilmFrame%20README-%23555555?style=for-the-badge&logo=readme)](https://github.com/M1ck4/MichaelAngel.io/blob/main/modules/filmframe/READ_ME.md)
 
 ### filmframe
@@ -119,7 +119,7 @@ FilmFrame makes it easy to ethically incorporate cinematic elements into creativ
 
 <div align="center">
   
-[![Clone Muse](https://img.shields.io/badge/Clone%20Muse-%231e90ff?style=for-the-badge&logo=palette)](https://github.com/M1ck4/MichaelAngel.io/tree/main/muse)
+[![Clone Muse](https://img.shields.io/badge/Clone%20Muse-%231e90ff?style=for-the-badge&logo=palette)](https://github.com/M1ck4/MichaelAngel.io/tree/main/modules/muse)
 [![Muse README](https://img.shields.io/badge/Muse%20README-%23555555?style=for-the-badge&logo=readme)](https://github.com/M1ck4/MichaelAngel.io/blob/main/modules/muse/READ_ME.md)
 
 ### muse
