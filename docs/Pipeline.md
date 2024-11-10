@@ -63,7 +63,14 @@
   - Evaluate performance and adjust hyperparameters as needed.  
 - **Output:** A trained generative model capable of creating new images.
 
----<div align="center">
+---
+
+## Alternate Workflow
+
+- **Musing After Curator:**  
+  If exploring new categories or sources, running Muse right after Curator for quick management of datasets. However, run Chisel first to ensure high-quality data before any dataset management.
+
+  <div align="center">
 
 ---
 
@@ -75,7 +82,3 @@
 
 ![Creative Commons License](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey?style=for-the-badge&logo=creative-commons&logoColor=white)
 </div>
-## Alternate Workflow
-
-- **Musing After Curator:**  
-  If exploring new categories or sources, running Muse right after Curator for quick management of datasets. However, run Chisel first to ensure high-quality data before any dataset management.
