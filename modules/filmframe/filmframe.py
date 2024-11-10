@@ -11,6 +11,34 @@ from concurrent.futures import ThreadPoolExecutor
 import sys
 import shutil
 import json
+from pathlib import Path
+from typing import List, Dict, Tuple
+
+# Import Metaforge components
+from metaforge.metadata_manager import Metaforge
+from metaforge.schemas import ImageProcessingMetadataSchema
+
+# Configure logging
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)  # Set to DEBUG for detailed logs
+
+# Create handlers
+log_file_path = 'filmframe.log'
+file_handler = logging.FileHandler(log_file_path)
+file_handler.setLevel(logging.DEBUG)
+
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.INFO)
+
+# Create formatters and add to handlers
+formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+file_handler.setFormatter(formatter)
+console_handler.setFormatter(formatter)
+
+# Add handlers to the logger
+logger.addHandler(file_handler)
+logger.addHandler(console_handler)
+
 
 def load_defaults():
     return {
@@ -69,18 +97,31 @@ def load_defaults():
             'frame_filename_template': 'frame_{frame_number}',
             'preserve_timestamps': True,
             'use_gpu': False  # GPU acceleration flag
+        },
+        'database': {
+            'url': 'sqlite:///metaforge.db'  # Ensure this matches the Curator's database or is accessible by both
+        },
+        'metadata_export': {
+            'export_dir': 'metaforge/exports/filmframe'  # Directory to export metadata JSON/YAML files
         }
     }
+
 
 def load_config(config_file="config.yaml"):
     config = load_defaults()
     if os.path.exists(config_file):
-        with open(config_file, 'r') as f:
-            yaml_config = yaml.safe_load(f)
-            update_dict(config, yaml_config)
+        try:
+            with open(config_file, 'r') as f:
+                yaml_config = yaml.safe_load(f)
+                update_dict(config, yaml_config)
+                logger.debug(f"Configuration loaded from '{config_file}'.")
+        except yaml.YAMLError as e:
+            logger.error(f"Error parsing the configuration file: {e}")
+            sys.exit(f"Error parsing the configuration file: {e}")
     else:
-        logging.warning(f"Configuration file '{config_file}' not found. Using default settings.")
+        logger.warning(f"Configuration file '{config_file}' not found. Using default settings.")
     return config
+
 
 def update_dict(d, u):
     for k, v in u.items():
@@ -89,6 +130,7 @@ def update_dict(d, u):
         else:
             d[k] = v
     return d
+
 
 def parse_arguments(config):
     parser = argparse.ArgumentParser(
@@ -184,6 +226,10 @@ Usage Examples:
         help='SMTP username for authentication.'
     )
     email_group.add_argument(
+        '--smtp-password',
+        help='SMTP password for authentication.'
+    )
+    email_group.add_argument(
         '--from-email',
         help='Sender email address.'
     )
@@ -275,6 +321,8 @@ Usage Examples:
         config['email']['smtp']['port'] = args.smtp_port
     if args.smtp_username:
         config['email']['smtp']['username'] = args.smtp_username
+    if args.smtp_password:
+        config['email']['smtp']['password'] = args.smtp_password
     if args.from_email:
         config['email']['notification']['from_email'] = args.from_email
     if args.to_email:
@@ -298,13 +346,15 @@ Usage Examples:
 
     return config
 
+
 def create_directory(dir_path):
     if not os.path.exists(dir_path):
         os.makedirs(dir_path)
-        logging.info(f"Directory '{dir_path}' has been created.")
+        logger.info(f"Directory '{dir_path}' has been created.")
     else:
-        logging.info(f"Directory '{dir_path}' already exists.")
+        logger.info(f"Directory '{dir_path}' already exists.")
     return dir_path
+
 
 def get_unique_directory(base_path):
     counter = 1
@@ -314,12 +364,13 @@ def get_unique_directory(base_path):
         new_path = f"{base_path}_{counter}"
     return new_path
 
+
 def extract_frames_sequential(movie_file, interval_in_seconds, output_dir, image_formats, quality, total_frames, fps, show_progress, use_gpu):
     try:
         if use_gpu:
             # Check if CUDA is available
             if not hasattr(cv2, 'cudacodec'):
-                logging.warning("OpenCV is not compiled with CUDA support. Falling back to CPU processing.")
+                logger.warning("OpenCV is not compiled with CUDA support. Falling back to CPU processing.")
                 use_gpu = False
                 cap = cv2.VideoCapture(movie_file)
             else:
@@ -328,7 +379,7 @@ def extract_frames_sequential(movie_file, interval_in_seconds, output_dir, image
             cap = cv2.VideoCapture(movie_file)
 
         if not cap.isOpened():
-            logging.error(f"Failed to open video file {movie_file}.")
+            logger.error(f"Failed to open video file {movie_file}.")
             return 0
 
         frame_interval = int(fps * interval_in_seconds)
@@ -357,7 +408,7 @@ def extract_frames_sequential(movie_file, interval_in_seconds, output_dir, image
                     else:
                         result = cv2.imwrite(frame_filename, frame)
                     if not result:
-                        logging.error(f"Failed to save frame {frame_idx} in format '{image_format}'.")
+                        logger.error(f"Failed to save frame {frame_idx} in format '{image_format}'.")
                 extracted_frames += 1  # Counts frames, not files
 
             frame_idx += 1
@@ -370,8 +421,9 @@ def extract_frames_sequential(movie_file, interval_in_seconds, output_dir, image
 
         return extracted_frames
     except Exception as e:
-        logging.error(f"Error during frame extraction: {e}")
+        logger.error(f"Error during frame extraction: {e}")
         return 0
+
 
 def extract_frames_multithreaded(movie_file, interval_in_seconds, output_dir, image_formats, quality, total_frames, fps, max_threads, show_progress, use_gpu):
     try:
@@ -383,7 +435,7 @@ def extract_frames_multithreaded(movie_file, interval_in_seconds, output_dir, im
             try:
                 if use_gpu:
                     if not hasattr(cv2, 'cudacodec'):
-                        logging.warning("OpenCV is not compiled with CUDA support. Falling back to CPU processing.")
+                        logger.warning("OpenCV is not compiled with CUDA support. Falling back to CPU processing.")
                         cap = cv2.VideoCapture(movie_file)
                     else:
                         cap = cv2.cudacodec.createVideoReader(movie_file)
@@ -412,14 +464,14 @@ def extract_frames_multithreaded(movie_file, interval_in_seconds, output_dir, im
                             else:
                                 result = cv2.imwrite(frame_filename, frame)
                             if not result:
-                                logging.error(f"Failed to save frame {frame_idx} in format '{image_format}'.")
+                                logger.error(f"Failed to save frame {frame_idx} in format '{image_format}'.")
                         local_extracted_frames += 1  # Counts frames, not files
 
                     frame_idx += 1
 
                 cap.release()
             except Exception as e:
-                logging.error(f"Error in thread processing frames {start_frame} to {end_frame}: {e}")
+                logger.error(f"Error in thread processing frames {start_frame} to {end_frame}: {e}")
             return local_extracted_frames
 
         frames_per_thread = total_frames // max_threads
@@ -443,21 +495,23 @@ def extract_frames_multithreaded(movie_file, interval_in_seconds, output_dir, im
 
         return extracted_frames
     except Exception as e:
-        logging.error(f"Error during multithreaded frame extraction: {e}")
+        logger.error(f"Error during multithreaded frame extraction: {e}")
         return 0
 
-def store_metadata(metadata, output_file, format='yaml'):
+
+def store_metadata(metadata: Dict, output_file: str, format: str = 'yaml'):
     try:
         with open(output_file, 'w') as f:
             if format == 'yaml':
                 yaml.dump(metadata, f, default_flow_style=False, sort_keys=False)
             elif format == 'json':
                 json.dump(metadata, f, indent=4)
-        logging.info(f"Metadata stored in '{output_file}'.")
+        logger.info(f"Metadata stored in '{output_file}'.")
     except Exception as e:
-        logging.error(f"Error storing metadata: {e}")
+        logger.error(f"Error storing metadata: {e}")
 
-def send_email_notification(email_config, movie_name, frame_count):
+
+def send_email_notification(email_config: Dict, movie_name: str, frame_count: int):
     try:
         body = email_config['notification']['body_template'].format(
             movie_name=movie_name,
@@ -474,14 +528,15 @@ def send_email_notification(email_config, movie_name, frame_count):
         server.login(email_config['smtp']['username'], email_config['smtp']['password'])
         server.send_message(msg)
         server.quit()
-        logging.info("Email notification sent successfully.")
+        logger.info("Email notification sent successfully.")
     except Exception as e:
-        logging.error(f"Error sending email notification: {e}")
+        logger.error(f"Error sending email notification: {e}")
 
-def process_movie(movie_info, config, master_metadata):
+
+def process_movie(movie_info: Dict, config: Dict, master_metadata: List[Dict], metaforge: Metaforge):
     movie_file = movie_info['movie_file']
     movie_name = movie_info['movie_name']
-    logging.info(f"Processing movie '{movie_name}'.")
+    logger.info(f"Processing movie '{movie_name}'.")
 
     # Create output directory for frames
     frames_dir = os.path.join(config['output']['frames_directory'], movie_name)
@@ -494,7 +549,7 @@ def process_movie(movie_info, config, master_metadata):
                     user_input = input(f"Directory '{frames_dir}' already exists. Do you want to overwrite the images in this directory? (y/n): ").strip().lower()
                     if user_input == 'y':
                         # Overwrite images
-                        logging.info(f"Overwriting images in '{frames_dir}'.")
+                        logger.info(f"Overwriting images in '{frames_dir}'.")
                         # Remove existing files in the directory
                         for filename in os.listdir(frames_dir):
                             file_path = os.path.join(frames_dir, filename)
@@ -507,7 +562,7 @@ def process_movie(movie_info, config, master_metadata):
                     elif user_input == 'n':
                         # Create a new directory
                         frames_dir = get_unique_directory(frames_dir)
-                        logging.info(f"Creating new directory '{frames_dir}' for new images.")
+                        logger.info(f"Creating new directory '{frames_dir}' for new images.")
                         create_directory(frames_dir)
                         action = 'create_new'  # Update action
                         break
@@ -516,10 +571,10 @@ def process_movie(movie_info, config, master_metadata):
             else:
                 # In batch mode, default to 'create_new'
                 frames_dir = get_unique_directory(frames_dir)
-                logging.info(f"Creating new directory '{frames_dir}' for new images.")
+                logger.info(f"Creating new directory '{frames_dir}' for new images.")
                 create_directory(frames_dir)
         elif action == 'overwrite':
-            logging.info(f"Overwriting images in '{frames_dir}'.")
+            logger.info(f"Overwriting images in '{frames_dir}'.")
             # Remove existing files in the directory
             for filename in os.listdir(frames_dir):
                 file_path = os.path.join(frames_dir, filename)
@@ -529,13 +584,13 @@ def process_movie(movie_info, config, master_metadata):
                     shutil.rmtree(file_path)
         elif action == 'create_new':
             frames_dir = get_unique_directory(frames_dir)
-            logging.info(f"Creating new directory '{frames_dir}' for new images.")
+            logger.info(f"Creating new directory '{frames_dir}' for new images.")
             create_directory(frames_dir)
         elif action == 'skip':
-            logging.info(f"Skipping existing directory '{frames_dir}'.")
+            logger.info(f"Skipping existing directory '{frames_dir}'.")
             return  # Skip processing this movie
         else:
-            logging.error(f"Unknown existing_dir_action '{action}'.")
+            logger.error(f"Unknown existing_dir_action '{action}'.")
             return
     else:
         create_directory(frames_dir)
@@ -543,7 +598,7 @@ def process_movie(movie_info, config, master_metadata):
     # Video properties
     cap = cv2.VideoCapture(movie_file)
     if not cap.isOpened():
-        logging.error(f"Failed to open video file {movie_file}.")
+        logger.error(f"Failed to open video file {movie_file}.")
         return
     fps = cap.get(cv2.CAP_PROP_FPS)
     total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
@@ -594,7 +649,7 @@ def process_movie(movie_info, config, master_metadata):
         )
 
     if extracted_frames == 0:
-        logging.error(f"No frames extracted for movie '{movie_name}'.")
+        logger.error(f"No frames extracted for movie '{movie_name}'.")
         return
 
     # Update metadata
@@ -602,8 +657,11 @@ def process_movie(movie_info, config, master_metadata):
     for image_format in config['output']['image_formats']:
         frame_files = [f for f in os.listdir(frames_dir) if f.endswith('.' + image_format)]
         for f in frame_files:
-            frame_number = int(f.split('_')[1].split('.')[0])
-            frame_numbers.add(frame_number)
+            try:
+                frame_number = int(f.split('_')[1].split('.')[0])
+                frame_numbers.add(frame_number)
+            except (IndexError, ValueError):
+                logger.warning(f"Unexpected frame filename format: {f}")
 
     frame_numbers = sorted(frame_numbers)
     for frame_number in frame_numbers:
@@ -614,14 +672,53 @@ def process_movie(movie_info, config, master_metadata):
     metadata_file = os.path.join(frames_dir, f"metadata.{config['metadata']['format']}")
     store_metadata(metadata, metadata_file, format=config['metadata']['format'])
 
+    # Create ImageProcessingMetadataSchema instance
+    processing_metadata = ImageProcessingMetadataSchema(
+        image_id=movie_name,
+        source_image_path=movie_file,
+        processed_image_path=frames_dir,
+        download_timestamp=datetime.datetime.utcnow(),
+        processing_steps=[
+            {
+                "step": "Frame Extraction",
+                "actions": {
+                    "interval_seconds": config['extraction']['interval'],
+                    "image_formats": config['output']['image_formats'],
+                    "quality": config['output'].get('quality', None),
+                    "use_gpu": use_gpu
+                },
+                "timestamp": datetime.datetime.utcnow().isoformat()
+            }
+        ],
+        attribution={
+            "author": "Unknown",  # Update as needed
+            "license": metadata['license'],
+            "source": movie_file
+        },
+        extracted_metadata=metadata
+    )
+
+    # Add processing metadata to Metaforge (SQL Database)
+    metaforge.add_image_processing_metadata(processing_metadata)
+
     # Append to master metadata
     master_metadata.append(metadata)
+
+    # Export metadata
+    try:
+        metaforge.export_metadata(
+            formats=[config['metadata']['format']],
+            export_dir=config['metadata_export']['export_dir']
+        )
+    except Exception as e:
+        logger.error(f"Error exporting metadata: {e}")
 
     # Send email notification if enabled
     if config['email']['enabled']:
         send_email_notification(config['email'], movie_name, extracted_frames)
 
-    logging.info(f"Completed processing for movie '{movie_name}'.")
+    logger.info(f"Completed processing for movie '{movie_name}'.")
+
 
 def main():
     # Load configuration from YAML file or defaults
@@ -647,26 +744,29 @@ def main():
     if config['error_handling']['save_error_report']:
         create_directory(config['error_handling']['error_report_path'])
 
+    # Initialize Metaforge with database URL from config
+    metaforge = Metaforge(db_url=config['database'].get('url', 'sqlite:///metaforge.db'))
+
     # Prepare movie files
     input_path = config['input']['path']
     batch_mode = config['input']['batch_mode']
     supported_formats = config['input']['supported_formats']
 
     if not input_path:
-        logging.error("No input path specified. Please provide an input path via CLI or config.yaml.")
+        logger.error("No input path specified. Please provide an input path via CLI or config.yaml.")
         sys.exit(1)
 
     master_metadata = []
 
     if batch_mode:
         if not os.path.isdir(input_path):
-            logging.error(f"Input path '{input_path}' is not a directory.")
+            logger.error(f"Input path '{input_path}' is not a directory.")
             sys.exit(1)
 
         movie_files = [os.path.join(input_path, f) for f in os.listdir(input_path)
                        if os.path.splitext(f)[1].lower() in supported_formats]
         if not movie_files:
-            logging.error("No movie files found in the directory.")
+            logger.error("No movie files found in the directory.")
             sys.exit(1)
 
         # Collect movie information
@@ -691,14 +791,14 @@ def main():
 
         # Process movies sequentially
         for movie_info in movies_info:
-            process_movie(movie_info, config, master_metadata)
+            process_movie(movie_info, config, master_metadata, metaforge)
     else:
         if not os.path.exists(input_path):
-            logging.error(f"Input path '{input_path}' does not exist.")
+            logger.error(f"Input path '{input_path}' does not exist.")
             sys.exit(1)
 
         if os.path.isdir(input_path):
-            logging.error(f"Input path '{input_path}' is a directory. Use batch mode for directories.")
+            logger.error(f"Input path '{input_path}' is a directory. Use batch mode for directories.")
             sys.exit(1)
 
         movie_name = os.path.splitext(os.path.basename(input_path))[0]
@@ -717,18 +817,36 @@ def main():
                 value = input(f"Enter '{field}' for '{movie_name}': ")
                 movie_info[field] = value
 
-        process_movie(movie_info, config, master_metadata)
+        process_movie(movie_info, config, master_metadata, metaforge)
 
     # Store master metadata
     if master_metadata:
         master_metadata_file = os.path.join(config['output']['frames_directory'], f"master_metadata.{config['metadata']['format']}")
-        if config['metadata']['format'] == 'yaml':
-            with open(master_metadata_file, 'w') as f:
-                yaml.dump(master_metadata, f, default_flow_style=False, sort_keys=False)
-        elif config['metadata']['format'] == 'json':
-            with open(master_metadata_file, 'w') as f:
-                json.dump(master_metadata, f, indent=4)
-        logging.info(f"Master metadata stored in '{master_metadata_file}'.")
+        try:
+            if config['metadata']['format'] == 'yaml':
+                with open(master_metadata_file, 'w') as f:
+                    yaml.dump(master_metadata, f, default_flow_style=False, sort_keys=False)
+            elif config['metadata']['format'] == 'json':
+                with open(master_metadata_file, 'w') as f:
+                    json.dump(master_metadata, f, indent=4)
+            logger.info(f"Master metadata stored in '{master_metadata_file}'.")
+        except Exception as e:
+            logger.error(f"Error storing master metadata: {e}")
+
+    # Export metadata
+    try:
+        metaforge.export_metadata(
+            formats=[config['metadata']['format']],
+            export_dir=config['metadata_export']['export_dir']
+        )
+    except Exception as e:
+        logger.error(f"Error exporting metadata: {e}")
+
+    logger.info("FilmFrame processing completed successfully.")
+
+    # Close Metaforge connection
+    metaforge.close_connection()
+
 
 if __name__ == "__main__":
     main()
