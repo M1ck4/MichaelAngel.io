@@ -11,35 +11,35 @@
 
 # Paths
 paths:
-  image_folder: "./images"           # Path to the input folder containing images
-  output_folder: "./processed_images" # Path to the output folder for processed images
+  image_folder: "./images"               # Path to the input folder containing images
+  output_folder: "./processed_images"    # Path to the output folder for processed images
 
 # Target Settings
 target:
-  size:                           # Target size for image resizing (width, height)
+  size:                                   # Target size for image resizing (width, height)
     - 256
     - 256
-  format: "JPEG"                  # Output format for processed images (JPEG, PNG, numpy)
+  format: "JPEG"                          # Output format for processed images (JPEG, PNG, numpy)
 
 # Quality Control Settings
 quality_control:
-  min_size: 128                  # Minimum size (in pixels) for image quality
-  blur_threshold: 100.0          # Blur threshold for image quality check
+  min_size: 128                          # Minimum size (in pixels) for image quality
+  blur_threshold: 100.0                  # Blur threshold for image quality check
 
 # Enhancement Factors
 enhancement:
-  brightness: 1.0                # Brightness factor
-  contrast: 1.0                  # Contrast factor
-  color: 1.0                     # Color factor
-  sharpness: 1.0                 # Sharpness factor
+  brightness: 1.0                        # Brightness factor
+  contrast: 1.0                          # Contrast factor
+  color: 1.0                             # Color factor
+  sharpness: 1.0                         # Sharpness factor
 
 # Output Quality Settings
 output:
-  quality: 85                    # Quality for JPEG output (1-100)
+  quality: 85                            # Quality for JPEG output (1-100)
 
 # Duplicate Detection Settings
 duplicate_detection:
-  supported_formats:             # List of supported image formats for processing
+  supported_formats:                     # List of supported image formats for processing
     - ".jpg"
     - ".jpeg"
     - ".png"
@@ -48,12 +48,24 @@ duplicate_detection:
 
 # Thread Settings
 threads:
-  max_workers: 8                 # Maximum number of threads for concurrent image processing
+  max_workers: 8                         # Maximum number of threads for concurrent image processing
 
 # Logging Settings
 logging:
-  level: "INFO"                  # Log level (DEBUG, INFO, WARNING, ERROR, CRITICAL)
+  level: "INFO"                          # Log level (DEBUG, INFO, WARNING, ERROR, CRITICAL)
 
 # Duplicate Handling Settings
 duplicate_handling:
-  enable_removal: true           # Enable or disable duplicate removal
+  enable_removal: true                   # Enable or disable duplicate removal
+
+# Database Configuration
+database:
+  url: 'sqlite:///metaforge.db'           # Ensure this matches the Curator's database or is accessible by both
+
+# Metadata Export Settings
+metadata_export:
+  export_dir: 'metaforge/exports/chisel'  # Directory to export metadata JSON/YAML files
+
+# ================================================
+#                End of Configuration
+# ================================================
