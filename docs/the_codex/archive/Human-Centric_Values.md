@@ -179,7 +179,6 @@ To ensure human-centric values in AI systems, follow these key practices:
 ## Conclusion
 
 Human-centric values are essential for the ethical and responsible development of AI systems. By prioritizing human rights compliance, embracing diversity and inclusion, and preserving user autonomy, organizations can create AI technologies that honor human dignity and ethical standards. Advanced measures like ethical audits, legal liability frameworks, and decentralized accountability mechanisms further reinforce these values, ensuring that AI serves humanity in a fair, transparent, and empowering manner. **The Codex** serves as your comprehensive guide to embedding human-centric values into every stage of AI development, ensuring that the technologies we create not only advance human capabilities but also uphold the highest standards of ethical responsibility.
-
 <div align="center">
 
 ---
@@ -190,6 +189,5 @@ Human-centric values are essential for the ethical and responsible development o
 
 ---
 
-[![Clone](https://img.shields.io/badge/Clone-GitHub-blue?logo=github&style=flat-square)](https://github.com/M1ck4/MichaelAngel.io.git)
-[![Fork](https://img.shields.io/badge/Fork-GitHub-blue?logo=github&style=flat-square)](https://github.com/M1ck4/MichaelAngel.io/fork)
+![Creative Commons License](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey?style=for-the-badge&logo=creative-commons&logoColor=white)
 </div>
