@@ -9,7 +9,7 @@ Program	Version	Supported
 | Program         | Version | Supported          |
 | --------------- | ------- | ------------------ |
 | Curator         | 1.x.x   | ✔️ Yes              |
-| Chisel          | 1.x.x   | ✔️ Yes              |
+| Chisel          | 2.x.x   | ✔️ Yes              |
 | FilmFrame       | 1.x.x   | ✔️ Yes              |
 | Muse            | 1.x.x   | ✔️ Yes              |
 
