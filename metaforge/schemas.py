@@ -29,6 +29,7 @@ class DatasetMetadataSchema(BaseModel):
     total_images: int = Field(..., description="Total number of images in the split")
     label_distribution: Dict[int, int] = Field(default_factory=dict, description="Distribution of labels in the split")
     processing_steps: List[str] = Field(default_factory=list, description="List of processing steps applied to the dataset")
+    
 
 class FilmFrameMetadataSchema(BaseModel):
     frame_id: str = Field(..., description="Unique identifier for the film frame")
