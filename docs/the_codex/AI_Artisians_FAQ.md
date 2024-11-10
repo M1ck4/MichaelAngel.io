@@ -1,4 +1,4 @@
-# AI Artisians FAQ
+# The Codex FAQ
 
 ## Overview
 
@@ -21,7 +21,7 @@ Explore the curated resources within **The Codex** for guidance across all stage
 
 ### Core Documents
 
-- **[AI Artisan's FAQ](./docs/the_codex/AI_Artisians_FAQ.md)**: Frequently asked questions about ethical AI, addressing common concerns and best practices.
+- **[AI Artisan's FAQ](./docs/the_codex/the_codex_FAQ.md)**: Frequently asked questions about ethical AI, addressing common concerns and best practices.
 - **[Foundations of Ethical AI](./docs/the_codex/archive/Foundations_of_Ethical_AI.md)**: Introduction to core principles, including fairness, accountability, and transparency.
 - **[Human-Centric Values](./docs/the_codex/archive/Human-Centric_Values.md)**: Guidelines on prioritizing inclusivity, fairness, and human dignity in AI design.
 - **[Transparency and Explainability](./docs/the_codex/archive/Transparency_and_Explainability.md)**: Best practices for building transparent and interpretable AI systems.
