@@ -54,7 +54,7 @@ Our robust framework comprises a suite of specialized tools designed to streamli
 <div align="center"> 
   
 [![Clone Curator](https://img.shields.io/badge/Clone%20Curator-%231e90ff?style=for-the-badge&logo=archive)](https://github.com/M1ck4/MichaelAngel.io/tree/main/curator)
-[![Curator README](https://img.shields.io/badge/Curator%20README-%23555555?style=for-the-badge&logo=readme)](https://github.com/M1ck4/MichaelAngel.io/blob/main/curator/READ_ME.md)
+[![Curator README](https://img.shields.io/badge/Curator%20README-%23555555?style=for-the-badge&logo=readme)](https://github.com/M1ck4/MichaelAngel.io/blob/main/modules/curator/README.md)
 
 ### curator 
 
