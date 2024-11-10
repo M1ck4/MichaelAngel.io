@@ -16,11 +16,19 @@ from typing import Any, Callable, Dict, List, Optional, Union
 import time
 from urllib.parse import urlparse  # Added import for URL parsing
 
+# Import Metaforge components
+from metaforge.metadata_manager import Metaforge
+from metaforge.models import ImageMetadata, ProcessingStep
+from metaforge.utils import export_metadata_to_json, export_metadata_to_yaml
+
+# Additional imports for image metadata extraction
+from PIL import Image
+from PIL.ExifTags import TAGS
+
 # Configuration
-MASTER_ATTRIBUTE_FILE = 'master_metadata.json'
-GLOBAL_METADATA_FILE = 'global_metadata.json'
 BASE_DIR = 'downloaded_images'
 DEFAULT_SEARCH_TERMS = ['nature', 'city', 'animals', 'space', 'ocean']
+DEFAULT_MAX_IMAGES_PER_TERM = 100
 
 # Initialize logger without handlers
 logger = logging.getLogger(__name__)
@@ -59,8 +67,8 @@ def setup_logging():
     if logger.hasHandlers():
         logger.handlers.clear()
 
-    # Use log directory from config or default to current directory
-    log_directory = config.data.get('log_directory', '.')
+    # Use log directory from config or default to ./logs
+    log_directory = config.data.get('log_directory', './logs')
     # Ensure log directory exists
     ensure_directory_exists(log_directory)
 
@@ -89,33 +97,13 @@ def get_master_folder(api_name: str) -> str:
 def get_category_folder(api: str, term: str) -> str:
     return os.path.join(get_master_folder(api), term)
 
-def load_master_attributes(api: str) -> Dict[str, Any]:
-    file_path = os.path.join(get_master_folder(api), MASTER_ATTRIBUTE_FILE)
-    if os.path.exists(file_path):
-        with open(file_path, 'r', encoding='utf-8') as f:
-            return json.load(f)
-    else:
-        return {}
-
-def save_master_attributes(api: str, master_attributes: Dict[str, Any]):
-    file_path = os.path.join(get_master_folder(api), MASTER_ATTRIBUTE_FILE)
-    ensure_directory_exists(get_master_folder(api))
-    with open(file_path, 'w', encoding='utf-8') as f:
-        json.dump(master_attributes, f, indent=2)
-
-def load_global_metadata() -> Dict[str, Any]:
-    file_path = os.path.join(BASE_DIR, GLOBAL_METADATA_FILE)
-    if os.path.exists(file_path):
-        with open(file_path, 'r', encoding='utf-8') as f:
-            return json.load(f)
-    else:
-        return {}
-
-def save_global_metadata(global_metadata: Dict[str, Any]):
-    file_path = os.path.join(BASE_DIR, GLOBAL_METADATA_FILE)
-    ensure_directory_exists(BASE_DIR)
-    with open(file_path, 'w', encoding='utf-8') as f:
-        json.dump(global_metadata, f, indent=2)
+def ensure_directory_exists(path: str):
+    try:
+        os.makedirs(path, exist_ok=True)
+        logger.debug(f'Directory ensured: {path}')
+    except Exception as e:
+        logger.error(f'Error creating directory {path}: {e}')
+        raise
 
 @retry(tries=5, delay=2, backoff=2)
 def download_image(url: str, path: str) -> bool:
@@ -136,91 +124,509 @@ def download_image(url: str, path: str) -> bool:
         logger.error(f"Error downloading {url}: {str(e)}")
         return False
 
-def save_metadata(api: str, image_id: str, metadata: Dict[str, Any], folder: str, master_attributes: Dict[str, Any], global_metadata: Dict[str, Any]):
-    metadata_path = os.path.join(folder, "metadata.json")
-    api_metadata = {
-        f"{api}_{image_id}": {
-            'api': api,
-            'id': image_id,
-            'metadata': metadata
+def extract_file_metadata(image_path: str) -> Dict[str, Any]:
+    """
+    Extract metadata from the image file using Pillow.
+    """
+    metadata = {}
+    try:
+        with Image.open(image_path) as img:
+            info = img._getexif()
+            if info:
+                for tag, value in info.items():
+                    decoded = TAGS.get(tag, tag)
+                    metadata[decoded] = value
+        logger.debug(f'Extracted file metadata from {image_path}: {metadata}')
+    except Exception as e:
+        logger.error(f"Error extracting file metadata from {image_path}: {e}")
+    return metadata
+
+def save_metadata(
+    api: str,
+    image_id: str,
+    metadata: Dict[str, Any],
+    folder: str,
+    metaforge: Metaforge,
+    extract_file_meta: bool = False
+):
+    """
+    Save metadata to Metaforge.
+    If extract_file_meta is True, extract metadata from the image file.
+    Additionally, save a comprehensive metadata file in the module's directory.
+    """
+    image_path = os.path.join(folder, f"{metadata.get('filename', image_id)}")
+    if extract_file_meta and os.path.exists(image_path):
+        file_meta = extract_file_metadata(image_path)
+        metadata['file_metadata'] = file_meta
+
+    # Create ImageMetadata instance
+    image_metadata = ImageMetadata(
+        image_id=image_id,
+        source_api=api,
+        download_info=metadata.get('download_info', {}),
+        attribution=metadata.get('attribution', {}),
+        processing_steps=[],  # No processing steps at download
+        additional_metadata=metadata.get('additional_metadata', {}),
+        lineage=[f"{api.capitalize()}: Downloaded image and extracted metadata."],
+        created_at=datetime.utcnow(),
+        updated_at=datetime.utcnow()
+    )
+
+    # Add metadata to Metaforge
+    metaforge.add_image_metadata(image_metadata)
+
+    # Save comprehensive metadata file in the module's directory
+    comprehensive_metadata_path = os.path.join(folder, f"{image_id}_metadata.json")
+    try:
+        with open(comprehensive_metadata_path, 'w', encoding='utf-8') as f:
+            json.dump({
+                'image_id': image_metadata.image_id,
+                'source_api': image_metadata.source_api,
+                'download_info': image_metadata.download_info,
+                'attribution': image_metadata.attribution,
+                'additional_metadata': image_metadata.additional_metadata,
+                'lineage': image_metadata.lineage,
+                'file_metadata': image_metadata.file_metadata if 'file_metadata' in metadata else {},
+                'created_at': image_metadata.created_at.isoformat(),
+                'updated_at': image_metadata.updated_at.isoformat()
+            }, f, indent=2)
+        logger.debug(f'Comprehensive metadata saved at {comprehensive_metadata_path}')
+    except Exception as e:
+        logger.error(f"Error saving comprehensive metadata to {comprehensive_metadata_path}: {e}")
+
+def download_image_and_save_metadata(
+    image: Dict[str, Any],
+    image_id: str,
+    image_url: str,
+    image_path: str,
+    api_name: str,
+    category_folder: str,
+    metaforge: Metaforge,
+    extract_file_meta: bool = False
+) -> bool:
+    success = download_image(image_url, image_path)
+    if success:
+        # Extract necessary attribution and license information
+        attribution_info = extract_attribution_info(api_name, image)
+        # Extract additional metadata
+        additional_metadata = extract_additional_metadata(api_name, image)
+        # Save metadata, optionally extracting file-based metadata
+        save_metadata(
+            api_name,
+            image_id,
+            {
+                'download_info': {
+                    'url': image_url,
+                    'download_timestamp': datetime.utcnow().isoformat(),
+                    'download_status': 'success'
+                },
+                'attribution': attribution_info,
+                'additional_metadata': additional_metadata,
+                'filename': os.path.basename(image_path)
+            },
+            category_folder,
+            metaforge,
+            extract_file_meta
+        )
+    return success
+
+def extract_attribution_info(api_name: str, image: Dict[str, Any]) -> Dict[str, Any]:
+    attribution = {}
+    # Implement API-specific attribution extraction
+    if api_name == 'pixabay':
+        attribution = {
+            'author': image.get('user'),
+            'license': 'CC0',
+            'source_url': image.get('pageURL')
         }
+    elif api_name == 'unsplash':
+        attribution = {
+            'author': image.get('user', {}).get('name'),
+            'license': 'Unsplash License',
+            'source_url': image.get('links', {}).get('html')
+        }
+    elif api_name == 'pexels':
+        attribution = {
+            'author': image.get('photographer'),
+            'license': 'Pexels License',
+            'source_url': image.get('url')
+        }
+    elif api_name == 'flickr':
+        attribution = {
+            'author': image.get('owner', {}).get('username'),
+            'license': image.get('license'),
+            'source_url': image.get('link')
+        }
+    elif api_name == 'google_cse':
+        attribution = {
+            'author': image.get('displayLink'),
+            'license': 'Google CSE License',
+            'source_url': image.get('link')
+        }
+    # Add other APIs as needed
+    return attribution
+
+def extract_additional_metadata(api_name: str, image: Dict[str, Any]) -> Dict[str, Any]:
+    additional = {}
+    # Implement API-specific metadata extraction
+    if api_name == 'pixabay':
+        additional = {
+            'tags': image.get('tags', '').split(', '),
+            'resolution': f"{image.get('imageWidth')}x{image.get('imageHeight')}",
+            'size': image.get('imageSize')
+        }
+    elif api_name == 'unsplash':
+        additional = {
+            'tags': [tag['title'] for tag in image.get('tags', [])],
+            'resolution': f"{image.get('width')}x{image.get('height')}",
+            'size': image.get('width') * image.get('height')  # Example metric
+        }
+    elif api_name == 'pexels':
+        additional = {
+            'tags': image.get('tags', []),
+            'resolution': f"{image.get('width')}x{image.get('height')}",
+            'size': image.get('width') * image.get('height')  # Example metric
+        }
+    elif api_name == 'flickr':
+        additional = {
+            'tags': image.get('tags', '').split(' '),
+            'resolution': f"{image.get('width')}x{image.get('height')}",
+            'size': image.get('size')  # Flickr API may provide size differently
+        }
+    elif api_name == 'google_cse':
+        additional = {
+            'tags': image.get('title', '').split(' '),
+            'resolution': image.get('image', {}).get('height'),
+            'size': image.get('image', {}).get('byteSize')
+        }
+    # Add other APIs as needed
+    return additional
+
+def download_image_batch(
+    api_call_function: Callable,
+    api_name: str,
+    params: Dict[str, Any],
+    headers: Optional[Dict[str, str]],
+    file_prefix: str,
+    image_selector: Callable[[Dict[str, Any]], List[Dict[str, Any]]],
+    category_folder: str,
+    metaforge: Metaforge,
+    max_images_per_term: int,
+    extract_file_meta: bool = False
+) -> int:
+    futures = []
+    total_downloaded = 0
+    start_time = time.time()
+    page = params.get('page', 1)
+
+    with ThreadPoolExecutor(max_workers=8) as executor:
+        with tqdm(total=max_images_per_term, desc=f"{api_name.capitalize()} - {params.get('query') or params.get('q')}", unit='img', leave=False) as pbar:
+            while total_downloaded < max_images_per_term:
+                data = api_call_function(params['url'], params, headers)
+                if not data:
+                    break
+                images = image_selector(data)
+                if not images:
+                    break
+
+                for image in images:
+                    if total_downloaded >= max_images_per_term:
+                        break
+
+                    # Generate a unique image ID if not present
+                    image_id = str(image.get('id') or image.get('title') or hash(image.get('link')))
+                    image_url = image.get('url_o') or image.get('largeImageURL') or image.get('urls', {}).get('full') or image.get('src', {}).get('original') or image.get('link')
+                    if not image_url:
+                        continue
+
+                    # Extract the file extension from the URL path
+                    parsed_url = urlparse(image_url)
+                    image_path = parsed_url.path
+                    image_extension = os.path.splitext(image_path)[1]  # Correctly extract the extension
+
+                    # Validate the extension
+                    valid_extensions = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.webp']
+                    if image_extension.lower() not in valid_extensions:
+                        image_extension = '.jpg'  # Default to .jpg if invalid
+
+                    # Generate the file name and path
+                    file_name = f"{file_prefix}_{image_id}{image_extension}"
+                    file_path = os.path.join(category_folder, file_name)
+                    future = executor.submit(
+                        download_image_and_save_metadata,
+                        image,
+                        image_id,
+                        image_url,
+                        file_path,
+                        api_name,
+                        category_folder,
+                        metaforge,
+                        extract_file_meta
+                    )
+                    futures.append(future)
+                    total_downloaded += 1
+                    pbar.update(1)
+
+                # Increment page number
+                params['page'] = page = page + 1
+
+                # Check if there are more pages (this logic can be enhanced based on API)
+                if 'totalHits' in data and total_downloaded >= data['totalHits']:
+                    logger.info(f"No more images available for term '{params.get('q') or params.get('query')}' from {api_name}")
+                    break
+
+        # Ensure all futures are completed
+        for future in as_completed(futures):
+            try:
+                future.result()
+            except Exception as e:
+                logger.error(f"Error processing image: {e}")
+
+    with METRICS_LOCK:
+        METRICS['total_images_downloaded'] += total_downloaded
+        METRICS['images_per_category'][category_folder] += total_downloaded
+        METRICS['api_times'][api_name] += time.time() - start_time
+
+    return total_downloaded
+
+def download_from_pixabay(
+    term: str,
+    metaforge: Metaforge,
+    starting_page: int = 1,
+    api_key: Optional[str] = None,
+    max_images_per_term: int = 100,
+    extract_file_meta: bool = False
+) -> int:
+    api_name = 'pixabay'
+    url = "https://pixabay.com/api/"
+    params = {
+        "key": api_key,
+        "q": term,
+        "safesearch": "true",
+        "image_type": "photo",
+        "per_page": 200,
+        "page": starting_page,
+        "url": url
     }
 
-    # Save per-category metadata
-    if os.path.exists(metadata_path):
-        with open(metadata_path, 'r', encoding='utf-8') as f:
-            existing_metadata = json.load(f)
-    else:
-        existing_metadata = {}
+    if not check_images_exist(general_api_call, url, params, None):
+        logger.info(f"No images found for term '{term}' from {api_name}")
+        return 0
 
-    existing_metadata.update(api_metadata)
+    category_folder = get_category_folder(api_name, term)
 
-    with open(metadata_path, 'w', encoding='utf-8') as f:
-        json.dump(existing_metadata, f, indent=2)
+    def pixabay_image_selector(data):
+        return data.get('hits', [])
 
-    # Update master attributes
-    master_attributes.update(api_metadata)
+    total_downloaded = download_image_batch(
+        general_api_call,
+        api_name,
+        params,
+        None,
+        'pixabay',
+        pixabay_image_selector,
+        category_folder,
+        metaforge,
+        max_images_per_term,
+        extract_file_meta
+    )
 
-    # Update global metadata
-    global_metadata.update(api_metadata)
+    return total_downloaded
 
-# Custom SimpleRateLimiter Class
-class SimpleRateLimiter:
-    def __init__(self, max_calls: int, period: int):
-        self.lock = threading.Lock()
-        self.calls = []
-        self.max_calls = max_calls
-        self.period = period
+def download_from_unsplash(
+    term: str,
+    metaforge: Metaforge,
+    starting_page: int = 1,
+    api_key: Optional[str] = None,
+    max_images_per_term: int = 100,
+    extract_file_meta: bool = False
+) -> int:
+    api_name = 'unsplash'
+    url = "https://api.unsplash.com/search/photos"
+    headers = {"Authorization": f"Client-ID {api_key}"}
+    params = {
+        "query": term,
+        "per_page": 30,
+        "page": starting_page,
+        "url": url
+    }
 
-    def __call__(self, func):
-        def wrapper(*args, **kwargs):
-            with self.lock:
-                current_time = time.time()
-                # Remove calls that are outside the rate limit period
-                self.calls = [call for call in self.calls if call > current_time - self.period]
-                if len(self.calls) >= self.max_calls:
-                    sleep_time = self.calls[0] + self.period - current_time
-                    if sleep_time > 0:
-                        logger.debug(f"Rate limit exceeded. Sleeping for {sleep_time:.2f} seconds.")
-                        time.sleep(sleep_time)
-                self.calls.append(time.time())
-            return func(*args, **kwargs)
-        return wrapper
+    if not check_images_exist(general_api_call, url, params, headers):
+        logger.info(f"No images found for term '{term}' from {api_name}")
+        return 0
 
-# Updated rate_limit_decorator Function
-def rate_limit_decorator(calls: Optional[int], period: Optional[int]) -> Callable:
-    logger.debug(f'Applying rate limit: {calls} calls per {period} seconds')
-    if calls is None or period is None:
-        def decorator(func):
-            return func
-        return decorator
-    else:
-        return SimpleRateLimiter(calls, period)
+    category_folder = get_category_folder(api_name, term)
 
-def ensure_directory_exists(path: str):
-    try:
-        os.makedirs(path, exist_ok=True)
-        logger.debug(f'Directory ensured: {path}')
-    except Exception as e:
-        logger.error(f'Error creating directory {path}: {e}')
-        raise
+    def unsplash_image_selector(data):
+        return data.get('results', [])
 
-def general_api_call(url: str, params: Dict[str, Any], headers: Optional[Dict[str, str]] = None, rate_limit_info: Optional[Dict[str, int]] = None) -> Optional[Dict[str, Any]]:
+    total_downloaded = download_image_batch(
+        general_api_call,
+        api_name,
+        params,
+        headers,
+        'unsplash',
+        unsplash_image_selector,
+        category_folder,
+        metaforge,
+        max_images_per_term,
+        extract_file_meta
+    )
+
+    return total_downloaded
+
+def download_from_pexels(
+    term: str,
+    metaforge: Metaforge,
+    starting_page: int = 1,
+    api_key: Optional[str] = None,
+    max_images_per_term: int = 100,
+    extract_file_meta: bool = False
+) -> int:
+    logger.debug(f'Starting download from Pexels with term: {term}')
+    api_name = 'pexels'
+    url = "https://api.pexels.com/v1/search"
+    headers = {"Authorization": api_key}
+    params = {
+        "query": term,
+        "per_page": 80,
+        "page": starting_page,
+        "url": url
+    }
+
+    if not check_images_exist(general_api_call, url, params, headers):
+        logger.info(f"No images found for term '{term}' from {api_name}")
+        return 0
+
+    category_folder = get_category_folder(api_name, term)
+    logger.debug(f'Category folder for Pexels: {category_folder}')
+
+    def pexels_image_selector(data):
+        return data.get('photos', [])
+
+    total_downloaded = download_image_batch(
+        general_api_call,
+        api_name,
+        params,
+        headers,
+        'pexels',
+        pexels_image_selector,
+        category_folder,
+        metaforge,
+        max_images_per_term,
+        extract_file_meta
+    )
+
+    return total_downloaded
+
+def download_from_flickr(
+    term: str,
+    metaforge: Metaforge,
+    starting_page: int = 1,
+    api_key: Optional[str] = None,
+    max_images_per_term: int = 100,
+    extract_file_meta: bool = False
+) -> int:
+    api_name = 'flickr'
+    url = "https://www.flickr.com/services/rest/"
+    params = {
+        "method": "flickr.photos.search",
+        "api_key": api_key,
+        "text": term,
+        "format": "json",
+        "nojsoncallback": 1,
+        "extras": "url_o",
+        "per_page": 100,
+        "page": starting_page,
+        "url": url
+    }
+
+    if not check_images_exist(general_api_call, url, params, None):
+        logger.info(f"No images found for term '{term}' from {api_name}")
+        return 0
+
+    category_folder = get_category_folder(api_name, term)
+
+    def flickr_image_selector(data):
+        return data.get('photos', {}).get('photo', [])
+
+    total_downloaded = download_image_batch(
+        general_api_call,
+        api_name,
+        params,
+        None,
+        'flickr',
+        flickr_image_selector,
+        category_folder,
+        metaforge,
+        max_images_per_term,
+        extract_file_meta
+    )
+
+    return total_downloaded
+
+def download_from_google_cse(
+    term: str,
+    metaforge: Metaforge,
+    starting_page: int = 1,
+    api_key: Optional[str] = None,
+    search_engine_id: Optional[str] = None,
+    max_images_per_term: int = 100,
+    extract_file_meta: bool = False
+) -> int:
+    api_name = 'google_cse'
+    url = "https://www.googleapis.com/customsearch/v1"
+    params = {
+        "key": api_key,
+        "cx": search_engine_id,
+        "q": term,
+        "searchType": "image",
+        "num": 10,
+        "start": (starting_page - 1) * 10 + 1,
+        "url": url
+    }
+
+    if not check_images_exist(general_api_call, url, params, None):
+        logger.info(f"No images found for term '{term}' from {api_name}")
+        return 0
+
+    category_folder = get_category_folder(api_name, term)
+
+    def google_cse_image_selector(data):
+        return data.get('items', [])
+
+    total_downloaded = download_image_batch(
+        general_api_call,
+        api_name,
+        params,
+        None,
+        'google_cse',
+        google_cse_image_selector,
+        category_folder,
+        metaforge,
+        max_images_per_term,
+        extract_file_meta
+    )
+
+    return total_downloaded
+
+# Define a mapping for API name-to-function
+API_FUNCTIONS = {
+    'pixabay': {'func': download_from_pixabay, 'name': 'pixabay'},
+    'unsplash': {'func': download_from_unsplash, 'name': 'unsplash'},
+    'pexels': {'func': download_from_pexels, 'name': 'pexels'},
+    'flickr': {'func': download_from_flickr, 'name': 'flickr'},
+    'google_cse': {'func': download_from_google_cse, 'name': 'google_cse'}
+}
+
+def general_api_call(url: str, params: Dict[str, Any], headers: Optional[Dict[str, str]] = None) -> Optional[Dict[str, Any]]:
     with METRICS_LOCK:
         METRICS['total_requests_made'] += 1
     logger.debug(f'Calling API: {url} with params: {params}')
     session = requests.Session()
 
-    # Handle null rate limits
-    calls = rate_limit_info.get('calls') if rate_limit_info else None
-    period = rate_limit_info.get('period') if rate_limit_info else None
-
-    @rate_limit_decorator(calls, period)
-    def rate_limited_get(url, params=None, headers=None):
-        return session.get(url, params=params, headers=headers, timeout=10)
-
     try:
-        response = rate_limited_get(url, params=params, headers=headers)
+        response = session.get(url, params=params, headers=headers, timeout=10)
         response.raise_for_status()
         result = response.json()
         logger.debug(f'API response received from {url}')
@@ -256,288 +662,13 @@ def check_images_exist(api_call_function: Callable, url: str, params: Dict[str, 
         logger.error(f"Error in API request while checking images exist: {str(e)}")
         return False
 
-def is_duplicate_image(image_key: str, global_metadata: Dict[str, Any]) -> bool:
-    return image_key in global_metadata
-
-def download_image_batch(
-    api_call_function: Callable,
-    api_name: str,
-    params: Dict[str, Any],
-    headers: Optional[Dict[str, str]],
-    file_prefix: str,
-    image_selector: Callable[[Dict[str, Any]], List[Dict[str, Any]]],
-    category_folder: str,
-    master_attributes: Dict[str, Any],
-    global_metadata: Dict[str, Any],
+def download_images(
+    api_function_mapping: Dict[str, Dict[str, Any]],
+    search_terms: List[str],
+    metaforge: Metaforge,
     max_images_per_term: int,
-    rate_limits: Optional[Dict[str, int]]
-) -> int:
-    futures = []
-    total_downloaded = 0
-    start_time = time.time()
-    page = params.get('page', 1)
-
-    with ThreadPoolExecutor(max_workers=8) as executor:
-        with tqdm(total=max_images_per_term, desc=f"{api_name.capitalize()} - {params.get('query') or params.get('q')}", unit='img', leave=False) as pbar:
-            while total_downloaded < max_images_per_term:
-                data = api_call_function(params['url'], params, headers, rate_limits)
-                if not data:
-                    break
-                images = image_selector(data)
-                if not images:
-                    break
-
-                for image in images:
-                    if total_downloaded >= max_images_per_term:
-                        break
-
-                    image_id = str(image.get('id') or image.get('title') or hash(image.get('link')))
-                    image_key = f"{api_name}_{image_id}"
-
-                    if is_duplicate_image(image_key, global_metadata):
-                        logger.debug(f"Duplicate image found in global metadata, skipping: {image_id}")
-                        continue
-
-                    image_url = image.get('url_o') or image.get('largeImageURL') or image.get('urls', {}).get('full') or image.get('src', {}).get('original') or image.get('link')
-                    if not image_url:
-                        continue
-
-                    ensure_directory_exists(category_folder)
-
-                    # Extract the file extension from the URL path
-                    parsed_url = urlparse(image_url)
-                    image_path = parsed_url.path
-                    image_extension = os.path.splitext(image_path)[1]  # Correctly extract the extension
-
-                    # Validate the extension
-                    valid_extensions = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.webp']
-                    if image_extension.lower() not in valid_extensions:
-                        image_extension = '.jpg'  # Default to .jpg if invalid
-
-                    # Generate the file name and path
-                    file_name = f"{file_prefix}_{image_id}{image_extension}"
-                    file_path = os.path.join(category_folder, file_name)
-                    future = executor.submit(download_image, image_url, file_path)
-                    futures.append(future)
-                    save_metadata(api_name, image_id, image, category_folder, master_attributes, global_metadata)
-                    total_downloaded += 1
-                    pbar.update(1)
-
-                # Increment page number
-                params['page'] = page = page + 1
-
-                # Check if there are more pages
-                if 'totalHits' in data and total_downloaded >= data['totalHits']:
-                    logger.info(f"No more images available for term '{params.get('q') or params.get('query')}' from {api_name}")
-                    break
-
-        # Ensure all futures are completed
-        for future in as_completed(futures):
-            future.result()
-
-    with METRICS_LOCK:
-        METRICS['total_images_downloaded'] += total_downloaded
-        METRICS['images_per_category'][category_folder] += total_downloaded
-        METRICS['api_times'][api_name] += time.time() - start_time
-
-    return total_downloaded
-
-def download_from_pixabay(
-    term: str,
-    master_attributes: Dict[str, Any],
-    global_metadata: Dict[str, Any],
-    starting_page: int = 1,
-    api_key: Optional[str] = None,
-    max_images_per_term: int = 100,
-    rate_limits: Optional[Dict[str, int]] = None
-) -> int:
-    api_name = 'pixabay'
-    url = "https://pixabay.com/api/"
-    params = {
-        "key": api_key,
-        "q": term,
-        "safesearch": "true",
-        "image_type": "photo",
-        "per_page": 200,
-        "page": starting_page,
-        "url": url
-    }
-
-    if not check_images_exist(general_api_call, url, params):
-        logger.info(f"No images found for term '{term}' from {api_name}")
-        return 0
-
-    category_folder = get_category_folder(api_name, term)
-
-    def pixabay_image_selector(data):
-        return data.get('hits', [])
-
-    total_downloaded = download_image_batch(
-        general_api_call, api_name, params, None, 'pixabay', pixabay_image_selector,
-        category_folder, master_attributes, global_metadata, max_images_per_term, rate_limits
-    )
-
-    return total_downloaded
-
-def download_from_unsplash(
-    term: str,
-    master_attributes: Dict[str, Any],
-    global_metadata: Dict[str, Any],
-    starting_page: int = 1,
-    api_key: Optional[str] = None,
-    max_images_per_term: int = 100,
-    rate_limits: Optional[Dict[str, int]] = None
-) -> int:
-    api_name = 'unsplash'
-    url = "https://api.unsplash.com/search/photos"
-    headers = {"Authorization": f"Client-ID {api_key}"}
-    params = {
-        "query": term,
-        "per_page": 30,
-        "page": starting_page,
-        "url": url
-    }
-
-    if not check_images_exist(general_api_call, url, params, headers):
-        logger.info(f"No images found for term '{term}' from {api_name}")
-        return 0
-
-    category_folder = get_category_folder(api_name, term)
-
-    def unsplash_image_selector(data):
-        return data.get('results', [])
-
-    total_downloaded = download_image_batch(
-        general_api_call, api_name, params, headers, 'unsplash', unsplash_image_selector,
-        category_folder, master_attributes, global_metadata, max_images_per_term, rate_limits
-    )
-
-    return total_downloaded
-
-def download_from_pexels(
-    term: str,
-    master_attributes: Dict[str, Any],
-    global_metadata: Dict[str, Any],
-    starting_page: int = 1,
-    api_key: Optional[str] = None,
-    max_images_per_term: int = 100,
-    rate_limits: Optional[Dict[str, int]] = None
-) -> int:
-    logger.debug(f'Starting download from Pexels with term: {term}')
-    api_name = 'pexels'
-    url = "https://api.pexels.com/v1/search"
-    headers = {"Authorization": api_key}
-    params = {
-        "query": term,
-        "per_page": 80,
-        "page": starting_page,
-        "url": url
-    }
-
-    if not check_images_exist(general_api_call, url, params, headers):
-        logger.info(f"No images found for term '{term}' from {api_name}")
-        return 0
-
-    category_folder = get_category_folder(api_name, term)
-    logger.debug(f'Category folder for Pexels: {category_folder}')
-
-    def pexels_image_selector(data):
-        return data.get('photos', [])
-
-    total_downloaded = download_image_batch(
-        general_api_call, api_name, params, headers, 'pexels', pexels_image_selector,
-        category_folder, master_attributes, global_metadata, max_images_per_term, rate_limits
-    )
-
-    return total_downloaded
-
-def download_from_flickr(
-    term: str,
-    master_attributes: Dict[str, Any],
-    global_metadata: Dict[str, Any],
-    starting_page: int = 1,
-    api_key: Optional[str] = None,
-    max_images_per_term: int = 100,
-    rate_limits: Optional[Dict[str, int]] = None
-) -> int:
-    api_name = 'flickr'
-    url = "https://www.flickr.com/services/rest/"
-    params = {
-        "method": "flickr.photos.search",
-        "api_key": api_key,
-        "text": term,
-        "format": "json",
-        "nojsoncallback": 1,
-        "extras": "url_o",
-        "per_page": 100,
-        "page": starting_page,
-        "url": url
-    }
-
-    if not check_images_exist(general_api_call, url, params):
-        logger.info(f"No images found for term '{term}' from {api_name}")
-        return 0
-
-    category_folder = get_category_folder(api_name, term)
-
-    def flickr_image_selector(data):
-        return data.get('photos', {}).get('photo', [])
-
-    total_downloaded = download_image_batch(
-        general_api_call, api_name, params, None, 'flickr', flickr_image_selector,
-        category_folder, master_attributes, global_metadata, max_images_per_term, rate_limits
-    )
-
-    return total_downloaded
-
-def download_from_google_cse(
-    term: str,
-    master_attributes: Dict[str, Any],
-    global_metadata: Dict[str, Any],
-    starting_page: int = 1,
-    api_key: Optional[str] = None,
-    search_engine_id: Optional[str] = None,
-    max_images_per_term: int = 100,
-    rate_limits: Optional[Dict[str, int]] = None
-) -> int:
-    api_name = 'google_cse'
-    url = "https://www.googleapis.com/customsearch/v1"
-    params = {
-        "key": api_key,
-        "cx": search_engine_id,
-        "q": term,
-        "searchType": "image",
-        "num": 10,
-        "start": (starting_page - 1) * 10 + 1,
-        "url": url
-    }
-
-    if not check_images_exist(general_api_call, url, params):
-        logger.info(f"No images found for term '{term}' from {api_name}")
-        return 0
-
-    category_folder = get_category_folder(api_name, term)
-
-    def google_cse_image_selector(data):
-        return data.get('items', [])
-
-    total_downloaded = download_image_batch(
-        general_api_call, api_name, params, None, 'google_cse', google_cse_image_selector,
-        category_folder, master_attributes, global_metadata, max_images_per_term, rate_limits
-    )
-
-    return total_downloaded
-
-# Define a mapping for API name-to-function
-API_FUNCTIONS = {
-    'pixabay': {'func': download_from_pixabay, 'name': 'pixabay'},
-    'unsplash': {'func': download_from_unsplash, 'name': 'unsplash'},
-    'pexels': {'func': download_from_pexels, 'name': 'pexels'},
-    'flickr': {'func': download_from_flickr, 'name': 'flickr'},
-    'google_cse': {'func': download_from_google_cse, 'name': 'google_cse'}
-}
-
-def download_images(api_function_mapping: Dict[str, Dict[str, Any]], search_terms: List[str], global_metadata: Dict[str, Any], max_images_per_term: int):
+    extract_file_meta: bool = True  # Set to True by default
+):
     for term in search_terms:
         for api_key, api_info in api_function_mapping.items():
             api_func = api_info['func']
@@ -554,18 +685,14 @@ def download_images(api_function_mapping: Dict[str, Dict[str, Any]], search_term
                 logger.warning(f"No API key found for {api_name}. Skipping.")
                 continue
 
-            # Load master attributes for this API
-            master_attributes = load_master_attributes(api_name)
-
             # API specific arguments
             api_args = {
                 'term': term,
-                'master_attributes': master_attributes,
-                'global_metadata': global_metadata,
+                'metaforge': metaforge,
                 'starting_page': 1,
                 'api_key': api_key_value,
                 'max_images_per_term': max_images_per_term,
-                'rate_limits': config.data.get('rate_limits', {}).get(api_name),
+                'extract_file_meta': extract_file_meta
             }
 
             if api_name == 'google_cse':
@@ -576,13 +703,14 @@ def download_images(api_function_mapping: Dict[str, Dict[str, Any]], search_term
 
             total_downloaded = api_func(**api_args)
 
-            # Save master attributes after downloading
-            save_master_attributes(api_name, master_attributes)
-
             logger.info(f'Total images downloaded from {api_name} for term "{term}": {total_downloaded}')
 
 def send_email_notification(email_address: str, subject: str, body: str):
     email_settings = config.data.get('email_settings', {})
+    if not email_settings:
+        logger.error('Email settings not configured.')
+        return
+
     msg = EmailMessage()
     msg.set_content(body)
     msg['Subject'] = subject
@@ -602,7 +730,6 @@ def main():
     parser = argparse.ArgumentParser(description='Download images from APIs.')
     parser.add_argument('--config', type=str, help='Path to the configuration file.')
     parser.add_argument('--email', '-e', action='store_true', help='Enable email notifications.')
-
     args = parser.parse_args()
 
     config_path = args.config or 'config.yaml'
@@ -613,16 +740,17 @@ def main():
 
     ensure_directory_exists(BASE_DIR)
 
-    # Load global metadata
-    global_metadata = load_global_metadata()
+    # Initialize Metaforge
+    metaforge = Metaforge()
 
     search_terms = config.data.get('search_terms', DEFAULT_SEARCH_TERMS)
-    max_images_per_term = config.data.get('max_images_per_term', 1)
+    max_images_per_term = config.data.get('max_images_per_term', DEFAULT_MAX_IMAGES_PER_TERM)
+    extract_file_meta = True  # Extraction is on by default
 
-    download_images(API_FUNCTIONS, search_terms, global_metadata, max_images_per_term)
+    download_images(API_FUNCTIONS, search_terms, metaforge, max_images_per_term, extract_file_meta)
 
-    # Save global metadata
-    save_global_metadata(global_metadata)
+    # Export metadata
+    metaforge.export_metadata(['json', 'yaml'], export_dir='metaforge/exports/curator')
 
     # Print summary
     logger.info("\nDownload Summary:")
@@ -647,6 +775,9 @@ def main():
         API retries: {json.dumps({k: v for k, v in METRICS['api_retries'].items()}, indent=2)}
         """
         send_email_notification(config.data['email_settings']['to_email'], subject, body)
+
+    # Close Metaforge connection
+    metaforge.close_connection()
 
 if __name__ == '__main__':
     main()
