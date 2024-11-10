@@ -1,1 +1,0 @@
-Transition from individual JSON metadata files to SQLite for storing all metadata. - configure others scripts
