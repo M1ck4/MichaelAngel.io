@@ -43,4 +43,17 @@ We support the latest major version of **MichaelAngel.io**. Please ensure that y
 
 Your efforts help us maintain a secure and reliable project. We appreciate your contribution to making **MichaelAngel.io** better for everyone.
 
+<div align="center">
+
+---
+
+[![View MichaelAngel.io on GitHub](https://img.shields.io/badge/GitHub-View%20MichaelAngel.io-blue?logo=github)](https://github.com/M1ck4/MichaelAngel.io)
+
+[![Ethical AI](https://img.shields.io/badge/Ethical%20AI-Priority-orange.svg)](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/AI_Artisians_FAQ.md) 
+
+---
+
+![Creative Commons License](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey?style=for-the-badge&logo=creative-commons&logoColor=white)
+</div>
+
 
