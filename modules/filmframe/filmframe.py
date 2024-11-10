@@ -846,7 +846,3 @@ def main():
 
     # Close Metaforge connection
     metaforge.close_connection()
-
-
-if __name__ == "__main__":
-    main()
