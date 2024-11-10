@@ -205,3 +205,16 @@ Ensuring ethical practices in AI development is crucial for fostering trust, saf
 ## Conclusion
 
 The **AI Ethics Checklist** is designed to ensure that AI systems are developed and deployed in a manner that prioritizes ethical considerations, transparency, accountability, inclusivity, and sustainability. By integrating these ethical guidelines into the AI development lifecycle, organizations can foster trust, comply with regulatory standards, and contribute to a positive societal impact.
+
+<div align="center">
+
+---
+
+[![View MichaelAngel.io on GitHub](https://img.shields.io/badge/GitHub-View%20MichaelAngel.io-blue?logo=github)](https://github.com/M1ck4/MichaelAngel.io)
+
+[![Ethical AI](https://img.shields.io/badge/Ethical%20AI-Priority-orange.svg)](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/AI_Artisians_FAQ.md) 
+
+---
+
+![Creative Commons License](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey?style=for-the-badge&logo=creative-commons&logoColor=white)
+</div>
