@@ -115,15 +115,15 @@ The script tracks various metrics during the download process, including:
     Successful and failed requests
     Time spent on each API
 
-
 <div align="center">
 
-## Contact
+---
 
-For questions, suggestions, or collaboration opportunities, feel free to reach out:
+[![View MichaelAngel.io on GitHub](https://img.shields.io/badge/GitHub-View%20MichaelAngel.io-blue?logo=github)](https://github.com/M1ck4/MichaelAngel.io)
 
-[![Facebook](https://img.shields.io/badge/Facebook-4267B2?logo=facebook&logoColor=white&style=for-the-badge)](https://www.facebook.com/profile.php?id=61566307182551)  [![Email](https://img.shields.io/badge/Email-Contact%20Us-blue?style=for-the-badge&logo=gmail&logoColor=white)](mailto:michaelangelo_io@protonmail.com)  
+[![Ethical AI](https://img.shields.io/badge/Ethical%20AI-Priority-orange.svg)](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/AI_Artisians_FAQ.md) 
 
-[![GitHub Profile](https://img.shields.io/badge/GitHub-Profile-181717?logo=github&logoColor=white&style=for-the-badge)](https://github.com/M1ck4)
+---
 
+![Creative Commons License](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey?style=for-the-badge&logo=creative-commons&logoColor=white)
 </div>
