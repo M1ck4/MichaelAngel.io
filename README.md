@@ -98,7 +98,7 @@ Chisel guarantees that your dataset is clean, organized, and legally compliant, 
 <div align="center"> 
 
 [![Clone FilmFrame](https://img.shields.io/badge/Clone%20FilmFrame-%231e90ff?style=for-the-badge&logo=film)](https://github.com/M1ck4/MichaelAngel.io/tree/main/modules/filmframe)
-[![FilmFrame README](https://img.shields.io/badge/FilmFrame%20README-%23555555?style=for-the-badge&logo=readme)](https://github.com/M1ck4/MichaelAngel.io/blob/main/modules/filmframe/READ_ME.md)
+[![FilmFrame README](https://img.shields.io/badge/FilmFrame%20README-%23555555?style=for-the-badge&logo=readme)](https://github.com/M1ck4/MichaelAngel.io/blob/main/modules/filmframe/README.md)
 
 ### filmframe
 
@@ -120,7 +120,7 @@ FilmFrame makes it easy to ethically incorporate cinematic elements into creativ
 <div align="center">
   
 [![Clone Muse](https://img.shields.io/badge/Clone%20Muse-%231e90ff?style=for-the-badge&logo=palette)](https://github.com/M1ck4/MichaelAngel.io/tree/main/modules/muse)
-[![Muse README](https://img.shields.io/badge/Muse%20README-%23555555?style=for-the-badge&logo=readme)](https://github.com/M1ck4/MichaelAngel.io/blob/main/modules/muse/READ_ME.md)
+[![Muse README](https://img.shields.io/badge/Muse%20README-%23555555?style=for-the-badge&logo=readme)](https://github.com/M1ck4/MichaelAngel.io/blob/main/modules/muse/README.md)
 
 ### muse
 
@@ -149,7 +149,7 @@ The flagship generative model, **MichaelAngelo** will synthesize new images base
 
 The current implementation of the modular framework.
 
-![Project Map](https://github.com/M1ck4/MichaelAngel.io/blob/main/assets/map01.png)
+![Project Map](https://github.com/M1ck4/MichaelAngel.io/blob/main/assets/project_map.png)
 
 ---
 
