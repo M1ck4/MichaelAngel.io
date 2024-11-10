@@ -52,7 +52,7 @@ Detailed checklists to guide ethical considerations across various aspects of AI
 - **[Data Privacy & Security Checklist](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/checklists/comprehensive_checklists/Data_Privacy_%26_Security_Checklist.md)**
 - **[Ethical AI Assessment Checklist](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/checklists/comprehensive_checklists/Ethical_AI_Assessment_Checklist.md)**
 - **[Human-AI Interaction Checklist](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/checklists/comprehensive_checklists/Human-AI_Interaction_Checklist.md)**
-- **[Safety & Security Checklist](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/checklists/comprehensive_checklists/Safty_%26_Security_Checklist.md)**
+- **[Safety & Security Checklist](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/checklists/comprehensive_checklists/Safety_%26_Security_Checklist.md)**
 - **[Sustainability & Environmental Impact Checklist](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/checklists/comprehensive_checklists/Sustainability_%26_Environmental_Impact_Checklist.md)**
 - **[Transparency & Explainability Checklist](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/checklists/comprehensive_checklists/Transparency_%26_Explainability_Checklist.md)**
 - **[User Consent & Data Governance Checklist](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/checklists/comprehensive_checklists/User_Consent_%26_Data_Governance_Checklist.md)**
