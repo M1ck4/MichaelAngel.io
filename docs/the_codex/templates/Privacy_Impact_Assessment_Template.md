@@ -121,3 +121,16 @@ This Privacy Impact Assessment (PIA) template is designed to guide developers th
 ---
 
 This privacy impact assessment should be revisited at each major project milestone to ensure that data privacy concerns are identified and managed effectively.
+
+<div align="center">
+
+---
+
+[![View MichaelAngel.io on GitHub](https://img.shields.io/badge/GitHub-View%20MichaelAngel.io-blue?logo=github)](https://github.com/M1ck4/MichaelAngel.io)
+
+[![Ethical AI](https://img.shields.io/badge/Ethical%20AI-Priority-orange.svg)](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/AI_Artisians_FAQ.md) 
+
+---
+
+![Creative Commons License](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey?style=for-the-badge&logo=creative-commons&logoColor=white)
+</div>
