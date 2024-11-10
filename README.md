@@ -1,6 +1,6 @@
 <div align="center">
   
-![Project Banner](https://github.com/M1ck4/MichaelAngel.io/blob/main/assets/banner4.jpg)
+![Project Banner](https://github.com/M1ck4/MichaelAngel.io/blob/main/assets/project_banner.jpg)
 
 [![Creative Commons License](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey?style=for-the-badge&logo=creative-commons&logoColor=white)](https://creativecommons.org/licenses/by-nc-sa/4.0/)  [![License Compliance](https://img.shields.io/badge/License-Compliant-brightgreen?style=for-the-badge&logo=checkmarx&logoColor=white)](https://github.com/M1ck4/MichaelAngel.io/blob/main/LICENSE.md)
 
