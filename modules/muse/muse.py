@@ -10,13 +10,167 @@ import numpy as np
 from tqdm import tqdm
 import multiprocessing
 import random
+import yaml
+import sys
+
+# Import Metaforge components
+from metaforge.metadata_manager import Metaforge
+from metaforge.schemas import DatasetMetadataSchema
 
 # Configure logging
-logging.basicConfig(
-    filename='muse_log.txt',
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s'
-)
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)  # Set to DEBUG for detailed logs
+
+# Create handlers
+log_file_path = 'muse_log.txt'
+file_handler = logging.FileHandler(log_file_path)
+file_handler.setLevel(logging.DEBUG)
+
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.INFO)
+
+# Create formatters and add to handlers
+formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+file_handler.setFormatter(formatter)
+console_handler.setFormatter(formatter)
+
+# Add handlers to the logger
+logger.addHandler(file_handler)
+logger.addHandler(console_handler)
+
+
+def load_defaults():
+    return {
+        'input_folder': 'path/to/preprocessed_images',
+        'output_folder': 'path/to/output_dataset',
+        'split_ratios': [0.8, 0.1, 0.1],
+        'augment': True,
+        'augmentation_types': ['rotate', 'flip_horizontal', 'mixup', 'cutmix'],
+        'augmentation_multiplier': 1,
+        'min_size': 128,
+        'allowed_formats': ['JPEG', 'PNG'],
+        'stratify': True,
+        'label_mapping': {
+            'Category1': 0,
+            'Category2': 1,
+            'Unknown': -1
+        },
+        'log_file': 'muse_log.txt',
+        'log_level': 'INFO',
+        'database': {
+            'url': 'sqlite:///metaforge.db'
+        },
+        'metadata_export': {
+            'export_dir': 'metaforge/exports/muse'
+        }
+    }
+
+
+def load_config(config_file="config.yaml"):
+    config = load_defaults()
+    if os.path.exists(config_file):
+        try:
+            with open(config_file, 'r') as f:
+                yaml_config = yaml.safe_load(f)
+                update_dict(config, yaml_config)
+                logger.debug(f"Configuration loaded from '{config_file}'.")
+        except yaml.YAMLError as e:
+            logger.error(f"Error parsing the configuration file: {e}")
+            sys.exit(f"Error parsing the configuration file: {e}")
+    else:
+        logger.warning(f"Configuration file '{config_file}' not found. Using default settings.")
+    return config
+
+
+def update_dict(d, u):
+    for k, v in u.items():
+        if isinstance(v, dict):
+            d[k] = update_dict(d.get(k, {}), v)
+        else:
+            d[k] = v
+    return d
+
+
+def parse_arguments(config):
+    parser = argparse.ArgumentParser(description="Muse Dataset Creation and Management Tool")
+    parser.add_argument('--input_folder', type=str,
+                        help='Path to the input folder containing preprocessed images from Chisel.')
+    parser.add_argument('--output_folder', type=str,
+                        help='Path to the output folder for the dataset.')
+    parser.add_argument('--split_ratios', type=float, nargs=3,
+                        help='Split ratios for training, validation, and test sets (sum must be 1.0).')
+    parser.add_argument('--augment', action='store_true',
+                        help='Enable data augmentation.')
+    parser.add_argument('--no-augment', action='store_true',
+                        help='Disable data augmentation.')
+    parser.add_argument('--augmentation_types', type=str, nargs='*',
+                        help='Types of augmentations to apply.')
+    parser.add_argument('--augmentation_multiplier', type=int,
+                        help='Number of times to apply augmentation per image.')
+    parser.add_argument('--min_size', type=int,
+                        help='Minimum image size for quality control.')
+    parser.add_argument('--allowed_formats', type=str, nargs='*',
+                        help='Allowed image formats.')
+    parser.add_argument('--stratify', action='store_true',
+                        help='Enable stratified splitting based on labels.')
+    parser.add_argument('--no-stratify', action='store_true',
+                        help='Disable stratified splitting.')
+    parser.add_argument('--label_mapping', type=str, nargs='*',
+                        help='Mapping of categories to numerical labels in the format Category:Label')
+    parser.add_argument('--log_file', type=str,
+                        help='Path to the log file.')
+    parser.add_argument('--log_level', type=str, choices=['DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL'],
+                        help='Set the logging level.')
+    parser.add_argument('--database_url', type=str,
+                        help='Database URL for Metaforge integration.')
+    parser.add_argument('--metadata_export_dir', type=str,
+                        help='Directory to export metadata JSON/YAML files.')
+
+    args = parser.parse_args()
+
+    # Update config with CLI arguments if provided
+    if args.input_folder:
+        config['input_folder'] = args.input_folder
+    if args.output_folder:
+        config['output_folder'] = args.output_folder
+    if args.split_ratios:
+        config['split_ratios'] = args.split_ratios
+    if args.augment:
+        config['augment'] = True
+    if args.no_augment:
+        config['augment'] = False
+    if args.augmentation_types:
+        config['augmentation_types'] = args.augmentation_types
+    if args.augmentation_multiplier is not None:
+        config['augmentation_multiplier'] = args.augmentation_multiplier
+    if args.min_size is not None:
+        config['min_size'] = args.min_size
+    if args.allowed_formats:
+        config['allowed_formats'] = args.allowed_formats
+    if args.stratify:
+        config['stratify'] = True
+    if args.no_stratify:
+        config['stratify'] = False
+    if args.label_mapping:
+        label_map = {}
+        for mapping in args.label_mapping:
+            try:
+                category, label = mapping.split(':')
+                label_map[category] = int(label)
+            except ValueError:
+                logger.error(f"Invalid label mapping format: {mapping}. Expected format 'Category:Label'.")
+        config['label_mapping'].update(label_map)
+    if args.log_file:
+        config['log_file'] = args.log_file
+    if args.log_level:
+        config['log_level'] = args.log_level
+    if args.database_url:
+        config['database']['url'] = args.database_url
+    if args.metadata_export_dir:
+        config['metadata_export']['export_dir'] = args.metadata_export_dir
+
+    return config
+
 
 def load_metadata(image_folder: str) -> List[Dict[str, Any]]:
     """Load metadata from JSON files in the image folder."""
@@ -32,10 +186,11 @@ def load_metadata(image_folder: str) -> List[Dict[str, Any]]:
                         item['Filepath'] = str(Path(json_file).parent / image_filename)
                     item['metadata_path'] = str(json_file)
                 metadata_list.extend(data)
-            logging.info(f'Loaded metadata from {json_file}')
+            logger.info(f'Loaded metadata from {json_file}')
         except Exception as e:
-            logging.error(f'Error loading metadata from {json_file}: {e}')
+            logger.error(f'Error loading metadata from {json_file}: {e}')
     return metadata_list
+
 
 def quality_control(item: Dict[str, Any], min_size: int, allowed_formats: List[str]) -> bool:
     """Check image quality and format."""
@@ -43,15 +198,16 @@ def quality_control(item: Dict[str, Any], min_size: int, allowed_formats: List[s
     try:
         with Image.open(image_path) as img:
             if img.format not in allowed_formats:
-                logging.warning(f'Image {image_path} has unsupported format {img.format}.')
+                logger.warning(f'Image {image_path} has unsupported format {img.format}.')
                 return False
             if img.width < min_size or img.height < min_size:
-                logging.warning(f'Image {image_path} is too small ({img.width}x{img.height}).')
+                logger.warning(f'Image {image_path} is too small ({img.width}x{img.height}).')
                 return False
         return True
     except Exception as e:
-        logging.error(f'Error during quality control for {image_path}: {e}')
+        logger.error(f'Error during quality control for {image_path}: {e}')
         return False
+
 
 def split_dataset(
     metadata_list: List[Dict[str, Any]],
@@ -80,6 +236,7 @@ def split_dataset(
     logging.info('Dataset split into training, validation, and test sets.')
     return {'train': train_data, 'val': val_data, 'test': test_data}
 
+
 def apply_labels(
     dataset_splits: Dict[str, List[Dict[str, Any]]],
     label_mapping: Dict[str, int]
@@ -93,10 +250,12 @@ def apply_labels(
     logging.info('Labels applied to dataset.')
     return dataset_splits
 
+
 def mixup_images(image1: Image.Image, image2: Image.Image, alpha: float = 0.2) -> Image.Image:
     """Apply MixUp augmentation to two images."""
     lam = np.random.beta(alpha, alpha)
     return Image.blend(image1, image2, 1 - lam)
+
 
 def cutmix_images(image1: Image.Image, image2: Image.Image) -> Image.Image:
     """Apply CutMix augmentation to two images."""
@@ -115,6 +274,7 @@ def cutmix_images(image1: Image.Image, image2: Image.Image) -> Image.Image:
     image1_copy.paste(image2.crop((x0, y0, x1, y1)), (x0, y0))
     return image1_copy
 
+
 def augment_image(
     args
 ) -> List[Dict[str, Any]]:
@@ -128,6 +288,9 @@ def augment_image(
             for _ in range(augmentation_multiplier):
                 augmented_images = []
                 if 'mixup' in augmentation_types or 'cutmix' in augmentation_types:
+                    if len(data_images) < 2:
+                        logger.warning('Not enough images for MixUp/CutMix augmentation.')
+                        continue
                     other_items = random.sample(data_images, k=1)
                     with Image.open(other_items[0]['Filepath']) as other_img:
                         other_img = other_img.convert('RGB')
@@ -144,10 +307,11 @@ def augment_image(
                     aug_item['Augmentation'] = augmentation_types
                     aug_item['Processing_Steps'] = aug_item.get('Processing_Steps', []) + ['Augmentation']
                     augmented_items.append(aug_item)
-        logging.info(f'Applied augmentations to {image_path}')
+        logger.info(f'Applied augmentations to {image_path}')
     except Exception as e:
-        logging.error(f'Error augmenting image {image_path}: {e}')
+        logger.error(f'Error augmenting image {image_path}: {e}')
     return augmented_items
+
 
 def augment_image_single(
     image: Image.Image,
@@ -178,6 +342,7 @@ def augment_image_single(
         # Add more augmentation types as needed
     return augmented_images
 
+
 def augment_dataset(
     dataset_splits: Dict[str, List[Dict[str, Any]]],
     augmentation_types: List[str],
@@ -204,6 +369,7 @@ def augment_dataset(
         logging.warning('No training data found for augmentation.')
     return dataset_splits
 
+
 def analyze_dataset(dataset_splits: Dict[str, List[Dict[str, Any]]]) -> None:
     """Provide analytics on the dataset."""
     for split_name, data in dataset_splits.items():
@@ -216,6 +382,7 @@ def analyze_dataset(dataset_splits: Dict[str, List[Dict[str, Any]]]) -> None:
         logging.info(f"  Total images: {total_images}")
         for label, count in label_counts.items():
             logging.info(f"  Label {label}: {count} images")
+
 
 def export_dataset(
     dataset_splits: Dict[str, List[Dict[str, Any]]],
@@ -243,14 +410,53 @@ def export_dataset(
             json.dump(data, f, indent=2)
         logging.info(f'Dataset exported for {split_name} split.')
 
-def main(args):
+
+def store_metadata(
+    metadata: Dict[str, Any],
+    dataset_split: str,
+    split_folder: str,
+    metaforge: Metaforge,
+    config: Dict[str, Any]
+):
+    """Store dataset metadata in the database and export files."""
+    try:
+        # Create DatasetMetadataSchema instance
+        dataset_metadata = DatasetMetadataSchema(
+            dataset_split=dataset_split,
+            dataset_path=split_folder,
+            total_images=len(metadata),
+            label_distribution={item['Label']: metadata.count(item) for item in metadata},
+            processing_steps=['Quality Control', 'Label Application', 'Dataset Splitting', 'Data Augmentation', 'Export']
+        )
+        # Add to Metaforge
+        metaforge.add_dataset_metadata(dataset_metadata)
+    except Exception as e:
+        logger.error(f"Error storing metadata for split '{dataset_split}': {e}")
+
+    # Export metadata to JSON/YAML files
+    try:
+        export_formats = config['metadata_export']['export_dir']
+        os.makedirs(config['metadata_export']['export_dir'], exist_ok=True)
+        for fmt in ['json', 'yaml']:
+            file_path = Path(config['metadata_export']['export_dir']) / f"{split_folder}_{dataset_split}_metadata.{fmt}"
+            with open(file_path, 'w') as f:
+                if fmt == 'json':
+                    json.dump(metadata, f, indent=2)
+                elif fmt == 'yaml':
+                    yaml.dump(metadata, f)
+        logger.info(f"Metadata exported for split '{dataset_split}'.")
+    except Exception as e:
+        logger.error(f"Error exporting metadata for split '{dataset_split}': {e}")
+
+
+def main(args, config, metaforge):
     # Load metadata from preprocessed images
-    metadata_list = load_metadata(args.input_folder)
+    metadata_list = load_metadata(config['input_folder'])
 
     # Quality control
     metadata_list = [
         item for item in metadata_list
-        if quality_control(item, args.min_size, args.allowed_formats)
+        if quality_control(item, config['min_size'], config['allowed_formats'])
     ]
 
     # Include Creative Commons data
@@ -264,55 +470,68 @@ def main(args):
         }
 
     # Define label mapping
-    label_mapping = {
-        'Category1': 0,
-        'Category2': 1,
-        'Unknown': -1
-    }
+    label_mapping = config['label_mapping']
 
     # Apply labels
-    for item in metadata_list:
-        category = item.get('Category', 'Unknown')
-        label = label_mapping.get(category, label_mapping.get('Unknown', -1))
-        item['Label'] = label
-
-    # Split the dataset
-    dataset_splits = split_dataset(metadata_list, args.split_ratios, stratify=args.stratify)
+    dataset_splits = split_dataset(metadata_list, tuple(config['split_ratios']), stratify=config['stratify'])
+    dataset_splits = apply_labels(dataset_splits, label_mapping)
 
     # Data augmentation (if enabled)
-    if args.augment:
-        augmentation_types = args.augmentation_types
-        dataset_splits = augment_dataset(dataset_splits, augmentation_types, args.augmentation_multiplier)
+    if config['augment']:
+        augmentation_types = config['augmentation_types']
+        augmentation_multiplier = config['augmentation_multiplier']
+        dataset_splits = augment_dataset(dataset_splits, augmentation_types, augmentation_multiplier)
 
     # Analyze dataset
     analyze_dataset(dataset_splits)
 
     # Export the dataset
-    export_dataset(dataset_splits, args.output_folder)
+    export_dataset(dataset_splits, config['output_folder'])
 
-    logging.info('Muse processing completed.')
+    # Store metadata in Metaforge and export
+    for split_name, data in dataset_splits.items():
+        store_metadata(data, split_name, config['output_folder'], metaforge, config)
+
+    logger.info('Muse processing completed.')
+
+    # Export all metadata to specified directory
+    try:
+        metaforge.export_metadata(
+            formats=['json', 'yaml'],
+            export_dir=config['metadata_export']['export_dir']
+        )
+    except Exception as e:
+        logger.error(f"Error exporting metadata: {e}")
+
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Muse Dataset Creation and Management Tool")
-    parser.add_argument('--input_folder', type=str, required=True,
-                        help='Path to the input folder containing preprocessed images from Chisel.')
-    parser.add_argument('--output_folder', type=str, required=True,
-                        help='Path to the output folder for the dataset.')
-    parser.add_argument('--split_ratios', type=float, nargs=3, default=(0.8, 0.1, 0.1),
-                        help='Split ratios for training, validation, and test sets (sum must be 1.0).')
-    parser.add_argument('--augment', action='store_true',
-                        help='Enable data augmentation.')
-    parser.add_argument('--augmentation_types', type=str, nargs='*',
-                        default=['rotate', 'flip_horizontal', 'mixup', 'cutmix'],
-                        help='Types of augmentations to apply.')
-    parser.add_argument('--augmentation_multiplier', type=int, default=1,
-                        help='Number of times to apply augmentation per image.')
-    parser.add_argument('--min_size', type=int, default=128,
-                        help='Minimum image size for quality control.')
-    parser.add_argument('--allowed_formats', type=str, nargs='*', default=['JPEG', 'PNG'],
-                        help='Allowed image formats.')
-    parser.add_argument('--stratify', action='store_true',
-                        help='Enable stratified splitting based on labels.')
+    # Load default configurations
+    default_config = load_defaults()
 
-    args = parser.parse_args()
-    main(args)
+    # Load configuration from YAML file or defaults
+    config = load_config("config.yaml")
+
+    # Parse command-line arguments and override config
+    config = parse_arguments(config)
+
+    # Reconfigure logging if log_file or log_level is updated via CLI
+    logger.handlers = []  # Clear existing handlers
+    logging.basicConfig(
+        filename=config['log_file'],
+        level=getattr(logging, config['log_level'].upper(), logging.INFO),
+        format='%(asctime)s - %(levelname)s - %(message)s'
+    )
+    # Add console logging
+    console_handler = logging.StreamHandler()
+    console_handler.setLevel(getattr(logging, config['log_level'].upper(), logging.INFO))
+    console_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
+    logger.addHandler(console_handler)
+
+    # Initialize Metaforge with database URL from config
+    metaforge = Metaforge(db_url=config['database'].get('url', 'sqlite:///metaforge.db'))
+
+    # Run main processing
+    main(None, config, metaforge)
+
+    # Close Metaforge connection
+    metaforge.close_connection()
