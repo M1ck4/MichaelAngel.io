@@ -1,4 +1,7 @@
-
 sqlalchemy
 pydantic
 PyYAML
+requests
+tqdm
+retry
+Pillow

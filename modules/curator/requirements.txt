@@ -12,3 +12,9 @@ rich
 colorama
 matplotlib
 plotly
+pyYAML
+SQLAlchemy
+pydantic
+tqdm
+retry
+

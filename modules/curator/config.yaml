@@ -39,7 +39,7 @@ search_terms:
   - space
   - ocean                                                     
        
-                                                   
+                
 
 # -----------------------------------------------
 # Rate Limits for API Calls (Optional)
@@ -95,7 +95,13 @@ email_settings:
   from_email: "from@example.com"          # Email address to send from
   to_email: "to@example.com"              # Email address to send notifications to
 
+# -----------------------------------------------
+# Database Configuration
+# -----------------------------------------------
+
+database:
+  url: 'sqlite:///metaforge.db'  # Change to your preferred database URI
+
 # ================================================
 #                End of Configuration
 # ================================================
-
