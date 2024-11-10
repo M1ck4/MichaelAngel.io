@@ -1,5 +1,5 @@
 
-# Curator (IN DEVELOPMENT)
+# Curator
 
 ## Overview
 
