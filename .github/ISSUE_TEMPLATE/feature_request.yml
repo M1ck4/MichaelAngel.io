@@ -1,12 +1,10 @@
 name: Feature Request
 description: Suggest a feature or enhancement for MichaelAngel.io
-title: "[Feature] "
-labels: ["enhancement"]
 body:
   - type: markdown
     attributes:
       value: |
-        ## Feature Request
+        ## 🌟 Feature Request
 
         Thank you for your interest in improving MichaelAngel.io! Please provide the following details to help us understand your feature request.
 
@@ -37,8 +35,8 @@ body:
     validations:
       required: true
 
-  - type: radio
-    id: priority
+  - type: checkboxes
+    id: feature_priority
     attributes:
       label: Priority
       description: How important is this feature? Please select one priority level.
