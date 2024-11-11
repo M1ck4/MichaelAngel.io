@@ -4,7 +4,7 @@
 
 ## Overview
 
-Welcome to **The Codex**, a comprehensive guide and ethical framework crafted to support the responsible development of AI technologies. This repository serves as a resource for best practices, actionable guidelines, and essential insights to ensure that AI development remains aligned with human values, societal responsibility, and sustainability.
+Welcome to **The Codex**, a comprehensive guide and ethical resrouces crafted to support the responsible development of AI technologies. The Codex serves as a resource for best practices, actionable guidelines, and essential insights to ensure that AI development remains aligned with human values, ethics, societal responsibility, and sustainability.
 
 ## Purpose
 
