@@ -1,51 +1,56 @@
 ---
 name: Bug report
-about: Create a report to help us improve
+about: Report an issue to help improve MichaelAngel.io
 title: ''
-labels: ''
+labels: 'bug'
 assignees: ''
 
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+## Bug Description
+Provide a clear and concise description of the bug. Include any error messages or unexpected behavior you observed.
 
-**To Reproduce**
-Steps to reproduce the behavior:
+## Steps to Reproduce
+Outline the steps to reproduce the bug:
 1. Go to '...'
 2. Click on '....'
 3. Scroll down to '....'
-4. See error
+4. Observe the error
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+## Expected Behavior
+Describe what you expected to happen if the bug was not present.
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+## Screenshots
+If applicable, add screenshots to help explain the issue.
 
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
+## Environment Details
+**Desktop:**
+ - OS: [e.g., Windows, macOS, Linux]
+ - Browser: [e.g., Chrome, Firefox, Safari]
+ - Browser Version: [e.g., 95.0]
 
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
+**Mobile Device (if applicable):**
+ - Device: [e.g., iPhone 12, Samsung Galaxy S21]
+ - OS: [e.g., iOS 14, Android 11]
+ - Browser: [e.g., Safari, Chrome]
 
-<div align="center">
+## Project-Specific Compliance
+**Ethical AI Impact:** Describe if this bug could potentially affect ethical AI compliance, Creative Commons attribution, or data lineage.
+
+**Creative Commons Attribution Issues (if any):** Does this bug affect the preservation or visibility of Creative Commons metadata (e.g., author names, license type, source URL)?
+
+## Additional Context
+Add any other context or logs related to the bug here, especially details that may help reproduce it or understand its impact on the project.
 
 ---
 
+<div align="center">
+
 [![View MichaelAngel.io on GitHub](https://img.shields.io/badge/GitHub-View%20MichaelAngel.io-blue?logo=github)](https://github.com/M1ck4/MichaelAngel.io)
 
-[![Ethical AI](https://img.shields.io/badge/Ethical%20AI-Priority-orange.svg)](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/AI_Artisians_FAQ.md) 
+[![Ethical AI](https://img.shields.io/badge/Ethical%20AI-Priority-orange.svg)](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/AI_Artisians_FAQ.md)
 
 ---
 
 ![Creative Commons License](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey?style=for-the-badge&logo=creative-commons&logoColor=white)
 </div>
- - Version [e.g. 22]
-
-**Additional context**
-Add any other context about the problem here.
