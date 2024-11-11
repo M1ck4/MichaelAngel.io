@@ -43,11 +43,11 @@ body:
       label: Priority
       description: How important is this feature?
       options:
-        - label: Low 🟢
+        - label: "Low 🟢"
           value: low
-        - label: Medium 🟡
+        - label: "Medium 🟡"
           value: medium
-        - label: High 🔴
+        - label: "High 🔴"
           value: high
     validations:
       required: true
