@@ -45,7 +45,7 @@ dataset/
 master_metadata.json
 global_metadata.json
 metadata.json
-*.yaml
+
 
 # Dataset Folders (Muse's Outputs)
 Muse_Dataset/
@@ -88,10 +88,6 @@ dist/
 # C Extensions / Compiled Code
 *.so
 
-# Environment Variable Files (Keep secrets secret!)
-.env
-.env.*
-config.yaml  # Custom config with API keys or personal data
 
 # Test Reports / Coverage Reports
 *.cover
