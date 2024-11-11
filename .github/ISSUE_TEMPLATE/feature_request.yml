@@ -6,7 +6,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        ## Feature Request
+        ## 🌟 Feature Request
 
         Thank you for your interest in improving MichaelAngel.io! Please provide the following details to help us understand your feature request.
 
@@ -43,11 +43,11 @@ body:
       label: Priority
       description: How important is this feature?
       options:
-        - label: Low
+        - label: Low 🟢
           value: low
-        - label: Medium
+        - label: Medium 🟡
           value: medium
-        - label: High
+        - label: High 🔴
           value: high
     validations:
       required: true
