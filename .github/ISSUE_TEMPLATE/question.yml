@@ -1,0 +1,45 @@
+name: Question
+description: Ask a question about MichaelAngel.io
+title: "[Question] "
+labels: ["question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## ❓ Question
+    
+        Thank you for your interest in MichaelAngel.io! Please provide the details of your question below.
+  
+  - type: input
+    id: question_title
+    attributes:
+      label: Question Title
+      description: A short and descriptive title for your question
+      placeholder: Describe your question in a few words
+    validations:
+      required: true
+
+  - type: textarea
+    id: question_details
+    attributes:
+      label: Question Details
+      description: A detailed description of your question
+      placeholder: Provide more context or specifics about your question
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional Context
+      description: Any other relevant information
+      placeholder: Add any other context or examples that might help
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ## 📚 References
+    
+        If applicable, include links to relevant documentation or resources.
