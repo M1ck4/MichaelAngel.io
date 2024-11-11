@@ -15,21 +15,6 @@ Welcome to **The Codex**, a comprehensive guide and ethical framework crafted to
 - **Foster Collaboration**: Create a central resource for discussions, feedback, and collective efforts on ethical AI development.
 - **Promote Sustainability**: Advocate for AI practices that respect long-term social, environmental, and inclusive impacts.
 
-### Core Principles in AI Development
-
-- **Innovation and Excellence**: Fostering innovative solutions to ethical challenges with a commitment to high standards.
-- **Attention to Detail**: Ensuring every aspect of AI development upholds ethical and reliability standards.
-- **Human-Centric Design**: Building AI that serves humanity with respect, fairness, and accountability.
-- **Sustainability and Responsibility**: Developing sustainable AI solutions that consider long-term societal and environmental impacts.
-
-### Development Process
-
-1. **Conceptualization**: Envisioning ethical AI frameworks inspired by professional standards and societal needs.
-2. **Design**: Crafting AI systems with a focus on ethical guidelines and best practices.
-3. **Implementation**: Developing AI solutions with precision, ensuring each component aligns with ethical standards.
-4. **Review and Refinement**: Continuously evaluating and refining AI systems for ethical excellence.
-5. **Evaluation and Feedback**: Engaging stakeholders and the community to gather feedback and improve AI systems.
-
 ## How to Use The Codex
 
 **The Codex** is designed to be both a foundational resource and a practical guide for anyone involved in AI development:
