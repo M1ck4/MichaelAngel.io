@@ -34,7 +34,7 @@ jobs:
         with:
           languages: ${{ matrix.language }}
           build-mode: ${{ matrix.build-mode }}
-          queries: "./codeql-queries/python"  # Specify the path to custom queries
+          queries: "./codeql-queries/python"  # Directory for custom queries
 
       # Placeholder for building compiled languages (if necessary).
       - if: matrix.build-mode == 'manual'
