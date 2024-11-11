@@ -1,4 +1,4 @@
-# The Codex FAQ
+# The Codex
 
 ---
 
