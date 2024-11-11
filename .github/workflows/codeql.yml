@@ -38,20 +38,17 @@ jobs:
         with:
           languages: ${{ matrix.language }}
           build-mode: ${{ matrix.build-mode }}
-          # Consider specifying custom queries if there are specific vulnerabilities you want to focus on.
-          # You could use: queries: "+security-extended,security-and-quality"
+          # You can specify custom queries here if needed.
+          # Example: queries: "+security-extended,security-and-quality"
 
-      # Customize manual build steps if you ever analyze compiled languages.
+      # Placeholder for building compiled languages (if necessary).
       - if: matrix.build-mode == 'manual'
         shell: bash
         run: |
           echo 'This is a placeholder for building compiled languages.'
-          echo 'For example:'
-          echo '  make bootstrap'
-          echo '  make release'
           exit 1
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
         with:
-          category: "/language:${{matrix.language}}"
+          category: "/language:${{ matrix.language }}"
