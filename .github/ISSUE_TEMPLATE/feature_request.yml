@@ -6,7 +6,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        ## 🌟 Feature Request
+        ## Feature Request
 
         Thank you for your interest in improving MichaelAngel.io! Please provide the following details to help us understand your feature request.
 
@@ -37,11 +37,11 @@ body:
     validations:
       required: true
 
-  - type: dropdown
+  - type: checkboxes
     id: priority
     attributes:
       label: Priority
-      description: How important is this feature?
+      description: How important is this feature? Please select **one** priority level.
       options:
         - label: "Low 🟢"
           value: low
