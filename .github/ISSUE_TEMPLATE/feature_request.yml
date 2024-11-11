@@ -1,5 +1,7 @@
 name: Feature Request
 description: Suggest a feature or enhancement for MichaelAngel.io
+title: "[Feature] "
+labels: ["enhancement"]
 body:
   - type: markdown
     attributes:
@@ -32,21 +34,6 @@ body:
       label: Use Case
       description: How will this feature be used?
       placeholder: Describe how you or others will use this feature
-    validations:
-      required: true
-
-  - type: checkboxes
-    id: feature_priority
-    attributes:
-      label: Priority
-      description: How important is this feature? Please select one priority level.
-      options:
-        - label: "Low 🟢"
-          value: low
-        - label: "Medium 🟡"
-          value: medium
-        - label: "High 🔴"
-          value: high
     validations:
       required: true
 
