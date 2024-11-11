@@ -1,0 +1,63 @@
+name: Support Request
+description: Get help or support for MichaelAngel.io
+title: "[Support] "
+labels: ["support"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🆘 Support Request
+
+        We're here to help! Please provide the following information to assist you better.
+
+  - type: input
+    id: support_title
+    attributes:
+      label: Support Title
+      description: A short and descriptive title for your support request
+      placeholder: e.g., "Help with Installation"
+    validations:
+      required: true
+
+  - type: textarea
+    id: support_description
+    attributes:
+      label: Support Description
+      description: A detailed description of the issue you're facing
+      placeholder: Explain your problem or question in detail
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps_taken
+    attributes:
+      label: Steps Taken
+      description: What have you tried so far to resolve the issue?
+      placeholder: Describe the troubleshooting steps you've taken
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional_info
+    attributes:
+      label: Additional Information
+      description: Any other relevant information that might help
+      placeholder: Add any other context or details here
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ## 📸 Screenshots
+
+        If applicable, add screenshots to help explain your issue.
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Add any screenshots or visual aids
+      placeholder: Paste the URL of your screenshots here
+    validations:
+      required: false
