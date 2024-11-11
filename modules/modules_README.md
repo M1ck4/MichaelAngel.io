@@ -1,4 +1,4 @@
-### Modules FAQ
+### Modules README
 
 **What is the `modules` folder?**
 
