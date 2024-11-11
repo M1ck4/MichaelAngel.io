@@ -1,40 +1,73 @@
-version: 2
+version: 3
 updates:
-  # Main project dependencies
-  - package-ecosystem: "pip"
-    directory: "/" # No top-level requirements.txt specified; remove if not applicable
-    schedule:
-      interval: "weekly"
-
-  # Dependencies in Metaforge
+  # Python dependencies in /metaforge
   - package-ecosystem: "pip"
     directory: "/metaforge"
     schedule:
       interval: "weekly"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "deps"
+    labels:
+      - "dependencies"
+      - "python"
 
-  # Dependencies in the individual program folders under modules
+  # Python dependencies in /modules/chisel
   - package-ecosystem: "pip"
     directory: "/modules/chisel"
     schedule:
       interval: "weekly"
-  
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "deps"
+    labels:
+      - "dependencies"
+      - "python"
+
+  # Python dependencies in /modules/curator
   - package-ecosystem: "pip"
     directory: "/modules/curator"
     schedule:
       interval: "weekly"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "deps"
+    labels:
+      - "dependencies"
+      - "python"
 
+  # Python dependencies in /modules/filmframe
   - package-ecosystem: "pip"
     directory: "/modules/filmframe"
     schedule:
       interval: "weekly"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "deps"
+    labels:
+      - "dependencies"
+      - "python"
 
+  # Python dependencies in /modules/muse
   - package-ecosystem: "pip"
     directory: "/modules/muse"
     schedule:
       interval: "weekly"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "deps"
+    labels:
+      - "dependencies"
+      - "python"
 
   # GitHub Actions dependencies
   - package-ecosystem: "github-actions"
     directory: "/.github/workflows"
     schedule:
       interval: "weekly"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "deps"
+    labels:
+      - "dependencies"
+      - "github-actions"
