@@ -1,0 +1,97 @@
+name: Bug Report
+description: Report a bug to help improve MichaelAngel.io
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🐞 Bug Report
+
+        Thank you for taking the time to report a bug in MichaelAngel.io. Please provide the following details to help us understand and resolve the issue.
+
+  - type: input
+    id: bug_title
+    attributes:
+      label: Bug Title
+      description: A short and descriptive title for the bug
+      placeholder: Describe the bug in a few words
+    validations:
+      required: true
+
+  - type: textarea
+    id: bug_description
+    attributes:
+      label: Description
+      description: A detailed description of the bug
+      placeholder: Provide a detailed explanation of the bug you encountered
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps_to_reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: The steps to reproduce the bug
+      placeholder: List the steps needed to reproduce the bug
+    validations:
+      required: true
+
+  - type: input
+    id: expected_behavior
+    attributes:
+      label: Expected Behavior
+      description: What you expected to happen
+      placeholder: Describe what you expected to happen instead of the bug
+    validations:
+      required: true
+
+  - type: input
+    id: actual_behavior
+    attributes:
+      label: Actual Behavior
+      description: What actually happened
+      placeholder: Describe what actually happened
+    validations:
+      required: true
+
+  - type: input
+    id: environment_details
+    attributes:
+      label: Environment Details
+      description: Information about your environment
+      placeholder: Specify your OS, browser, version, etc.
+    validations:
+      required: true
+
+  - type: textarea
+    id: ethical_impact
+    attributes:
+      label: Ethical AI & Creative Commons Compliance Impact
+      description: Explain if and how this bug affects ethical AI compliance or Creative Commons attribution
+      placeholder: Describe how this bug impacts ethical AI practices or Creative Commons compliance
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional Context
+      description: Any other context about the problem
+      placeholder: Add any other context or screenshots about the bug here
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ***
+        <div align="center">
+        
+        [![View MichaelAngel.io on GitHub](https://img.shields.io/badge/GitHub-View%20MichaelAngel.io-blue?logo=github)](https://github.com/M1ck4/MichaelAngel.io)
+        
+        [![Ethical AI](https://img.shields.io/badge/Ethical%20AI-Priority-orange.svg)](https://github.com/M1ck4/MichaelAngel.io/blob/main/docs/the_codex/AI_Artisians_FAQ.md)
+        
+        ![Creative Commons License](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey?style=for-the-badge&logo=creative-commons&logoColor=white)
+        
+        </div>
