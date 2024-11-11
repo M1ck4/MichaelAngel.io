@@ -1,0 +1,57 @@
+name: "CodeQL Advanced"
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  schedule:
+    - cron: '19 5 * * 1' # Weekly scan at 5:19 AM on Mondays
+
+jobs:
+  analyze:
+    name: Analyze (${{ matrix.language }})
+    runs-on: ${{ (matrix.language == 'swift' && 'macos-latest') || 'ubuntu-latest' }}
+    permissions:
+      security-events: write
+      packages: read
+      actions: read
+      contents: read
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - language: python
+            build-mode: none
+          # Specify additional languages here if needed, e.g., JavaScript or TypeScript, as you expand your project.
+          # Example:
+          # - language: javascript-typescript
+          #   build-mode: none
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: ${{ matrix.language }}
+          build-mode: ${{ matrix.build-mode }}
+          # Consider specifying custom queries if there are specific vulnerabilities you want to focus on.
+          # You could use: queries: "+security-extended,security-and-quality"
+
+      # Customize manual build steps if you ever analyze compiled languages.
+      - if: matrix.build-mode == 'manual'
+        shell: bash
+        run: |
+          echo 'This is a placeholder for building compiled languages.'
+          echo 'For example:'
+          echo '  make bootstrap'
+          echo '  make release'
+          exit 1
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: "/language:${{matrix.language}}"
