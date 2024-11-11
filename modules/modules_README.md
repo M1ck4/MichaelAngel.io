@@ -1,4 +1,6 @@
-### Modules README
+## Modules README
+
+---
 
 **What is the `modules` folder?**
 
