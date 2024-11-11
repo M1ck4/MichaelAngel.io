@@ -1,0 +1,45 @@
+# To get started with Dependabot version updates, you'll need to specify which
+# package ecosystems to update and where the package manifests are located.
+# Please see the documentation for all configuration options:
+# https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+
+version: 1
+updates:
+  # Python dependencies in the main project directory
+  - package-ecosystem: "pip" # Manages Python packages via pip
+    directory: "/" # Location of the main Python requirements.txt file
+    schedule:
+      interval: "weekly"
+
+  # Python dependencies in individual program folders
+  - package-ecosystem: "pip"
+    directory: "/Curator" # Adjust to each tool's specific directory
+    schedule:
+      interval: "weekly"
+  
+  - package-ecosystem: "pip"
+    directory: "/Chisel"
+    schedule:
+      interval: "weekly"
+  
+  - package-ecosystem: "pip"
+    directory: "/Muse"
+    schedule:
+      interval: "weekly"
+  
+  - package-ecosystem: "pip"
+    directory: "/FilmFrame"
+    schedule:
+      interval: "weekly"
+
+  - package-ecosystem: "pip"
+    directory: "/MichaelAngel.io"
+    schedule:
+      interval: "weekly"
+
+  # Configuration for GitHub Actions workflows
+  - package-ecosystem: "github-actions" # Manages GitHub Actions workflow dependencies
+    directory: "/.github/workflows"
+    schedule:
+      interval: "weekly"
+
