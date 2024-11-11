@@ -6,30 +6,32 @@ body:
   - type: markdown
     attributes:
       value: |
+        ## 🌟 Feature Request
+
         Thank you for your interest in improving MichaelAngel.io! Please provide the following details to help us understand your feature request.
 
   - type: input
-    id: title
+    id: feature_title
     attributes:
-      label: Feature Title
+      label: **Feature Title**
       description: A short title for your feature request
       placeholder: Describe the feature in a few words
     validations:
       required: true
 
   - type: textarea
-    id: description
+    id: feature_description
     attributes:
-      label: Description
+      label: **Description**
       description: A detailed description of the feature
       placeholder: Provide a detailed explanation of the feature you are proposing
     validations:
       required: true
 
-  - type: input
+  - type: textarea
     id: use_case
     attributes:
-      label: Use Case
+      label: **Use Case**
       description: How will this feature be used?
       placeholder: Describe how you or others will use this feature
     validations:
@@ -38,23 +40,37 @@ body:
   - type: dropdown
     id: priority
     attributes:
-      label: Priority
+      label: **Priority**
       description: How important is this feature?
       options:
-        - label: Low
+        - label: Low 🟢
           value: low
-        - label: Medium
+        - label: Medium 🟡
           value: medium
-        - label: High
+        - label: High 🔴
           value: high
+    validations:
+      required: true
+
+  - type: textarea
+    id: ethical_compliance
+    attributes:
+      label: **Ethical AI & Creative Commons Compliance**
+      description: Explain how this feature aligns with our ethical AI goals and Creative Commons standards.
+      placeholder: Describe how this feature ensures proper attribution, maintains data integrity, and adheres to ethical guidelines.
     validations:
       required: true
 
   - type: textarea
     id: additional_details
     attributes:
-      label: Additional Details
+      label: **Additional Details**
       description: Any other relevant information
       placeholder: Add any other context or screenshots about the feature request here
     validations:
       required: false
+
+  - type: markdown
+    attributes:
+      value: |
+      
