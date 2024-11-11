@@ -1,0 +1,54 @@
+name: Design Feedback
+description: Provide feedback on the design aspects of MichaelAngel.io
+title: "[Design] "
+labels: ["design"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🎨 Design Feedback
+
+        We appreciate your feedback on the design of MichaelAngel.io! Please provide details below.
+
+  - type: input
+    id: design_title
+    attributes:
+      label: Feedback Title
+      description: A short and descriptive title for your feedback
+      placeholder: e.g., "Homepage Layout"
+    validations:
+      required: true
+
+  - type: textarea
+    id: feedback_description
+    attributes:
+      label: Feedback Description
+      description: Detailed description of your design feedback
+      placeholder: Explain what you like or dislike about the design
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggestions
+    attributes:
+      label: Suggestions
+      description: Any suggestions for improvement
+      placeholder: Share your ideas for enhancing the design
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ## 📸 Screenshots
+
+        If applicable, add screenshots to illustrate your feedback.
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Add any screenshots or visual aids
+      placeholder: Paste the URL of your screenshots here
+    validations:
+      required: false
