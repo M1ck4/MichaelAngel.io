@@ -88,7 +88,6 @@ Redundancy and Backups: Maintain secure, offline backups of essential data and s
 
 Supply Chain Security: Monitor and secure the supply chains for hardware and software components to prevent the introduction of compromised elements into critical systems.
 
-Offensive Strategies
 
 ### AI-Neutralization Technologies and Task Forces:
 
@@ -108,7 +107,6 @@ Joint Exercises: Conduct regular multinational training exercises to improve int
 
 Legal Frameworks: Develop international agreements that facilitate cross-border operations against rogue AI threats while respecting national sovereignty and legal constraints.
 
-Support to Civil Authorities
 
 ### Restoration of Services:
 
