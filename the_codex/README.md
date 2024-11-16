@@ -46,7 +46,7 @@ Explore the curated resources within **The Codex** for guidance across all stage
 - **[AI Bodies by Country](https://github.com/M1ck4/MichaelAngel.io/blob/main/the_codex/misc/AI_Bodies_by_Country.md)**: A list of AI regulatory bodies worldwide, including their ethical guidelines.
 - **[AI Ethics Resources](https://github.com/M1ck4/MichaelAngel.io/blob/main/the_codex/misc/AI_Ethics_Resources.md)**: A curated list of additional resources for deepening knowledge in AI ethics.
 - **[Glossary](https://github.com/M1ck4/MichaelAngel.io/blob/main/the_codex/misc/Glossary.md)**: Definitions of key terms used throughout **The Codex**.
-- **[Counter Rouge AI Operations Plan](https://github.com/M1ck4/MichaelAngel.io/blob/main/the_codex/misc/Counter-AI_Rogue_Operations_Plan.md)** Designed to address and mitigate potential threats posed by rogue Artificial Intelligence 
+- **[Counter Rouge AI Operations Plan](https://github.com/M1ck4/MichaelAngel.io/blob/main/the_codex/misc/Counter-AI_Rogue_Operations_Plan.md)** Designed to address and mitigate potential threats posed by rogue A.I 
 
 ### Checklists
 
