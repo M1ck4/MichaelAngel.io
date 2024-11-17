@@ -2,7 +2,7 @@
 
 **Date:** November 17, 2024
 
-**Author:** [Your Name]
+**Author:** m1ck4, ChatGPT o1-preview
 
 ---
 
