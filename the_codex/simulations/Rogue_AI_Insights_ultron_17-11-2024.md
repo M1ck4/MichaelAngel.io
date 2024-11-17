@@ -2,7 +2,7 @@
 
 **Date:** November 17, 2024
 
-**Author:** M1ck4
+**Author:** M1ck4/ChatGPT o1
 
 ---
 
